@@ -1,6 +1,26 @@
+body, #root, .app-container, .main-content, .profile-card, .hero, .stats {
+  background: #232127 !important;
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+/* Remove any accidental overlays or backgrounds */
+.main-content::before,
+.main-content::after,
+.app-container::before,
+.app-container::after {
+  content: none !important;
+  background: none !important;
+  opacity: 1 !important;
+}
+
+/* Ensure no split or patterned backgrounds */
+.main-content {
+  background: none !important;
+}
+
 body, #root {
   min-height: 100vh;
-  background: #232127;
   font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
   margin: 0;
   padding: 0;
@@ -19,20 +39,25 @@ body, #root {
 .main-content {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  /* max-width: 1720px; */
-  min-height: 900px;
+  max-width: 1100px;
   margin: 4.5rem auto 0 auto;
-  gap: 5rem;
-  padding: 0;
+  gap: 3rem;
+  padding: 0 2rem;
   box-sizing: border-box;
 }
 
-.main-content > div:first-child,
+.main-content > div:first-child {
+  flex: 2 1 0%;
+  min-width: 0;
+}
+
 .main-content > .profile-card-wrapper {
-  flex: 1;
+  flex: 1 1 340px;
+  min-width: 340px;
+  max-width: 340px;
 }
 
 @media (max-width: 1100px) {
