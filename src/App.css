@@ -1,42 +1,65 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+body, #root {
+  min-height: 100vh;
+  background: #232127;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #fff;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background: #232127;
+  padding-bottom: 3rem;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.main-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  /* max-width: 1720px; */
+  min-height: 900px;
+  margin: 4.5rem auto 0 auto;
+  gap: 5rem;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main-content > div:first-child,
+.main-content > .profile-card-wrapper {
+  flex: 1;
+}
+
+@media (max-width: 1100px) {
+  .main-content {
+    gap: 2.5rem;
+    padding: 2rem 1rem;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media (max-width: 900px) {
+  .main-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+    padding: 1.5rem 0.5rem;
+  }
+  .main-content > div:first-child {
+    width: 100%;
+    align-items: center;
+    gap: 2rem;
+    margin: 0 auto;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+@media (max-width: 600px) {
+  .main-content {
+    padding: 0.5rem 0.2rem;
+    gap: 1.5rem;
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
