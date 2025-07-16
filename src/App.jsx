@@ -6,6 +6,7 @@ import ProfileCard from './components/ProfileCard/ProfileCard';
 import AboutMe from './components/AboutMe/AboutMe';
 import Skills from './components/Skills/Skills';
 import Projects from './components/Projects/Projects';
+import ContactMe from './components/contact_me/ContactMe';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
       <AboutMe />
       <Skills />
       <Projects />
+      <ContactMe />
     </div>
   );
 }

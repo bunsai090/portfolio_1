@@ -22,7 +22,7 @@ const projects = [
       { name: 'CSS', color: '#1572B6' },
     ],
     live: '#',
-    github: 'https://github.com/yourusername/personal-website',
+    github: 'https://github.com/bunsai090/portfolio_1',
   },
   {
     image: studentManagement,
@@ -34,7 +34,7 @@ const projects = [
       { name: 'Firebase', color: '#ffca28' },
     ],
     live: '#',
-    github: 'https://github.com/yourusername/student-management-system',
+    github: 'https://github.com/codeyatoh/student-management-system',
   },
   {
     image: orderingManagement,
@@ -47,7 +47,7 @@ const projects = [
       { name: 'Chart.js', color: '#36a2eb' },
     ],
     live: '#',
-    github: 'https://github.com/yourusername/ordering-management-system',
+    github: 'https://github.com/codeyatoh/Ordering-System',
   },
   {
     image: executiveDashboard,
