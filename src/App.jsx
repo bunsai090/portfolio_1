@@ -3,6 +3,7 @@ import Navbar from './components/Navbar/Navbar';
 import Hero from './components/Hero/Hero';
 import Stats from './components/Stats/Stats';
 import ProfileCard from './components/ProfileCard/ProfileCard';
+import AboutMe from './components/AboutMe/AboutMe';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <ProfileCard />
         </div>
       </div>
+      <AboutMe />
     </div>
   );
 }
