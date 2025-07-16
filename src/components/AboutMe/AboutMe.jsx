@@ -25,7 +25,7 @@ const AboutMe = () => (
     </div>
     <div className="aboutme-right">
       <div className="aboutme-intro">
-        <p>Hi! I'm John Chistrian R. Saporno, a dedicated Front-End Developer and UI/UX Designer. I specialize in building responsive websites using React.js, focusing on clean code, smooth interactions, and modern design. I enjoy turning ideas into real web pages that work across all devices.</p>
+        <p>Hi! I'm John Chistrian R. Saporno, a dedicated Front-End Developer and UI/UX Designer. I specialize in building websites using React.js, focusing on clean code, smooth interactions, and modern design. I enjoy turning ideas into real web pages that work across all devices.</p>
         <p>As a UI/UX designer, I create user-friendly layouts that look good and feel easy to use. I believe that good design is not just about how it looks it's about how it works. My goal is to deliver digital experiences that are both functional and visually appealing.</p>
       </div>
       <div className="aboutme-contact-card">
