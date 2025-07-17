@@ -22,7 +22,7 @@ const Hero = () => {
       <h1 className="hero-name">John Christian</h1>
       <h3 className="hero-title">And I’m a <span>UI/UX Designer</span></h3>
       <p className="hero-desc">
-        I create responsive and interactive web interfaces using React.js. I turn design ideas into functional web pages with clean layouts and smooth user experience.
+        I create interactive web interfaces using React.js. I turn design ideas into functional web pages with clean layouts and smooth user experience.
       </p>
       <div className="hero-actions">
         <button className="hero-btn primary" onClick={handleGetTouch}>Get Touch</button>
