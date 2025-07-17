@@ -67,6 +67,16 @@
   box-sizing: border-box;
 }
 
+.skills-item:hover {
+  background: #393843;
+  border-color: #fff;
+  color: #bcbcbc;
+  transform: scale(1.05);
+  box-shadow: 0 4px 16px 0 rgba(0,0,0,0.12);
+  transition: background 0.2s, border 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+
 .skills-item svg {
   display: block;
 }
