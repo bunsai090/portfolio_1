@@ -1,9 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
+import emailjs from "emailjs-com";
 import "./ContactMe.css";
 
-const ContactMe = () => {
+const SERVICE_ID = "service_7sktw8u";
+const TEMPLATE_ID = "template_sz37cyc";
+const PUBLIC_KEY = "DaK2ETppMhxPOVNis";
+
+const ContactMe = (props) => {
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    title: "",
+    message: "",
+  });
+  const [loading, setLoading] = useState(false);
+  const [result, setResult] = useState(null);
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setResult(null);
+    emailjs
+      .send(SERVICE_ID, TEMPLATE_ID, form, PUBLIC_KEY)
+      .then(
+        () => {
+          setResult({ success: true, message: "Message sent successfully!" });
+          setForm({ name: "", email: "", title: "", message: "" });
+        },
+        (error) => {
+          setResult({ success: false, message: "Failed to send message. Please try again later." });
+        }
+      )
+      .finally(() => setLoading(false));
+  };
+
   return (
-    <section className="contact-section" id="contact">
+    <section className="contact-section" id="contact" {...props}>
       <h2 className="contact-title">Contact Me</h2>
       <div className="contact-underline" />
       <div className="contact-content">
@@ -31,12 +67,66 @@ const ContactMe = () => {
             </li>
           </ul>
         </div>
-        <form className="contact-form">
-          <input type="text" className="contact-input" placeholder="Your Name" />
-          <input type="email" className="contact-input" placeholder="Your Email" />
-          <input type="text" className="contact-input" placeholder="Subject" />
-          <textarea className="contact-textarea" placeholder="Your Message" rows={6} />
-          <button type="button" className="contact-btn" disabled>Sent Message</button>
+        <form className="contact-form" onSubmit={handleSubmit}>
+          <input
+            type="text"
+            className="contact-input"
+            placeholder="Your Name"
+            name="name"
+            value={form.name}
+            onChange={handleChange}
+            required
+          />
+          <input
+            type="email"
+            className="contact-input"
+            placeholder="Your Email"
+            name="email"
+            value={form.email}
+            onChange={handleChange}
+            required
+          />
+          <input
+            type="text"
+            className="contact-input"
+            placeholder="Subject"
+            name="title"
+            value={form.title}
+            onChange={handleChange}
+            required
+          />
+          <textarea
+            className="contact-textarea"
+            placeholder="Your Message"
+            name="message"
+            value={form.message}
+            onChange={handleChange}
+            rows={6}
+            required
+          />
+          <button
+            type="submit"
+            className="contact-btn"
+            disabled={loading}
+            style={{ cursor: loading ? "not-allowed" : "pointer", opacity: loading ? 0.7 : 1 }}
+          >
+            {loading ? "Sending..." : "Send Message"}
+          </button>
+          {result && (
+            <div
+              style={{
+                marginTop: "1rem",
+                color: result.success ? "#4BB543" : "#FF3333",
+                fontWeight: 500,
+                textAlign: "center",
+                background: "#23222a",
+                borderRadius: "8px",
+                padding: "0.75rem 1rem",
+              }}
+            >
+              {result.message}
+            </div>
+          )}
         </form>
       </div>
     </section>

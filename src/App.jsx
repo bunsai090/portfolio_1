@@ -7,10 +7,20 @@ import AboutMe from './components/AboutMe/AboutMe';
 import Skills from './components/Skills/Skills';
 import Projects from './components/Projects/Projects';
 import ContactMe from './components/contact_me/ContactMe';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 
 function App() {
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: true,
+      easing: 'ease-in-out',
+    });
+  }, []);
   return (
-    <div className="app-container">
+    <div className="app-container" data-aos="fade-in">
       <Navbar />
       <div className="main-content">
         <div>
@@ -21,10 +31,10 @@ function App() {
           <ProfileCard />
         </div>
       </div>
-      <AboutMe />
-      <Skills />
-      <Projects />
-      <ContactMe />
+      <AboutMe data-aos="fade-up" />
+      <Skills data-aos="fade-up" />
+      <Projects data-aos="fade-up" />
+      <ContactMe data-aos="fade-up" />
     </div>
   );
 }

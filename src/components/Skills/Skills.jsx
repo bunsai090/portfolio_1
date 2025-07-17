@@ -52,8 +52,8 @@ const tools = [
   },
 ];
 
-const Skills = () => (
-  <div className="skills-section" id="skills">
+const Skills = (props) => (
+  <div className="skills-section" id="skills" {...props}>
     <div className="skills-block">
       <div className="skills-title-row">
         <span className="skills-title-line"></span>

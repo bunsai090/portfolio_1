@@ -11,7 +11,7 @@ const iconStyle = {
   flexShrink: 0,
 };
 
-const AboutMe = () => (
+const AboutMe = (props) => (
   <div className="aboutme-container" id="aboutme">
     <div className="aboutme-left">
       <h2 className="aboutme-title">About Me</h2>
