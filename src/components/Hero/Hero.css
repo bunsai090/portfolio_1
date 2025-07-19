@@ -72,4 +72,55 @@
 .hero-btn.secondary:hover {
   background: #393843;
   color: #bcbcbc;
+}
+
+@media (max-width: 700px) {
+  .hero {
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    max-width: 98vw;
+    padding: 0 0.5rem;
+  }
+  .hero-greeting {
+    font-size: 1.1rem;
+  }
+  .hero-name {
+    font-size: 2.1rem;
+  }
+  .hero-title {
+    font-size: 1.1rem;
+  }
+  .hero-desc {
+    font-size: 0.98rem;
+  }
+  .hero-actions {
+    flex-direction: column;
+    gap: 0.8rem;
+    width: 100%;
+  }
+  .hero-btn {
+    width: 100%;
+    padding: 0.7rem 0;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .hero {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: 0 0.2rem;
+  }
+  .hero-greeting {
+    font-size: 0.95rem;
+  }
+  .hero-name {
+    font-size: 1.3rem;
+  }
+  .hero-title {
+    font-size: 0.95rem;
+  }
+  .hero-desc {
+    font-size: 0.85rem;
+  }
 } 

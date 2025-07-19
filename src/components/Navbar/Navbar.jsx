@@ -3,6 +3,7 @@ import './Navbar.css';
 
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState('home');
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,7 +23,7 @@ const Navbar = () => {
       } else if (scrollY >= skillsTop) {
         setActiveSection('skills');
       } else if (scrollY >= aboutTop) {
-        setActiveSection('about');
+        setActiveSection('aboutme');
       } else {
         setActiveSection('home');
       }
@@ -31,18 +32,48 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close menu on navigation (mobile)
+  const handleNavClick = (section) => {
+    setActiveSection(section);
+    setMenuOpen(false);
+  };
+
   return (
     <nav className="navbar">
-      <div className="navbar-logo">Bunz.<span>Dev</span></div>
-      <ul className="navbar-links">
-        <li><a href="#" className={activeSection === 'home' ? 'active' : ''} onClick={() => setActiveSection('home')}>Home</a></li>
-        <li><a href="#aboutme" className={activeSection === 'about' ? 'active' : ''} onClick={() => setActiveSection('about')}>About</a></li>
-        <li><a href="#skills" className={activeSection === 'skills' ? 'active' : ''} onClick={() => setActiveSection('skills')}>Skills</a></li>
-        <li><a href="#projects" className={activeSection === 'projects' ? 'active' : ''} onClick={() => setActiveSection('projects')}>Project</a></li>
-        <li><a href="#contact" className={activeSection === 'contact' ? 'active' : ''} onClick={() => setActiveSection('contact')}>Contact</a></li>
+      <div className="navbar-logo">
+        <span>Bunz</span> dev
+      </div>
+      <div
+        className="navbar-hamburger"
+        onClick={() => setMenuOpen((open) => !open)}
+        aria-label="Toggle menu"
+        tabIndex={0}
+        role="button"
+      >
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect y="7" width="32" height="3" rx="1.5" fill="#bcbcbc" />
+          <rect y="15" width="32" height="3" rx="1.5" fill="#bcbcbc" />
+          <rect y="23" width="32" height="3" rx="1.5" fill="#bcbcbc" />
+        </svg>
+      </div>
+      <ul className={`navbar-links${menuOpen ? ' open' : ''}`}>
+        <li><a href="#home" className={activeSection === 'home' ? 'active' : ''} onClick={() => handleNavClick('home')}>Home</a></li>
+        <li><a href="#aboutme" className={activeSection === 'aboutme' ? 'active' : ''} onClick={() => handleNavClick('aboutme')}>About</a></li>
+        <li><a href="#skills" className={activeSection === 'skills' ? 'active' : ''} onClick={() => handleNavClick('skills')}>Skills</a></li>
+        <li><a href="#projects" className={activeSection === 'projects' ? 'active' : ''} onClick={() => handleNavClick('projects')}>Projects</a></li>
+        <li><a href="#contact" className={activeSection === 'contact' ? 'active' : ''} onClick={() => handleNavClick('contact')}>Contact</a></li>
+        <li className="navbar-github-mobile">
+          <a href="https://github.com/bunsai090" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.5 2.87 8.32 6.84 9.67.5.09.68-.22.68-.48 0-.24-.01-.87-.01-1.7-2.78.62-3.37-1.36-3.37-1.36-.45-1.18-1.1-1.5-1.1-1.5-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.7 0 0 .84-.28 2.75 1.05A9.38 9.38 0 0112 7.43c.85.004 1.71.12 2.51.35 1.91-1.33 2.75-1.05 2.75-1.05.55 1.4.2 2.44.1 2.7.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.07.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.58.69.48A10.01 10.01 0 0022 12.26C22 6.58 17.52 2 12 2z" fill="#bcbcbc"/>
+            </svg>
+          </a>
+        </li>
       </ul>
-      <a href="https://github.com/bunsai090" target="_blank" rel="noopener noreferrer" className="navbar-github">
-        <svg height="32" viewBox="0 0 16 16" width="32" fill="#fff"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+      <a href="https://github.com/bunsai090" className="navbar-github navbar-github-desktop" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.5 2.87 8.32 6.84 9.67.5.09.68-.22.68-.48 0-.24-.01-.87-.01-1.7-2.78.62-3.37-1.36-3.37-1.36-.45-1.18-1.1-1.5-1.1-1.5-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.7 0 0 .84-.28 2.75 1.05A9.38 9.38 0 0112 7.43c.85.004 1.71.12 2.51.35 1.91-1.33 2.75-1.05 2.75-1.05.55 1.4.2 2.44.1 2.7.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.07.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.58.69.48A10.01 10.01 0 0022 12.26C22 6.58 17.52 2 12 2z" fill="#bcbcbc"/>
+        </svg>
       </a>
     </nav>
   );
