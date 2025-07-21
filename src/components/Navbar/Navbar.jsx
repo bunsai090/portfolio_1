@@ -33,9 +33,13 @@ const Navbar = () => {
   }, []);
 
   // Close menu on navigation (mobile)
-  const handleNavClick = (section) => {
+  const handleNavClick = (section, e) => {
     setActiveSection(section);
     setMenuOpen(false);
+    if (section === 'home') {
+      if (e) e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   return (
@@ -57,7 +61,7 @@ const Navbar = () => {
         </svg>
       </div>
       <ul className={`navbar-links${menuOpen ? ' open' : ''}`}>
-        <li><a href="#home" className={activeSection === 'home' ? 'active' : ''} onClick={() => handleNavClick('home')}>Home</a></li>
+        <li><a href="#home" className={activeSection === 'home' ? 'active' : ''} onClick={(e) => handleNavClick('home', e)}>Home</a></li>
         <li><a href="#aboutme" className={activeSection === 'aboutme' ? 'active' : ''} onClick={() => handleNavClick('aboutme')}>About</a></li>
         <li><a href="#skills" className={activeSection === 'skills' ? 'active' : ''} onClick={() => handleNavClick('skills')}>Skills</a></li>
         <li><a href="#projects" className={activeSection === 'projects' ? 'active' : ''} onClick={() => handleNavClick('projects')}>Projects</a></li>

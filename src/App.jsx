@@ -20,22 +20,24 @@ function App() {
     });
   }, []);
   return (
-    <div className="app-container" data-aos="fade-in">
+    <>
       <Navbar />
-      <div className="main-content">
-        <div>
-          <Hero />
-          <Stats />
+      <div className="app-container" data-aos="fade-in">
+        <div className="main-content">
+          <div>
+            <Hero />
+            <Stats />
+          </div>
+          <div className="profile-card-wrapper">
+            <ProfileCard />
+          </div>
         </div>
-        <div className="profile-card-wrapper">
-          <ProfileCard />
-        </div>
+        <AboutMe data-aos="fade-up" />
+        <Skills data-aos="fade-up" />
+        <Projects data-aos="fade-up" />
+        <ContactMe data-aos="fade-up" />
       </div>
-      <AboutMe data-aos="fade-up" />
-      <Skills data-aos="fade-up" />
-      <Projects data-aos="fade-up" />
-      <ContactMe data-aos="fade-up" />
-    </div>
+    </>
   );
 }
 
