@@ -1,5 +1,5 @@
 .contact-section {
-  width: 100vw;
+  width: 100%;
   background: #19181f;
   display: flex;
   flex-direction: column;
@@ -180,7 +180,7 @@
   .contact-form {
     min-width: 0;
     width: 100%;
-    max-width: 100vw;
+    max-width: 100%;
   }
 
   .contact-info {
@@ -214,7 +214,7 @@
   .contact-form {
     min-width: 0;
     width: 100%;
-    max-width: 98vw;
+    max-width: 100%;
     padding: 1.2rem 0.7rem 1rem 0.7rem;
   }
 }
