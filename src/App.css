@@ -59,9 +59,6 @@ body {
   background: #232127;
   padding-bottom: 3rem;
   width: 100%;
-  /* max-width: 100vw; removed for sticky context */
-  /* Remove any overflow or height properties */
-  overflow: visible !important;
 }
 
 .main-content {
@@ -75,8 +72,6 @@ body {
   gap: 3rem;
   padding: 0 1rem;
   box-sizing: border-box;
-  /* Remove any overflow or height properties */
-  overflow: visible !important;
 }
 
 .main-content>div:first-child {
