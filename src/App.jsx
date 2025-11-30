@@ -14,9 +14,13 @@ import { useEffect } from 'react';
 function App() {
   useEffect(() => {
     AOS.init({
-      duration: 800,
+      duration: 400,
       once: true,
-      easing: 'ease-in-out',
+      easing: 'ease-out',
+      offset: 50,
+      delay: 0,
+      disable: false,
+      anchorPlacement: 'top-bottom',
     });
   }, []);
   return (
