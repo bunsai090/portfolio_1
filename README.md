@@ -1,12 +1,68 @@
-# React + Vite
+# Personal Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive personal portfolio website built with React and Vite. This project showcases my skills, projects, and professional background in an interactive and visually engaging way.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+-   **Responsive Design**: Fully optimized for all device sizes, from mobile to desktop.
+-   **Interactive UI**: Smooth animations and transitions powered by [AOS (Animate On Scroll)](https://michalsnik.github.io/aos/).
+-   **About Me**: A section dedicated to my professional background and introduction.
+-   **Skills Showcase**: Visual representation of my technical skills.
+-   **Projects Gallery**: A showcase of my recent work with links and descriptions.
+-   **Contact Form**: Functional contact form integrated with [EmailJS](https://www.emailjs.com/) for direct messaging.
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+-   **Frontend Framework**: [React](https://react.dev/)
+-   **Build Tool**: [Vite](https://vitejs.dev/)
+-   **Styling**: Custom CSS
+-   **Animations**: [AOS](https://michalsnik.github.io/aos/)
+-   **Email Service**: [EmailJS](https://www.emailjs.com/)
+
+## Getting Started
+
+Follow these steps to get a local copy of the project up and running.
+
+### Prerequisites
+
+Ensure you have Node.js installed on your machine.
+
+### Installation
+
+1.  Clone the repository (if applicable) or download the source code.
+2.  Navigate to the project directory:
+    ```bash
+    cd portfolio_1
+    ```
+3.  Install the dependencies:
+    ```bash
+    npm install
+    # or
+    yarn install
+    ```
+
+### Running the Project
+
+Start the development server:
+
+```bash
+npm run dev
+# or
+yarn dev
+```
+
+The application will be available at `http://localhost:5173` (or the port shown in your terminal).
+
+### Building for Production
+
+To create a production-ready build:
+
+```bash
+npm run build
+# or
+yarn build
+```
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
