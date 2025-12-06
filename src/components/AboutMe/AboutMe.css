@@ -257,7 +257,7 @@
 .toast-notification {
   position: fixed;
   bottom: 2rem;
-  right: 2rem;
+  left: 2rem;
   background: rgba(42, 40, 49, 0.95);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -276,7 +276,7 @@
 
 @keyframes slideIn {
   from {
-    transform: translateX(120%);
+    transform: translateX(-120%);
     opacity: 0;
   }
 
