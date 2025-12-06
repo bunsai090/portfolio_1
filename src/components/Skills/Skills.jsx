@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Skills.css';
 import bootstrapIcon from '../../assets/boron_13574994.png';
 import cssIcon from '../../assets/css-3.png';
@@ -10,79 +10,134 @@ import vscodeIcon from '../../assets/vscode.png';
 import miroIcon from '../../assets/miro.png';
 import figmaIcon from '../../assets/FIGMA.png';
 
-const skills = [
+const skillsData = [
   {
-    name: 'BOOTSTRAP',
-    icon: <img src={bootstrapIcon} alt="Bootstrap" className="skills-img" />,
+    name: 'BOOSTRAP',
+    icon: bootstrapIcon,
+    category: 'Frontend',
+    level: 'Intermediate',
+    color: '#7952b3'
   },
   {
-    name: 'CSS',
-    icon: <img src={cssIcon} alt="CSS" className="skills-img" />,
+    name: 'CSS3',
+    icon: cssIcon,
+    category: 'Frontend',
+    level: 'Advanced',
+    color: '#264de4'
   },
   {
-    name: 'REACTJS',
-    icon: <img src={reactIcon} alt="ReactJS" className="skills-img" />,
+    name: 'REACT JS',
+    icon: reactIcon,
+    category: 'Frontend',
+    level: 'Intermediate',
+    color: '#61dbfb'
   },
   {
     name: 'FIREBASE',
-    icon: <img src={firebaseIcon} alt="Firebase" className="skills-img" />,
+    icon: firebaseIcon,
+    category: 'Backend',
+    level: 'Beginner',
+    color: '#ffcb2b'
   },
   {
     name: 'VITE',
-    icon: <img src={viteIcon} alt="Vite" className="skills-img" />,
+    icon: viteIcon,
+    category: 'Tools',
+    level: 'Intermediate',
+    color: '#646cff'
   },
-];
-
-const tools = [
   {
     name: 'GITHUB',
-    icon: <img src={githubIcon} alt="GitHub" className="skills-img" />,
+    icon: githubIcon,
+    category: 'Tools',
+    level: 'Intermediate',
+    color: '#ffffff'
   },
   {
-    name: 'VSCODE',
-    icon: <img src={vscodeIcon} alt="VSCode" className="skills-img" />,
+    name: 'VS CODE',
+    icon: vscodeIcon,
+    category: 'Tools',
+    level: 'Advanced',
+    color: '#007acc'
   },
   {
     name: 'MIRO',
-    icon: <img src={miroIcon} alt="Miro" className="skills-img" />,
+    icon: miroIcon,
+    category: 'Design',
+    level: 'Intermediate',
+    color: '#050038'
   },
   {
     name: 'FIGMA',
-    icon: <img src={figmaIcon} alt="Figma" className="skills-img" />,
-  },
+    icon: figmaIcon,
+    category: 'Design',
+    level: 'Intermediate',
+    color: '#f24e1e'
+  }
 ];
 
-const Skills = (props) => (
-  <div className="skills-section" id="skills" {...props}>
-    <div className="skills-block">
-      <div className="skills-title-row">
-        <span className="skills-title-line"></span>
-        <h2 className="skills-title">Skills</h2>
+const categories = [
+  { id: 'All', label: 'All' },
+  { id: 'Frontend', label: 'Frontend' },
+  { id: 'Backend', label: 'Backend' },
+  { id: 'Tools', label: 'Tools' },
+  { id: 'Design', label: 'Design' }
+];
+
+const Skills = (props) => {
+  const [activeCategory, setActiveCategory] = useState('All');
+
+  const filteredSkills = activeCategory === 'All'
+    ? skillsData
+    : skillsData.filter(skill => skill.category === activeCategory);
+
+  return (
+    <div className="skills-section" id="skills" {...props}>
+      <h2 className="skills-heading">Technical Skills</h2>
+      <div className="skills-underline"></div>
+
+      <div className="skills-top-carousel">
+        <div className="carousel-track">
+          {[...skillsData, ...skillsData].map((skill, index) => (
+            <div key={index} className="carousel-item">
+              <img src={skill.icon} alt={skill.name} />
+            </div>
+          ))}
+        </div>
       </div>
-      <div className="skills-card">
-        {skills.map((skill, idx) => (
-          <div className="skills-item" key={skill.name}>
-            {skill.icon}
-            <span>{skill.name}</span>
+
+      <div className="skills-filter-container">
+        {categories.map((cat) => (
+          <button
+            key={cat.id}
+            className={`filter-btn ${activeCategory === cat.id ? 'active' : ''}`}
+            onClick={() => setActiveCategory(cat.id)}
+          >
+            {activeCategory === cat.id && (
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            )}
+            {cat.label}
+          </button>
+        ))}
+      </div>
+
+      <div className="skills-grid">
+        {filteredSkills.map((skill, index) => (
+          <div className="skill-card" key={index}>
+            <div className="skill-icon-wrapper">
+              <img src={skill.icon} alt={skill.name} className="skill-main-icon" />
+            </div>
+            <h3 className="skill-name">{skill.name}</h3>
+            <div className="skill-badge" style={{ color: '#bcbcbc', borderColor: '#bcbcbc' }}>
+              {skill.level}
+            </div>
           </div>
         ))}
       </div>
     </div>
-    <div className="skills-block">
-      <div className="skills-title-row">
-        <span className="skills-title-line"></span>
-        <h2 className="skills-title">Tools</h2>
-      </div>
-      <div className="skills-card">
-        {tools.map((tool, idx) => (
-          <div className="skills-item" key={tool.name}>
-            {tool.icon}
-            <span>{tool.name}</span>
-          </div>
-        ))}
-      </div>
-    </div>
-  </div>
-);
+  );
+};
 
 export default Skills; 
