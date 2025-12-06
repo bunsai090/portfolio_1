@@ -37,7 +37,13 @@
   color: #bcbcbc;
 }
 
-.navbar-links {
+.navbar-links-container {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.navbar-links-list {
   display: flex;
   gap: 2rem;
   background: transparent;
@@ -45,12 +51,13 @@
   padding: 0.5rem 2rem;
   list-style: none;
   margin: 0;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
 }
 
-.navbar-links li a {
+.navbar-mobile-header {
+  display: none;
+}
+
+.navbar-links-list li a {
   color: #fff;
   text-decoration: none;
   font-size: 1rem;
@@ -60,8 +67,8 @@
   transition: background 0.2s, color 0.2s;
 }
 
-.navbar-links li a.active,
-.navbar-links li a:hover {
+.navbar-links-list li a.active,
+.navbar-links-list li a:hover {
   background: #393843;
   color: #bcbcbc;
 }
@@ -103,14 +110,14 @@
     font-size: 1.1rem;
   }
 
-  .navbar-links {
+  .navbar-links-container {
+    display: flex;
+    /* Flex is needed for column layout of header + list */
     flex-direction: column;
-    gap: 1rem;
     padding: 1.5rem;
     width: 80vw;
     max-width: 300px;
     margin: 0;
-    display: flex;
     position: absolute;
     top: 70px;
     right: 1.5rem;
@@ -129,19 +136,62 @@
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  .navbar-links.open {
+  .navbar-links-container.open {
     transform: translateY(0);
     opacity: 1;
     visibility: visible;
     pointer-events: all;
   }
 
-  .navbar-links li {
+  .navbar-mobile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+
+  .navbar-close-btn {
+    background: transparent;
+    border: none;
+    color: #5eead4;
+    /* Accent color for the X */
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    transition: color 0.2s;
+  }
+
+  .navbar-close-btn:hover {
+    color: #fff;
+  }
+
+  .navbar-links-list {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    gap: 0.5rem;
+    padding: 0;
+    margin: 0;
+  }
+
+  .navbar-links-list li {
     width: 100%;
     text-align: left;
   }
 
-  .navbar-links li a {
+  .navbar-links-list li a {
     font-size: 1.1rem;
     padding: 0.8rem 1rem;
     width: 100%;
@@ -154,8 +204,8 @@
     /* Ensure padding doesn't affect width */
   }
 
-  .navbar-links li a:active,
-  .navbar-links li a:hover {
+  .navbar-links-list li a:active,
+  .navbar-links-list li a:hover {
     background: rgba(255, 255, 255, 0.1);
     color: #bcbcbc !important;
   }

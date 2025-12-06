@@ -53,7 +53,7 @@ const AboutMe = (props) => {
                 <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.21c1.21.49 2.53.76 3.88.76a1 1 0 011 1V20a1 1 0 01-1 1C10.07 21 3 13.93 3 5a1 1 0 011-1h3.5a1 1 0 011 1c0 1.35.27 2.67.76 3.88a1 1 0 01-.21 1.11l-2.2 2.2z" />
               </svg>
               <span className="detail-label">Phone:</span>
-              <span className="detail-value">+63 9538435067</span>
+              <span className="detail-value">+63 09925750069</span>
             </div>
             <div className="aboutme-detail-item">
               <svg style={iconStyle} viewBox="0 0 24 24">
@@ -67,7 +67,7 @@ const AboutMe = (props) => {
                 <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
               </svg>
               <span className="detail-label">Location:</span>
-              <span className="detail-value">Upper Calarian, Zamboanga City</span>
+              <span className="detail-value">Sea Breeze, Zamboanga City</span>
             </div>
             <div className="aboutme-detail-item">
               <svg style={iconStyle} viewBox="0 0 24 24">
@@ -81,7 +81,7 @@ const AboutMe = (props) => {
                 <path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z" />
               </svg>
               <span className="detail-label">Freelance:</span>
-              <span className="detail-value">Video & Photo Editing</span>
+              <span className="detail-value">Computer Maintenance /  Assembling a Computer </span>
             </div>
           </div>
 
