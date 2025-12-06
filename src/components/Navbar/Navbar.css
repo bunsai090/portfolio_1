@@ -112,17 +112,16 @@
 
   .navbar-links-container {
     display: flex;
-    /* Flex is needed for column layout of header + list */
     flex-direction: column;
     padding: 1.5rem;
-    width: 80vw;
-    max-width: 300px;
+    width: 90%;
+    max-width: 350px;
     margin: 0;
     position: absolute;
     top: 70px;
-    right: 1.5rem;
-    left: auto;
-    transform: translateY(-20px);
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%) translateY(-20px);
     opacity: 0;
     visibility: hidden;
     background: rgba(35, 34, 42, 0.98);
@@ -137,7 +136,7 @@
   }
 
   .navbar-links-container.open {
-    transform: translateY(0);
+    transform: translateX(-50%) translateY(0);
     opacity: 1;
     visibility: visible;
     pointer-events: all;
