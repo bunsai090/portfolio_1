@@ -13,15 +13,23 @@ const Navbar = () => {
       const projectsSection = document.getElementById('projects');
       const contactSection = document.getElementById('contact');
       const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
 
       // Update scroll state for glassmorphism effect
       setIsScrolled(scrollY > 50);
 
-      const aboutTop = aboutSection ? aboutSection.offsetTop - 100 : 0;
-      const skillsTop = skillsSection ? skillsSection.offsetTop - 100 : 0;
-      const projectsTop = projectsSection ? projectsSection.offsetTop - 100 : 0;
-      const contactTop = contactSection ? contactSection.offsetTop - 100 : 0;
-      if (scrollY >= contactTop) {
+      // Better section detection with viewport consideration
+      const offset = 150;
+      const aboutTop = aboutSection ? aboutSection.offsetTop - offset : 0;
+      const skillsTop = skillsSection ? skillsSection.offsetTop - offset : 0;
+      const projectsTop = projectsSection ? projectsSection.offsetTop - offset : 0;
+      const contactTop = contactSection ? contactSection.offsetTop - offset : 0;
+
+      // Check if we're near the bottom of the page (within 100px)
+      const isNearBottom = scrollY + windowHeight >= documentHeight - 100;
+
+      if (isNearBottom || scrollY >= contactTop) {
         setActiveSection('contact');
       } else if (scrollY >= projectsTop) {
         setActiveSection('projects');
@@ -33,6 +41,10 @@ const Navbar = () => {
         setActiveSection('home');
       }
     };
+
+    // Run once on mount to set initial state
+    handleScroll();
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
