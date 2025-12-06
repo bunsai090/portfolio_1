@@ -16,7 +16,7 @@
 }
 
 .aboutme-section-title .highlight {
-  color: #5eead4;
+  color: #bcbcbc;
 }
 
 .aboutme-box {
@@ -39,7 +39,7 @@
 .aboutme-photo-wrapper {
   background: #232127;
   border-radius: 50%;
-  border: 4px solid #5eead4;
+  border: 4px solid #bcbcbc;
   padding: 6px;
   width: 220px;
   height: 220px;
@@ -74,7 +74,7 @@
 }
 
 .aboutme-name {
-  color: #5eead4;
+  color: #fff;
   font-size: 2rem;
   font-weight: 700;
   margin: 0;
@@ -82,7 +82,7 @@
 }
 
 .aboutme-subtitle {
-  color: #fff;
+  color: #bcbcbc;
   font-size: 1.1rem;
   font-weight: 500;
   margin: 0;
@@ -121,8 +121,8 @@
 }
 
 .download-cv-btn {
-  background: #5eead4;
-  color: #1a1a1a;
+  background: #bcbcbc;
+  color: #23222a;
   border: none;
   border-radius: 8px;
   padding: 0.85rem 1.75rem;
@@ -138,9 +138,9 @@
 }
 
 .download-cv-btn:hover {
-  background: #4dd4ba;
+  background: #fff;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(94, 234, 212, 0.4);
+  box-shadow: 0 4px 12px rgba(188, 188, 188, 0.4);
 }
 
 .aboutme-interests {
@@ -175,8 +175,8 @@
 
 .interest-badge:hover {
   background: #252430;
-  border-color: #5eead4;
-  color: #5eead4;
+  border-color: #bcbcbc;
+  color: #fff;
 }
 
 .interest-badge svg {
