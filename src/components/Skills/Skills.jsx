@@ -15,21 +15,21 @@ const skillsData = [
     name: 'BOOSTRAP',
     icon: bootstrapIcon,
     category: 'Frontend',
-    level: 'Intermediate',
+    level: 'Beginner',
     color: '#7952b3'
   },
   {
     name: 'CSS3',
     icon: cssIcon,
     category: 'Frontend',
-    level: 'Advanced',
+    level: 'Beginner',
     color: '#264de4'
   },
   {
     name: 'REACT JS',
     icon: reactIcon,
     category: 'Frontend',
-    level: 'Intermediate',
+    level: 'Beginner',
     color: '#61dbfb'
   },
   {
@@ -43,35 +43,35 @@ const skillsData = [
     name: 'VITE',
     icon: viteIcon,
     category: 'Tools',
-    level: 'Intermediate',
+    level: 'Beginner',
     color: '#646cff'
   },
   {
     name: 'GITHUB',
     icon: githubIcon,
     category: 'Tools',
-    level: 'Intermediate',
+    level: 'Beginner',
     color: '#ffffff'
   },
   {
     name: 'VS CODE',
     icon: vscodeIcon,
     category: 'Tools',
-    level: 'Advanced',
+    level: 'Beginner',
     color: '#007acc'
   },
   {
     name: 'MIRO',
     icon: miroIcon,
     category: 'Design',
-    level: 'Intermediate',
+    level: 'Beginner',
     color: '#050038'
   },
   {
     name: 'FIGMA',
     icon: figmaIcon,
     category: 'Design',
-    level: 'Intermediate',
+    level: 'Beginner',
     color: '#f24e1e'
   }
 ];
