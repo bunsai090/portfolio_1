@@ -9,6 +9,12 @@ import githubIcon from '../../assets/github.png';
 import vscodeIcon from '../../assets/vscode.png';
 import miroIcon from '../../assets/miro.png';
 import figmaIcon from '../../assets/FIGMA.png';
+import flutterIcon from '../../assets/flutter.png';
+import mysqlIcon from '../../assets/mysql_PNG9.png';
+import nodejsIcon from '../../assets/nodejs.png';
+import gitIcon from '../../assets/git.png';
+import yarnIcon from '../../assets/yarn.png';
+import arduinoIcon from '../../assets/arduino.png';
 
 const skillsData = [
   {
@@ -33,11 +39,46 @@ const skillsData = [
     color: '#61dbfb'
   },
   {
+    name: 'HTML5',
+    icon: cssIcon, // Using CSS icon until HTML icon is added
+    category: 'Frontend',
+    level: 'Beginner',
+    color: '#e34c26'
+  },
+  {
+    name: 'PHP',
+    icon: bootstrapIcon, // Using Bootstrap icon until PHP icon is added
+    category: 'Backend',
+    level: 'Beginner',
+    color: '#777bb4'
+  },
+  {
     name: 'FIREBASE',
     icon: firebaseIcon,
     category: 'Backend',
     level: 'Beginner',
     color: '#ffcb2b'
+  },
+  {
+    name: 'MYSQL',
+    icon: mysqlIcon,
+    category: 'Backend',
+    level: 'Beginner',
+    color: '#00758f'
+  },
+  {
+    name: 'NODE.JS',
+    icon: nodejsIcon,
+    category: 'Backend',
+    level: 'Beginner',
+    color: '#68a063'
+  },
+  {
+    name: 'FLUTTER',
+    icon: flutterIcon,
+    category: 'Tools',
+    level: 'Beginner',
+    color: '#02569b'
   },
   {
     name: 'VITE',
@@ -54,11 +95,39 @@ const skillsData = [
     color: '#ffffff'
   },
   {
+    name: 'GIT',
+    icon: gitIcon,
+    category: 'Tools',
+    level: 'Beginner',
+    color: '#f05032'
+  },
+  {
     name: 'VS CODE',
     icon: vscodeIcon,
     category: 'Tools',
     level: 'Beginner',
     color: '#007acc'
+  },
+  {
+    name: 'YARN',
+    icon: yarnIcon,
+    category: 'Tools',
+    level: 'Beginner',
+    color: '#2c8ebb'
+  },
+  {
+    name: 'NPM',
+    icon: viteIcon, // Using Vite icon until NPM icon is added
+    category: 'Tools',
+    level: 'Beginner',
+    color: '#cb3837'
+  },
+  {
+    name: 'ARDUINO',
+    icon: arduinoIcon,
+    category: 'Tools',
+    level: 'Beginner',
+    color: '#00979d'
   },
   {
     name: 'MIRO',
