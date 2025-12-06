@@ -110,15 +110,14 @@
     width: 80vw;
     max-width: 300px;
     margin: 0;
-    display: none;
+    display: flex;
     position: absolute;
     top: 70px;
     right: 1.5rem;
-    /* Adjusted right margin */
     left: auto;
-    /* Reset desktop centering */
-    transform: none;
-    /* Reset desktop transform */
+    transform: translateY(-20px);
+    opacity: 0;
+    visibility: hidden;
     background: rgba(35, 34, 42, 0.98);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
@@ -126,10 +125,15 @@
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 16px;
     z-index: 2500;
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .navbar-links.open {
-    display: flex;
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
   }
 
   .navbar-links li {
