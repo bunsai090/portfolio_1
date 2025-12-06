@@ -16,6 +16,10 @@ import gitIcon from '../../assets/git.png';
 import yarnIcon from '../../assets/yarn.png';
 import arduinoIcon from '../../assets/arduino.png';
 import htmlIcon from '../../assets/html.png';
+import phpIcon from '../../assets/php.png';
+import npmIcon from '../../assets/npm.png';
+import xamppIcon from '../../assets/xamp.png';
+import wampIcon from '../../assets/wamp.png';
 
 const skillsData = [
   {
@@ -48,7 +52,7 @@ const skillsData = [
   },
   {
     name: 'PHP',
-    icon: bootstrapIcon, // Using Bootstrap icon until PHP icon is added
+    icon: phpIcon,
     category: 'Backend',
     level: 'Beginner',
     color: '#777bb4'
@@ -118,10 +122,24 @@ const skillsData = [
   },
   {
     name: 'NPM',
-    icon: viteIcon, // Using Vite icon until NPM icon is added
+    icon: npmIcon,
     category: 'Tools',
     level: 'Beginner',
     color: '#cb3837'
+  },
+  {
+    name: 'XAMPP',
+    icon: xamppIcon,
+    category: 'Tools',
+    level: 'Beginner',
+    color: '#fb7a24'
+  },
+  {
+    name: 'WAMP',
+    icon: wampIcon,
+    category: 'Tools',
+    level: 'Beginner',
+    color: '#ff6c2c'
   },
   {
     name: 'ARDUINO',

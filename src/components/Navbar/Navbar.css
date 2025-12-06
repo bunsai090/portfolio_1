@@ -18,11 +18,11 @@
 
 /* Glassmorphism effect when scrolled */
 .navbar.scrolled {
-  background: rgba(45, 45, 50, 0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+  background: rgba(45, 45, 50, 0.9);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
 }
 
 .navbar-logo {
@@ -146,8 +146,9 @@
   .navbar-hamburger {
     display: block !important;
     position: absolute;
-    right: 1.5rem;
-    top: 1.5rem;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
     width: 32px;
     height: 32px;
     cursor: pointer;
@@ -180,11 +181,21 @@
   .navbar-hamburger {
     display: block !important;
     right: 1rem;
-    top: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
     z-index: 3000;
   }
 }
 
 .navbar-hamburger {
   display: none;
+}
+
+.navbar-hamburger svg {
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+.navbar-hamburger:hover svg {
+  opacity: 0.8;
 }

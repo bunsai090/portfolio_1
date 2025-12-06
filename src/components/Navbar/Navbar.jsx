@@ -72,9 +72,9 @@ const Navbar = () => {
         role="button"
       >
         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect y="7" width="32" height="3" rx="1.5" fill="#bcbcbc" />
-          <rect y="15" width="32" height="3" rx="1.5" fill="#bcbcbc" />
-          <rect y="23" width="32" height="3" rx="1.5" fill="#bcbcbc" />
+          <rect y="7" width="32" height="3" rx="1.5" fill="#fff" />
+          <rect y="15" width="32" height="3" rx="1.5" fill="#fff" />
+          <rect y="23" width="32" height="3" rx="1.5" fill="#fff" />
         </svg>
       </div>
       <ul className={`navbar-links${menuOpen ? ' open' : ''}`}>
