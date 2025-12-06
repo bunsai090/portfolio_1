@@ -40,7 +40,7 @@
 .navbar-links {
   display: flex;
   gap: 2rem;
-  background: #23222a;
+  background: transparent;
   border-radius: 16px;
   padding: 0.5rem 2rem;
   list-style: none;
