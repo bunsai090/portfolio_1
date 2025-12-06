@@ -15,6 +15,7 @@ import nodejsIcon from '../../assets/nodejs.png';
 import gitIcon from '../../assets/git.png';
 import yarnIcon from '../../assets/yarn.png';
 import arduinoIcon from '../../assets/arduino.png';
+import htmlIcon from '../../assets/html.png';
 
 const skillsData = [
   {
@@ -40,7 +41,7 @@ const skillsData = [
   },
   {
     name: 'HTML5',
-    icon: cssIcon, // Using CSS icon until HTML icon is added
+    icon: htmlIcon,
     category: 'Frontend',
     level: 'Beginner',
     color: '#e34c26'
