@@ -77,7 +77,6 @@ const skillsData = [
 ];
 
 const categories = [
-  { id: 'All', label: 'All' },
   { id: 'Frontend', label: 'Frontend' },
   { id: 'Backend', label: 'Backend' },
   { id: 'Tools', label: 'Tools' },
@@ -85,11 +84,9 @@ const categories = [
 ];
 
 const Skills = (props) => {
-  const [activeCategory, setActiveCategory] = useState('All');
+  const [activeCategory, setActiveCategory] = useState('Frontend');
 
-  const filteredSkills = activeCategory === 'All'
-    ? skillsData
-    : skillsData.filter(skill => skill.category === activeCategory);
+  const filteredSkills = skillsData.filter(skill => skill.category === activeCategory);
 
   return (
     <div className="skills-section" id="skills" {...props}>
@@ -140,4 +137,4 @@ const Skills = (props) => {
   );
 };
 
-export default Skills; 
+export default Skills;
