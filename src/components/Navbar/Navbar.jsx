@@ -78,6 +78,11 @@ const Navbar = () => {
         </svg>
       </div>
 
+      <div
+        className={`navbar-backdrop${menuOpen ? ' open' : ''}`}
+        onClick={() => setMenuOpen(false)}
+      ></div>
+
       <div className={`navbar-links-container${menuOpen ? ' open' : ''}`}>
         <div className="navbar-mobile-header">
           <span>Navigation</span>
