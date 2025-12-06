@@ -1,40 +1,46 @@
-.aboutme-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
+.aboutme-section {
   background: #232127;
-  padding: 3rem 0.5rem;
-  gap: 2.5rem;
+  padding: 3rem 1rem;
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
   box-sizing: border-box;
 }
 
+.aboutme-section-title {
+  color: #fff;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.aboutme-section-title .highlight {
+  color: #5eead4;
+}
+
+.aboutme-box {
+  background: #2a2831;
+  border: 1px solid #3a3843;
+  border-radius: 12px;
+  padding: 2.5rem;
+  display: flex;
+  gap: 3rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
 .aboutme-left {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 320px;
-  max-width: 420px;
-  flex: 1 1 0;
-}
-
-.aboutme-title {
-  color: #fff;
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-  align-self: flex-start;
+  min-width: 240px;
 }
 
 .aboutme-photo-wrapper {
   background: #232127;
   border-radius: 50%;
-  border: 8px solid #bcbcbc;
-  padding: 8px;
-  margin-bottom: 0.25rem;
+  border: 4px solid #5eead4;
+  padding: 6px;
   width: 220px;
   height: 220px;
   display: flex;
@@ -49,100 +55,167 @@
   object-fit: cover;
 }
 
-.aboutme-card {
-  background: #23222a;
-  border-radius: 6px;
-  border: 2px solid #393843;
-  padding: 1.25rem 1.5rem;
-  margin-top: 0;
-  color: #fff;
-  font-size: 1.1rem;
-  width: 100%;
-  box-sizing: border-box;
-  text-align: left;
-}
-
-.aboutme-card-label {
-  font-weight: 700;
-  color: #fff;
-}
-
-.aboutme-card-desc {
-  color: #bcbcbc;
-  font-style: italic;
-  margin-left: 0.25rem;
-}
-
 .aboutme-right {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
-  max-width: 800px;
-  flex: 2 1 0;
+  gap: 1.5rem;
 }
 
-.aboutme-intro {
-  color: #fff;
-  font-size: 1.15rem;
-  line-height: 1.6;
-  margin-bottom: 2rem;
-}
-
-.aboutme-contact-card {
-  background: #23222a;
-  border-radius: 6px;
-  border: 2px solid #393843;
-  padding: 1.5rem 2rem;
-  color: #fff;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.aboutme-contact-title {
-  font-weight: 700;
-  color: #fff;
-  font-size: 1.1rem;
-  margin-bottom: 1rem;
-  letter-spacing: 1px;
-}
-
-.aboutme-contact-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.aboutme-contact-item {
+.aboutme-header {
   display: flex;
   align-items: center;
   color: #bcbcbc;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+}
+
+.aboutme-name {
+  color: #5eead4;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.aboutme-subtitle {
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.aboutme-description {
+  color: #bcbcbc;
   font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.aboutme-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+.aboutme-detail-item {
+  display: flex;
+  align-items: center;
+  color: #bcbcbc;
+  font-size: 0.95rem;
+  gap: 0.5rem;
+}
+
+.detail-label {
+  color: #fff;
+  font-weight: 600;
+  min-width: 90px;
+}
+
+.detail-value {
+  color: #bcbcbc;
+}
+
+.download-cv-btn {
+  background: #5eead4;
+  color: #1a1a1a;
+  border: none;
+  border-radius: 8px;
+  padding: 0.85rem 1.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  margin-top: 0.5rem;
+  align-self: flex-start;
+}
+
+.download-cv-btn:hover {
+  background: #4dd4ba;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(94, 234, 212, 0.4);
+}
+
+.aboutme-interests {
+  margin-top: 1rem;
+}
+
+.interests-title {
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.interests-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   gap: 0.75rem;
 }
 
-.aboutme-icon {
-  font-size: 1.2rem;
-  margin-right: 0.5rem;
-}
-
-.aboutme-contact-item a {
+.interest-badge {
+  background: #1e1d24;
+  border: 1px solid #3a3843;
+  border-radius: 8px;
+  padding: 0.65rem 1rem;
   color: #bcbcbc;
-  text-decoration: underline;
-  word-break: break-all;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s ease;
+  cursor: default;
 }
 
-@media (max-width: 900px) {
-  .aboutme-container {
+.interest-badge:hover {
+  background: #252430;
+  border-color: #5eead4;
+  color: #5eead4;
+}
+
+.interest-badge svg {
+  flex-shrink: 0;
+}
+
+@media (max-width: 1024px) {
+  .aboutme-box {
     flex-direction: column;
     align-items: center;
-    padding: 2rem 0.5rem;
     gap: 2rem;
+    padding: 2rem;
   }
 
-  .aboutme-left,
-  .aboutme-right {
-    max-width: 100%;
+  .aboutme-left {
     width: 100%;
+    align-items: center;
+  }
+
+  .aboutme-right {
+    width: 100%;
+  }
+
+  .download-cv-btn {
+    align-self: stretch;
+  }
+}
+
+@media (max-width: 768px) {
+  .aboutme-section {
+    padding: 2rem 0.5rem;
+  }
+
+  .aboutme-section-title {
+    font-size: 2rem;
+  }
+
+  .aboutme-box {
+    padding: 1.5rem;
   }
 
   .aboutme-photo-wrapper {
@@ -153,5 +226,29 @@
   .aboutme-photo {
     width: 160px;
     height: 160px;
+  }
+
+  .aboutme-name {
+    font-size: 1.75rem;
+  }
+
+  .interests-grid {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .aboutme-detail-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .detail-label {
+    min-width: auto;
+  }
+
+  .interests-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
