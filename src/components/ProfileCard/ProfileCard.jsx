@@ -17,7 +17,7 @@ const ProfileCard = () => {
         <div className="profile-user">
           <img src={bunzPhoto} alt="avatar" className="profile-avatar" />
           <div>
-            <div className="profile-username">@bunsat</div>
+            <div className="profile-username">@bunsai</div>
             <div className="profile-status">Available for Work</div>
           </div>
         </div>
