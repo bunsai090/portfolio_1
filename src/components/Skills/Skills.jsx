@@ -26,28 +26,28 @@ const skillsData = [
     name: 'BOOSTRAP',
     icon: bootstrapIcon,
     category: 'Frontend',
-    level: 'Beginner',
+    level: 'Comfortable',
     color: '#7952b3'
   },
   {
     name: 'CSS3',
     icon: cssIcon,
     category: 'Frontend',
-    level: 'Beginner',
+    level: 'Comfortable',
     color: '#264de4'
   },
   {
     name: 'REACT JS',
     icon: reactIcon,
     category: 'Frontend',
-    level: 'Beginner',
+    level: 'Comfortable',
     color: '#61dbfb'
   },
   {
     name: 'HTML5',
     icon: htmlIcon,
     category: 'Frontend',
-    level: 'Beginner',
+    level: 'Comfortable',
     color: '#e34c26'
   },
   {
@@ -152,14 +152,14 @@ const skillsData = [
     name: 'MIRO',
     icon: miroIcon,
     category: 'Design',
-    level: 'Beginner',
+    level: 'Comfortable',
     color: '#050038'
   },
   {
     name: 'FIGMA',
     icon: figmaIcon,
     category: 'Design',
-    level: 'Beginner',
+    level: 'Comfortable',
     color: '#f24e1e'
   }
 ];
