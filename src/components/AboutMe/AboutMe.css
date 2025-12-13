@@ -327,6 +327,11 @@
   justify-content: space-between;
 }
 
+.interest-badge.clickable:active {
+  transform: scale(0.95);
+  transition: transform 0.1s ease;
+}
+
 /* Interest Modal */
 .interest-modal-backdrop {
   position: fixed;
