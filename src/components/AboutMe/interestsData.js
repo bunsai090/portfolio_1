@@ -32,8 +32,21 @@ import clashOfClansCover from '../../assets/clash of clans.png';
 import robloxCover from '../../assets/roblox.png';
 import csgoCover from '../../assets/csgo.png';
 
-// Import Placeholder for Anime
-import placeholderCover from '../../assets/bunz_aboutme.png';
+// Import Anime Covers
+import onePieceCover from '../../assets/one piece.png';
+import narutoCover from '../../assets/naruto.png';
+import bleachCover from '../../assets/bleach.png';
+import saoCover from '../../assets/sword art online.png';
+import aotCover from '../../assets/attack on titan.png';
+import demonSlayerCover from '../../assets/demon slayers.png';
+import blackCloverCover from '../../assets/black clover.png';
+import noGameNoLifeCover from '../../assets/No game no life.png';
+import drStoneCover from '../../assets/Dr.stone.png';
+import fireForceCover from '../../assets/Fire force.png';
+import hunterXHunterCover from '../../assets/Hunterxhunter.jpg';
+import graveOfFirefliesCover from '../../assets/Grave of fireflies.png';
+import slimeCover from '../../assets/That Time I Got Reincarnated as a Slime.png';
+import mushokuCover from '../../assets/Mushoku tensei.png';
 
 const interestsData = {
     music: {
@@ -98,11 +111,20 @@ const interestsData = {
             {
                 title: "Must Watch",
                 items: [
-                    { title: "One Piece", subtitle: "Adventure/Fantasy", cover: placeholderCover },
-                    { title: "Naruto", subtitle: "Ninja/Action", cover: placeholderCover },
-                    { title: "Attack on Titan", subtitle: "Dark Fantasy", cover: placeholderCover },
-                    { title: "Demon Slayer", subtitle: "Action/Supernatural", cover: placeholderCover },
-                    { title: "Jujutsu Kaisen", subtitle: "Supernatural/Action", cover: placeholderCover }
+                    { title: "One Piece", subtitle: "Adventure/Fantasy", cover: onePieceCover },
+                    { title: "Naruto Shippuden", subtitle: "Ninja/Action", cover: narutoCover },
+                    { title: "Bleach", subtitle: "Supernatural/Action", cover: bleachCover },
+                    { title: "Sword Art Online", subtitle: "Sci-Fi/MMORPG", cover: saoCover },
+                    { title: "Attack on Titan", subtitle: "Dark Fantasy", cover: aotCover },
+                    { title: "Demon Slayer", subtitle: "Action/Supernatural", cover: demonSlayerCover },
+                    { title: "Black Clover", subtitle: "Fantasy/Adventure", cover: blackCloverCover },
+                    { title: "No Game No Life", subtitle: "Isekai/Fantasy", cover: noGameNoLifeCover },
+                    { title: "Dr. Stone", subtitle: "Sci-Fi/Adventure", cover: drStoneCover },
+                    { title: "Fire Force", subtitle: "Action/Sci-Fi", cover: fireForceCover },
+                    { title: "Hunter x Hunter", subtitle: "Adventure/Fantasy", cover: hunterXHunterCover },
+                    { title: "Grave of Fireflies", subtitle: "War/Drama", cover: graveOfFirefliesCover },
+                    { title: "That Time I Got Reincarnated as a Slime", subtitle: "Isekai/Fantasy", cover: slimeCover },
+                    { title: "Mushoku Tensei", subtitle: "Isekai/Fantasy", cover: mushokuCover }
                 ]
             }
         ]

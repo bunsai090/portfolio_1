@@ -108,6 +108,27 @@
     box-shadow: none;
 }
 
+/* Anime specific styles */
+.anime-grid .netflix-card {
+    min-width: 260px;
+    /* Wider card for landscape */
+    width: 260px;
+}
+
+.anime-grid .movie-cover-wrapper {
+    aspect-ratio: 16/9;
+    /* Landscape ratio */
+    background: transparent;
+    box-shadow: none;
+}
+
+.anime-grid .movie-cover {
+    object-fit: contain;
+    /* Ensure full logo is visible */
+    padding: 0;
+    border-radius: 4px;
+}
+
 .movie-play-overlay {
     position: absolute;
     bottom: 0.5rem;

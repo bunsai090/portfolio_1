@@ -59,7 +59,7 @@ const MovieSection = ({ section }) => {
 
 const MoviesContent = ({ sections, type }) => {
     return (
-        <div className={`spotify-grid ${type === 'gaming' ? 'gaming-grid' : ''}`}>
+        <div className={`spotify-grid ${type === 'gaming' ? 'gaming-grid' : type === 'anime' ? 'anime-grid' : ''}`}>
             {sections.map((section, sectionIndex) => (
                 <MovieSection key={sectionIndex} section={section} />
             ))}
