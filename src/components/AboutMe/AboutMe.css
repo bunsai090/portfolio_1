@@ -610,190 +610,190 @@
 }
 
 /* Spotify Table Layout */
-.spotify-playlist {
-  .interest-modal-content::-webkit-scrollbar-track {
-    background: #232127;
-    border-radius: 4px;
+/* .spotify-playlist block removed due to syntax error and invalid nesting */
+.interest-modal-content::-webkit-scrollbar-track {
+  background: #232127;
+  border-radius: 4px;
+}
+
+.interest-modal-content::-webkit-scrollbar-thumb {
+  background: #3a3843;
+  border-radius: 4px;
+}
+
+.interest-modal-content::-webkit-scrollbar-thumb:hover {
+  background: #bcbcbc;
+}
+
+.interest-item {
+  background: #232127;
+  border: 1px solid #3a3843;
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.2s ease;
+}
+
+.interest-item:hover {
+  background: #2d2b35;
+  border-color: #bcbcbc;
+  transform: translateX(4px);
+}
+
+.interest-icon {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #bcbcbc;
+}
+
+.interest-icon svg {
+  width: 32px;
+  height: 32px;
+}
+
+.interest-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.interest-title {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.interest-subtitle {
+  color: #bcbcbc;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .interest-modal {
+    width: 95%;
+    max-height: 85vh;
   }
 
-  .interest-modal-content::-webkit-scrollbar-thumb {
-    background: #3a3843;
-    border-radius: 4px;
+  .interest-modal-header {
+    padding: 1.25rem;
   }
 
-  .interest-modal-content::-webkit-scrollbar-thumb:hover {
-    background: #bcbcbc;
+  .interest-modal-header h3 {
+    font-size: 1.25rem;
+  }
+
+  .interest-modal-content {
+    padding: 1.25rem;
   }
 
   .interest-item {
-    background: #232127;
-    border: 1px solid #3a3843;
-    border-radius: 12px;
-    padding: 1rem 1.25rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    transition: all 0.2s ease;
-  }
-
-  .interest-item:hover {
-    background: #2d2b35;
-    border-color: #bcbcbc;
-    transform: translateX(4px);
+    padding: 0.85rem 1rem;
   }
 
   .interest-icon {
-    width: 40px;
-    height: 40px;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #bcbcbc;
+    width: 36px;
+    height: 36px;
   }
 
   .interest-icon svg {
-    width: 32px;
-    height: 32px;
-  }
-
-  .interest-info {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-  }
-
-  .interest-title {
-    color: #fff;
-    font-size: 1rem;
-    font-weight: 600;
-  }
-
-  .interest-subtitle {
-    color: #bcbcbc;
-    font-size: 0.9rem;
-  }
-
-  @media (max-width: 768px) {
-    .interest-modal {
-      width: 95%;
-      max-height: 85vh;
-    }
-
-    .interest-modal-header {
-      padding: 1.25rem;
-    }
-
-    .interest-modal-header h3 {
-      font-size: 1.25rem;
-    }
-
-    .interest-modal-content {
-      padding: 1.25rem;
-    }
-
-    .interest-item {
-      padding: 0.85rem 1rem;
-    }
-
-    .interest-icon {
-      width: 36px;
-      height: 36px;
-    }
-
-    .interest-icon svg {
-      width: 28px;
-      height: 28px;
-    }
-  }
-
-  /* Spotify Theme Overrides */
-  .interest-modal.spotify-theme {
-    background: #121212;
-    /* Spotify Dark Background */
-    border: 1px solid #282828;
-    max-width: 900px;
-    /* Wider for table layout */
-    height: 80vh;
-  }
-
-  .interest-modal.spotify-theme .interest-modal-header {
-    border-bottom: none;
-    padding: 0;
-  }
-
-  /* Spotify Header */
-  .spotify-header {
-    background: linear-gradient(180deg, #2a2a2a 0%, #121212 100%);
-    padding: 1.5rem 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid #282828;
-    position: relative;
-    /* For absolute centering of title */
-  }
-
-  .spotify-header-title {
-    color: #fff;
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin: 0;
-    position: absolute;
-    left: 0;
-    right: 0;
-    text-align: center;
-    width: 100%;
-    pointer-events: none;
-  }
-
-  .spotify-controls {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-  }
-
-  .spotify-play-btn {
-    background: #1db954;
-    /* Spotify Green */
-    border: none;
-    border-radius: 50%;
-    width: 56px;
-    height: 56px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    color: #000;
-    transition: transform 0.1s ease, background 0.2s ease;
-  }
-
-  .spotify-play-btn:hover {
-    transform: scale(1.05);
-    background: #1ed760;
-  }
-
-  .spotify-play-btn svg {
     width: 28px;
     height: 28px;
   }
+}
 
-  .spotify-icon-btn {
-    background: transparent;
-    border: none;
-    color: #b3b3b3;
-    cursor: pointer;
-    padding: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: color 0.2s ease;
-  }
+/* Spotify Theme Overrides */
+.interest-modal.spotify-theme {
+  background: #121212;
+  /* Spotify Dark Background */
+  border: 1px solid #282828;
+  max-width: 900px;
+  /* Wider for table layout */
+  height: 80vh;
+}
 
-  .spotify-icon-btn:hover {
-    color: #fff;
-  }
+.interest-modal.spotify-theme .interest-modal-header {
+  border-bottom: none;
+  padding: 0;
+}
+
+/* Spotify Header */
+.spotify-header {
+  background: linear-gradient(180deg, #2a2a2a 0%, #121212 100%);
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #282828;
+  position: relative;
+  /* For absolute centering of title */
+}
+
+.spotify-header-title {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+  width: 100%;
+  pointer-events: none;
+}
+
+.spotify-controls {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.spotify-play-btn {
+  background: #1db954;
+  /* Spotify Green */
+  border: none;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #000;
+  transition: transform 0.1s ease, background 0.2s ease;
+}
+
+.spotify-play-btn:hover {
+  transform: scale(1.05);
+  background: #1ed760;
+}
+
+.spotify-play-btn svg {
+  width: 28px;
+  height: 28px;
+}
+
+.spotify-icon-btn {
+  background: transparent;
+  border: none;
+  color: #b3b3b3;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+}
+
+.spotify-icon-btn:hover {
+  color: #fff;
+}
 
 
-  ```
+```
