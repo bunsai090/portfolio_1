@@ -1,0 +1,202 @@
+/* Movies/Netflix Content Styles */
+
+/* Spotify Movie Grid Layout - Desktop & Mobile Horizontal Scroll */
+.spotify-grid {
+    padding: 1.5rem;
+    padding-bottom: 3rem;
+}
+
+.spotify-section {
+    margin-bottom: 2.5rem;
+}
+
+.spotify-section-title {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 700;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+/* Horizontal Scroll Container - FORCE HORIZONTAL */
+.movie-section-scroll {
+    display: flex !important;
+    gap: 1.5rem !important;
+    overflow-x: auto !important;
+    padding-bottom: 1.5rem;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    /* Ensure no wrapping */
+    flex-wrap: nowrap !important;
+    flex-direction: row !important;
+}
+
+/* Custom Scrollbar for the section */
+.movie-section-scroll::-webkit-scrollbar {
+    height: 8px;
+}
+
+.movie-section-scroll::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+}
+
+.movie-section-scroll::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+}
+
+.movie-section-scroll::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/* Netflix Card Style */
+.netflix-card {
+    background: #181818;
+    padding: 10px;
+    border-radius: 8px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
+    display: block !important;
+    /* Fixed Dimensions for consistency */
+    min-width: 180px;
+    width: 180px;
+    /* Prevent shrinking in flex container */
+    flex-shrink: 0 !important;
+    flex-grow: 0 !important;
+}
+
+.netflix-card:hover {
+    background: #282828;
+    transform: scale(1.05);
+    z-index: 10;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.movie-cover-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 2/3;
+    margin-bottom: 1rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.movie-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.movie-play-overlay {
+    position: absolute;
+    bottom: 0.5rem;
+    right: 0.5rem;
+    width: 48px;
+    height: 48px;
+    background: #1db954;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    color: #000;
+}
+
+.netflix-card:hover .movie-play-overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.movie-play-overlay svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+}
+
+.movie-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.movie-title {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.movie-subtitle {
+    color: #b3b3b3;
+    font-size: 0.85rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Scroll Arrow Controls */
+.movie-scroll-wrapper {
+    position: relative;
+    /* To contain the absolute arrows */
+}
+
+.scroll-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    background: rgba(42, 42, 42, 0.6);
+    border: none;
+    border-radius: 50%;
+    color: #fff;
+    cursor: pointer;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.2s ease, background 0.2s ease, transform 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* Show arrows when hovering over the section */
+.movie-scroll-wrapper:hover .scroll-arrow {
+    opacity: 1;
+}
+
+.scroll-arrow:hover {
+    background: rgba(42, 42, 42, 1);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.scroll-arrow svg {
+    width: 32px;
+    height: 32px;
+}
+
+.left-arrow {
+    left: -20px;
+}
+
+.right-arrow {
+    right: -20px;
+}
+
+@media (max-width: 768px) {
+    .scroll-arrow {
+        display: none;
+        /* Hide arrows on mobile, use touch scroll */
+    }
+}
