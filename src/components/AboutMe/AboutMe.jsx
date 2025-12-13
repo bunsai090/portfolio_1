@@ -336,7 +336,6 @@ const AboutMe = (props) => {
                       <div className="col-index">#</div>
                       <div className="col-title">Title</div>
                       <div className="col-album">Album</div>
-                      <div className="col-date">Date added</div>
                       <div className="col-time"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z" /><path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z" /></svg></div>
                     </div>
                     {interestsData.music.items.map((item, index) => (
@@ -347,7 +346,6 @@ const AboutMe = (props) => {
                           <div className="song-artist">{item.artist}</div>
                         </div>
                         <div className="col-album">{item.album}</div>
-                        <div className="col-date">{item.date}</div>
                         <div className="col-time">{item.duration}</div>
                       </div>
                     ))}
@@ -373,9 +371,7 @@ const AboutMe = (props) => {
                 <div className="spotify-player-bar">
                   <div className="player-progress-line"></div>
                   <div className="player-controls-mock">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style={{ opacity: 0.7 }}><path d="M6.61 11.83l8.47-5.57a1 1 0 0 1 1.52.86v10.6a1 1 0 0 1-1.52.86l-8.47-5.57a1 1 0 0 1 0-1.18z|M5 5h2v14H5z" /></svg>
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor" style={{ margin: '0 1rem' }}><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z" /></svg>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style={{ opacity: 0.7 }}><path d="M17.39 12.17l-8.47 5.57a1 1 0 0 1-1.52-.86V6.28a1 1 0 0 1 1.52-.86l8.47 5.57a1 1 0 0 1 0 1.18z|M19 5h-2v14h2z" /></svg>
+
                   </div>
                 </div>
               )}
