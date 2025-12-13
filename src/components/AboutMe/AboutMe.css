@@ -845,6 +845,20 @@
 
   .col-title {
     display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .song-cover {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    object-fit: cover;
+    background: #282828;
+  }
+
+  .song-info {
+    display: flex;
     flex-direction: column;
   }
 
@@ -853,14 +867,6 @@
     font-size: 1rem;
     font-weight: 500;
     margin-bottom: 2px;
-  }
-
-  .song-artist {
-    font-size: 0.85rem;
-  }
-
-  .spotify-row:hover .song-artist {
-    color: #fff;
   }
 
   .col-album {

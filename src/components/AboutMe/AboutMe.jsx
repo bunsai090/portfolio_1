@@ -3,6 +3,18 @@ import { createPortal } from 'react-dom';
 import './AboutMe.css';
 import bunzAboutMe from '../../assets/bunz_aboutme.png';
 
+// Import Music Covers
+import kalapastanganCover from '../../assets/kalapastangan.png';
+import balisongCover from '../../assets/balisong .png';
+import creepCover from '../../assets/creep .png';
+import mundoCover from '../../assets/mundo.png';
+import panaginipCover from '../../assets/panaginip.png';
+import sagipCover from '../../assets/sagip.png';
+import medisinaCover from '../../assets/Medisina .png';
+import sesameCover from '../../assets/Sesame Syrup.png';
+import secretdoorCover from '../../assets/secret door.png';
+import allthestarsCover from '../../assets/All The Stars.png';
+
 const iconStyle = {
   width: '1.1em',
   height: '1.1em',
@@ -17,16 +29,16 @@ const interestsData = {
     title: "Favorite Music",
     emoji: "🎵",
     items: [
-      { id: 1, title: "Kalapastangan", artist: "fitterkarma", album: "Kalapastangan", date: "Sep 22, 2025", duration: "3:45" },
-      { id: 2, title: "Balisong", artist: "Rico Blanco", album: "Your Universe", date: "Sep 21, 2025", duration: "3:58" },
-      { id: 3, title: "Creep", artist: "Radiohead", album: "Pablo Honey", date: "Sep 20, 2025", duration: "3:56" },
-      { id: 4, title: "Mundo", artist: "IV of Spades", album: "ClapClapClap!", date: "Sep 19, 2025", duration: "5:50" },
-      { id: 5, title: "Panaginip", artist: "nicole", album: "Panaginip", date: "Sep 18, 2025", duration: "4:20" },
-      { id: 6, title: "Sagip", artist: "Jan Roberts", album: "Sagip", date: "Sep 17, 2025", duration: "3:52" },
-      { id: 7, title: "Medisina", artist: "Zild", album: "Medisina", date: "Sep 16, 2025", duration: "4:05" },
-      { id: 8, title: "Sesame Syrup", artist: "Cigarettes After Sex", album: "Cigarettes After Sex", date: "Sep 15, 2025", duration: "4:48" },
-      { id: 9, title: "Secret Door", artist: "Official Arctic Monkeys", album: "Humbug", date: "Sep 14, 2025", duration: "3:43" },
-      { id: 10, title: "All The Stars", artist: "Kendrick Lamar, SZA", album: "Black Panther", date: "Sep 13, 2025", duration: "3:52" }
+      { id: 1, title: "Kalapastangan", artist: "fitterkarma", album: "Kalapastangan", date: "Sep 22, 2025", duration: "3:45", cover: kalapastanganCover },
+      { id: 2, title: "Balisong", artist: "Rico Blanco", album: "Your Universe", date: "Sep 21, 2025", duration: "3:58", cover: balisongCover },
+      { id: 3, title: "Creep", artist: "Radiohead", album: "Pablo Honey", date: "Sep 20, 2025", duration: "3:56", cover: creepCover },
+      { id: 4, title: "Mundo", artist: "IV of Spades", album: "ClapClapClap!", date: "Sep 19, 2025", duration: "5:50", cover: mundoCover },
+      { id: 5, title: "Panaginip", artist: "nicole", album: "Panaginip", date: "Sep 18, 2025", duration: "4:20", cover: panaginipCover },
+      { id: 6, title: "Sagip", artist: "Jan Roberts", album: "Sagip", date: "Sep 17, 2025", duration: "3:52", cover: sagipCover },
+      { id: 7, title: "Medisina", artist: "Zild", album: "Medisina", date: "Sep 16, 2025", duration: "4:05", cover: medisinaCover },
+      { id: 8, title: "Sesame Syrup", artist: "Cigarettes After Sex", album: "Cigarettes After Sex", date: "Sep 15, 2025", duration: "4:48", cover: sesameCover },
+      { id: 9, title: "Secret Door", artist: "Official Arctic Monkeys", album: "Humbug", date: "Sep 14, 2025", duration: "3:43", cover: secretdoorCover },
+      { id: 10, title: "All The Stars", artist: "Kendrick Lamar, SZA", album: "Black Panther", date: "Sep 13, 2025", duration: "3:52", cover: allthestarsCover }
     ]
   },
   movies: {
@@ -342,8 +354,11 @@ const AboutMe = (props) => {
                       <div className="spotify-row" key={index}>
                         <div className="col-index">{item.id}</div>
                         <div className="col-title">
-                          <div className="song-name">{item.title}</div>
-                          <div className="song-artist">{item.artist}</div>
+                          <img src={item.cover} alt={item.title} className="song-cover" />
+                          <div className="song-info">
+                            <div className="song-name">{item.title}</div>
+                            <div className="song-artist">{item.artist}</div>
+                          </div>
                         </div>
                         <div className="col-album">{item.album}</div>
                         <div className="col-time">{item.duration}</div>
@@ -381,6 +396,19 @@ const AboutMe = (props) => {
           document.body
         )
       }
+
+      {/* Toast Notification */}
+      {showToast && (
+        <div className="toast-notification">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
+          </svg>
+          <div>
+            <div className="toast-title">Upcoming Feature</div>
+            <div className="toast-message">This feature will be available soon.</div>
+          </div>
+        </div>
+      )}
     </div >
   );
 };
