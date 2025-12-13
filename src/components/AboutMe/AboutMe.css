@@ -327,8 +327,8 @@
   justify-content: space-between;
 }
 
-/* Music Modal */
-.music-modal-backdrop {
+/* Interest Modal */
+.interest-modal-backdrop {
   position: fixed;
   top: 0;
   left: 0;
@@ -343,7 +343,7 @@
   justify-content: center;
 }
 
-.music-modal {
+.interest-modal {
   position: relative;
   z-index: 10001;
   background: #2a2831;
@@ -358,7 +358,7 @@
   flex-direction: column;
 }
 
-.music-modal-header {
+.interest-modal-header {
   background: #232127;
   border-bottom: 1px solid #3a3843;
   padding: 1.5rem;
@@ -367,7 +367,7 @@
   justify-content: space-between;
 }
 
-.music-modal-header h3 {
+.interest-modal-header h3 {
   color: #fff;
   font-size: 1.5rem;
   font-weight: 700;
@@ -377,7 +377,7 @@
   gap: 0.5rem;
 }
 
-.music-modal-close {
+.interest-modal-close {
   background: transparent;
   border: none;
   color: #bcbcbc;
@@ -394,12 +394,12 @@
   line-height: 1;
 }
 
-.music-modal-close:hover {
+.interest-modal-close:hover {
   background: #3a3843;
   color: #fff;
 }
 
-.music-modal-content {
+.interest-modal-content {
   padding: 1.5rem;
   max-height: calc(80vh - 100px);
   overflow-y: auto;
@@ -408,25 +408,25 @@
   gap: 1rem;
 }
 
-.music-modal-content::-webkit-scrollbar {
+.interest-modal-content::-webkit-scrollbar {
   width: 8px;
 }
 
-.music-modal-content::-webkit-scrollbar-track {
+.interest-modal-content::-webkit-scrollbar-track {
   background: #232127;
   border-radius: 4px;
 }
 
-.music-modal-content::-webkit-scrollbar-thumb {
+.interest-modal-content::-webkit-scrollbar-thumb {
   background: #3a3843;
   border-radius: 4px;
 }
 
-.music-modal-content::-webkit-scrollbar-thumb:hover {
+.interest-modal-content::-webkit-scrollbar-thumb:hover {
   background: #bcbcbc;
 }
 
-.music-item {
+.interest-item {
   background: #232127;
   border: 1px solid #3a3843;
   border-radius: 12px;
@@ -437,13 +437,13 @@
   transition: all 0.2s ease;
 }
 
-.music-item:hover {
+.interest-item:hover {
   background: #2d2b35;
   border-color: #bcbcbc;
   transform: translateX(4px);
 }
 
-.music-icon {
+.interest-icon {
   width: 40px;
   height: 40px;
   flex-shrink: 0;
@@ -453,57 +453,57 @@
   color: #bcbcbc;
 }
 
-.music-icon svg {
+.interest-icon svg {
   width: 32px;
   height: 32px;
 }
 
-.music-info {
+.interest-info {
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
 }
 
-.music-title {
+.interest-title {
   color: #fff;
   font-size: 1rem;
   font-weight: 600;
 }
 
-.music-artist {
+.interest-subtitle {
   color: #bcbcbc;
   font-size: 0.9rem;
 }
 
 @media (max-width: 768px) {
-  .music-modal {
+  .interest-modal {
     width: 95%;
     max-height: 85vh;
   }
 
-  .music-modal-header {
+  .interest-modal-header {
     padding: 1.25rem;
   }
 
-  .music-modal-header h3 {
+  .interest-modal-header h3 {
     font-size: 1.25rem;
   }
 
-  .music-modal-content {
+  .interest-modal-content {
     padding: 1.25rem;
   }
 
-  .music-item {
+  .interest-item {
     padding: 0.85rem 1rem;
   }
 
-  .music-icon {
+  .interest-icon {
     width: 36px;
     height: 36px;
   }
 
-  .music-icon svg {
+  .interest-icon svg {
     width: 28px;
     height: 28px;
   }
