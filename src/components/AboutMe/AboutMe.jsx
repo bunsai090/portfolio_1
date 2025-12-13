@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import './AboutMe.css';
 import bunzAboutMe from '../../assets/bunz_aboutme.png';
 
@@ -178,7 +179,7 @@ const AboutMe = (props) => {
       }
 
       {
-        showMusicModal && (
+        showMusicModal && createPortal(
           <div className="music-modal-backdrop" onClick={() => setShowMusicModal(false)}>
             <div className="music-modal" onClick={(e) => e.stopPropagation()}>
               <div className="music-modal-header">
@@ -243,7 +244,8 @@ const AboutMe = (props) => {
                 </div>
               </div>
             </div>
-          </div>
+          </div>,
+          document.body
         )
       }
     </div >
