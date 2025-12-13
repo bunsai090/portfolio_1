@@ -23,6 +23,18 @@ import megamindCover from '../../assets/megamind.png';
 import turboCover from '../../assets/turbo.png';
 import hotelTransylvaniaCover from '../../assets/hotel transylvania.png';
 
+// Import Game Covers
+import mobileLegendCover from '../../assets/mobile legend.png';
+import gta5Cover from '../../assets/gta5.png';
+import valorantCover from '../../assets/valorant.png';
+import minecraftCover from '../../assets/minecraft.png';
+import clashOfClansCover from '../../assets/clash of clans.png';
+import robloxCover from '../../assets/roblox.png';
+import csgoCover from '../../assets/csgo.png';
+
+// Import Placeholder for Anime
+import placeholderCover from '../../assets/bunz_aboutme.png';
+
 const interestsData = {
     music: {
         title: "Favorite Music",
@@ -61,59 +73,38 @@ const interestsData = {
             }
         ]
     },
-    study: {
-        title: "Study Topics",
-        emoji: "📚",
-        items: [
-            { title: "Web Development", subtitle: "Frontend & Backend" },
-            { title: "System Design", subtitle: "Architecture & Scalability" },
-            { title: "Data Structures", subtitle: "Algorithms & Logic" },
-            { title: "UI/UX Design", subtitle: "User Research & Prototyping" },
-            { title: "Cybersecurity", subtitle: "Network Safety & Ethics" }
-        ]
-    },
-    web: {
-        title: "Web Browsing",
-        emoji: "🌐",
-        items: [
-            { title: "GitHub", subtitle: "Code Hosting & Collaboration" },
-            { title: "Stack Overflow", subtitle: "Problem Solving" },
-            { title: "Reddit", subtitle: "Tech Communities & News" },
-            { title: "YouTube", subtitle: "Tutorials & Tech Reviews" },
-            { title: "MDN Web Docs", subtitle: "Web Documentation" }
-        ]
-    },
     gaming: {
         title: "Favorite Games",
         emoji: "🎮",
-        items: [
-            { title: "Valorant", subtitle: "Tactical Shooter" },
-            { title: "Genshin Impact", subtitle: "Open World RPG" },
-            { title: "Minecraft", subtitle: "Sandbox Survival" },
-            { title: "League of Legends", subtitle: "MOBA" },
-            { title: "Stardew Valley", subtitle: "Farming Simulation" }
-        ]
-    },
-    coding: {
-        title: "Tech Stack",
-        emoji: "💻",
-        items: [
-            { title: "JavaScript / TypeScript", subtitle: "Web Logic" },
-            { title: "React.js", subtitle: "Frontend Library" },
-            { title: "Node.js", subtitle: "Backend Runtime" },
-            { title: "Python", subtitle: "Scripting & AI" },
-            { title: "CSS / Sass", subtitle: "Styling & Design" }
+        sections: [
+            {
+                title: "Top Picks",
+                items: [
+                    { title: "Mobile Legends", subtitle: "MOBA", cover: mobileLegendCover },
+                    { title: "GTA 5", subtitle: "Open World / Action", cover: gta5Cover },
+                    { title: "Valorant", subtitle: "Tactical Shooter", cover: valorantCover },
+                    { title: "Minecraft", subtitle: "Sandbox Survival", cover: minecraftCover },
+                    { title: "Clash of Clans", subtitle: "Strategy", cover: clashOfClansCover },
+                    { title: "Roblox", subtitle: "Game Platform", cover: robloxCover },
+                    { title: "Counter-Strike", subtitle: "Tactical Shooter", cover: csgoCover }
+                ]
+            }
         ]
     },
     anime: {
         title: "Favorite Anime",
         emoji: "👺",
-        items: [
-            { title: "One Piece", subtitle: "Adventure/Fantasy" },
-            { title: "Naruto", subtitle: "Ninja/Action" },
-            { title: "Attack on Titan", subtitle: "Dark Fantasy" },
-            { title: "Demon Slayer", subtitle: "Action/Supernatural" },
-            { title: "Jujutsu Kaisen", subtitle: "Supernatural/Action" }
+        sections: [
+            {
+                title: "Must Watch",
+                items: [
+                    { title: "One Piece", subtitle: "Adventure/Fantasy", cover: placeholderCover },
+                    { title: "Naruto", subtitle: "Ninja/Action", cover: placeholderCover },
+                    { title: "Attack on Titan", subtitle: "Dark Fantasy", cover: placeholderCover },
+                    { title: "Demon Slayer", subtitle: "Action/Supernatural", cover: placeholderCover },
+                    { title: "Jujutsu Kaisen", subtitle: "Supernatural/Action", cover: placeholderCover }
+                ]
+            }
         ]
     }
 };

@@ -154,10 +154,10 @@ const AboutMe = (props) => {
       {
         activeInterest && interestsData[activeInterest] && createPortal(
           <div className="interest-modal-backdrop" onClick={() => setActiveInterest(null)}>
-            <div className={`interest-modal ${activeInterest === 'music' || activeInterest === 'movies' ? 'spotify-theme' : ''}`} onClick={(e) => e.stopPropagation()}>
+            <div className={`interest-modal ${['music', 'movies', 'gaming', 'anime'].includes(activeInterest) ? 'spotify-theme' : ''}`} onClick={(e) => e.stopPropagation()}>
 
               {/* Conditional Header for Spotify vs Generic */}
-              {activeInterest === 'music' || activeInterest === 'movies' ? (
+              {['music', 'movies', 'gaming', 'anime'].includes(activeInterest) ? (
                 <div className="spotify-header">
                   <div className="spotify-controls">
                     <button className="spotify-play-btn">
@@ -171,7 +171,10 @@ const AboutMe = (props) => {
                     </button>
                   </div>
                   <h2 className="spotify-header-title">
-                    {activeInterest === 'music' ? 'Bunsai favorite song <3' : 'Bunsai favorite movies <3'}
+                    {activeInterest === 'music' ? 'Bunsai favorite song <3' :
+                      activeInterest === 'movies' ? 'Bunsai favorite movies <3' :
+                        activeInterest === 'gaming' ? 'Bunsai favorite games <3' :
+                          'Bunsai favorite anime <3'}
                   </h2>
                   <button className="interest-modal-close" onClick={() => setActiveInterest(null)}>×</button>
                 </div>
@@ -185,8 +188,8 @@ const AboutMe = (props) => {
               <div className={`interest-modal-content ${activeInterest === 'music' ? 'spotify-content' : ''}`}>
                 {activeInterest === 'music' ? (
                   <MusicContent items={interestsData.music.items} />
-                ) : activeInterest === 'movies' ? (
-                  <MoviesContent sections={interestsData.movies.sections} />
+                ) : ['movies', 'gaming', 'anime'].includes(activeInterest) ? (
+                  <MoviesContent sections={interestsData[activeInterest].sections} type={activeInterest} />
                 ) : (
                   <GenericContent items={interestsData[activeInterest].items} type={activeInterest} />
                 )}
