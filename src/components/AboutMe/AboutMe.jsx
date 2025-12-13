@@ -17,11 +17,16 @@ const interestsData = {
     title: "Favorite Music",
     emoji: "🎵",
     items: [
-      { title: "Bohemian Rhapsody", subtitle: "Queen" },
-      { title: "Imagine", subtitle: "John Lennon" },
-      { title: "Billie Jean", subtitle: "Michael Jackson" },
-      { title: "Smells Like Teen Spirit", subtitle: "Nirvana" },
-      { title: "Hotel California", subtitle: "Eagles" }
+      { id: 1, title: "Konsensya", artist: "IV OF SPADES", album: "Konsensya", date: "Sep 13, 2025", duration: "3:33" },
+      { id: 2, title: "Ikaw Lang Patutunguhan", artist: "Amiel Sol", album: "Ikaw Lang Patutunguhan", date: "Aug 20, 2025", duration: "5:26" },
+      { id: 3, title: "Sagip", artist: "Jan Roberts", album: "Sagip", date: "Aug 15, 2025", duration: "3:52" },
+      { id: 4, title: "How Can I Tell Her", artist: "Lobo", album: "Calumet", date: "Aug 14, 2025", duration: "4:20" },
+      { id: 5, title: "Pangako", artist: "Cueshé", album: "Life", date: "Aug 14, 2025", duration: "3:36" },
+      { id: 6, title: "Balisong - Transformed", artist: "Rico Blanco", album: "Balisong (Transformed)", date: "Aug 14, 2025", duration: "2:43" },
+      { id: 7, title: "Pahintulot", artist: "shirebound", album: "For Princesses, By Thieves...", date: "Aug 13, 2025", duration: "4:57" },
+      { id: 8, title: "Waltz of Four Left Feet", artist: "shirebound", album: "For Princesses, By Thieves...", date: "Aug 13, 2025", duration: "5:37" },
+      { id: 9, title: "Hirap Kalimutan", artist: "Jan Roberts", album: "Hirap Kalimutan", date: "Aug 13, 2025", duration: "2:53" },
+      { id: 10, title: "Saksi Ang Langit", artist: "December Avenue", album: "Saksi Ang Langit", date: "Aug 13, 2025", duration: "4:19" }
     ]
   },
   movies: {
@@ -295,40 +300,86 @@ const AboutMe = (props) => {
       </div>
 
       {
-        showToast && (
-          <div className="toast-notification">
-            <svg style={{ width: '1.5em', height: '1.5em', marginRight: '0.75rem', flexShrink: 0 }} viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
-            </svg>
-            <div>
-              <div className="toast-title">Upcoming Feature</div>
-              <div className="toast-message">CV download will be available soon!</div>
-            </div>
-          </div>
-        )
-      }
-
-      {
         activeInterest && interestsData[activeInterest] && createPortal(
           <div className="interest-modal-backdrop" onClick={() => setActiveInterest(null)}>
-            <div className="interest-modal" onClick={(e) => e.stopPropagation()}>
-              <div className="interest-modal-header">
-                <h3>{interestsData[activeInterest].emoji} {interestsData[activeInterest].title}</h3>
-                <button className="interest-modal-close" onClick={() => setActiveInterest(null)}>×</button>
-              </div>
-              <div className="interest-modal-content">
-                {interestsData[activeInterest].items.map((item, index) => (
-                  <div className="interest-item" key={index}>
-                    <div className="interest-icon">
-                      {getModalItemIcon(activeInterest)}
-                    </div>
-                    <div className="interest-info">
-                      <div className="interest-title">{item.title}</div>
-                      <div className="interest-subtitle">{item.subtitle}</div>
-                    </div>
+            <div className={`interest-modal ${activeInterest === 'music' ? 'spotify-theme' : ''}`} onClick={(e) => e.stopPropagation()}>
+
+              {/* Conditional Header for Spotify vs Generic */}
+              {activeInterest === 'music' ? (
+                <div className="spotify-header">
+                  <div className="spotify-controls">
+                    <button className="spotify-play-btn">
+                      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
+                    </button>
+                    <button className="spotify-icon-btn">
+                      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10.59 9.17L5.41 4 4 5.41l5.17 5.17 1.42-1.41zM14.5 4l2.04 2.04L4 18.59 5.41 20 17.96 7.46 20 9.5V4h-5.5zm.33 9.41l-1.41 1.41 3.13 3.13L14.5 20H20v-5.5l-2.04 2.04-3.13-3.13z" /></svg>
+                    </button>
+                    <button className="spotify-icon-btn">
+                      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 13l-4-4h8l-4 4zm-4-4h8v2H8v-2z" /></svg>
+                    </button>
                   </div>
-                ))}
+                  <button className="interest-modal-close" onClick={() => setActiveInterest(null)}>×</button>
+                </div>
+              ) : (
+                <div className="interest-modal-header">
+                  <h3>{interestsData[activeInterest].emoji} {interestsData[activeInterest].title}</h3>
+                  <button className="interest-modal-close" onClick={() => setActiveInterest(null)}>×</button>
+                </div>
+              )}
+
+              <div className={`interest-modal-content ${activeInterest === 'music' ? 'spotify-content' : ''}`}>
+
+                {/* Spotify Table Layout */}
+                {activeInterest === 'music' ? (
+                  <div className="spotify-playlist">
+                    <div className="spotify-table-header">
+                      <div className="col-index">#</div>
+                      <div className="col-title">Title</div>
+                      <div className="col-album">Album</div>
+                      <div className="col-date">Date added</div>
+                      <div className="col-time"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z" /><path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z" /></svg></div>
+                    </div>
+                    {interestsData.music.items.map((item, index) => (
+                      <div className="spotify-row" key={index}>
+                        <div className="col-index">{item.id}</div>
+                        <div className="col-title">
+                          <div className="song-name">{item.title}</div>
+                          <div className="song-artist">{item.artist}</div>
+                        </div>
+                        <div className="col-album">{item.album}</div>
+                        <div className="col-date">{item.date}</div>
+                        <div className="col-time">{item.duration}</div>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  /* Generic List Layout */
+                  interestsData[activeInterest].items.map((item, index) => (
+                    <div className="interest-item" key={index}>
+                      <div className="interest-icon">
+                        {getModalItemIcon(activeInterest)}
+                      </div>
+                      <div className="interest-info">
+                        <div className="interest-title">{item.title}</div>
+                        <div className="interest-subtitle">{item.subtitle}</div>
+                      </div>
+                    </div>
+                  ))
+                )}
               </div>
+
+              {/* Player Bar for Music */}
+              {activeInterest === 'music' && (
+                <div className="spotify-player-bar">
+                  <div className="player-progress-line"></div>
+                  <div className="player-controls-mock">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style={{ opacity: 0.7 }}><path d="M6.61 11.83l8.47-5.57a1 1 0 0 1 1.52.86v10.6a1 1 0 0 1-1.52.86l-8.47-5.57a1 1 0 0 1 0-1.18z|M5 5h2v14H5z" /></svg>
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor" style={{ margin: '0 1rem' }}><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z" /></svg>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style={{ opacity: 0.7 }}><path d="M17.39 12.17l-8.47 5.57a1 1 0 0 1-1.52-.86V6.28a1 1 0 0 1 1.52-.86l8.47 5.57a1 1 0 0 1 0 1.18z|M19 5h-2v14h2z" /></svg>
+                  </div>
+                </div>
+              )}
+
             </div>
           </div>,
           document.body
@@ -338,4 +389,4 @@ const AboutMe = (props) => {
   );
 };
 
-export default AboutMe; 
+export default AboutMe;
