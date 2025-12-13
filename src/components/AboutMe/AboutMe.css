@@ -312,3 +312,199 @@
     max-width: none;
   }
 }
+
+/* Clickable Interest Badge */
+.interest-badge.clickable {
+  cursor: pointer;
+}
+
+.interest-badge.clickable:hover {
+  background: #2d2b35;
+  border-color: #bcbcbc;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Music Modal */
+.music-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.music-modal {
+  position: relative;
+  z-index: 10001;
+  background: #2a2831;
+  border: 1px solid #3a3843;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 80vh;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+}
+
+.music-modal-header {
+  background: #232127;
+  border-bottom: 1px solid #3a3843;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.music-modal-header h3 {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.music-modal-close {
+  background: transparent;
+  border: none;
+  color: #bcbcbc;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  line-height: 1;
+}
+
+.music-modal-close:hover {
+  background: #3a3843;
+  color: #fff;
+}
+
+.music-modal-content {
+  padding: 1.5rem;
+  max-height: calc(80vh - 100px);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.music-modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.music-modal-content::-webkit-scrollbar-track {
+  background: #232127;
+  border-radius: 4px;
+}
+
+.music-modal-content::-webkit-scrollbar-thumb {
+  background: #3a3843;
+  border-radius: 4px;
+}
+
+.music-modal-content::-webkit-scrollbar-thumb:hover {
+  background: #bcbcbc;
+}
+
+.music-item {
+  background: #232127;
+  border: 1px solid #3a3843;
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.2s ease;
+}
+
+.music-item:hover {
+  background: #2d2b35;
+  border-color: #bcbcbc;
+  transform: translateX(4px);
+}
+
+.music-icon {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #bcbcbc;
+}
+
+.music-icon svg {
+  width: 32px;
+  height: 32px;
+}
+
+.music-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.music-title {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.music-artist {
+  color: #bcbcbc;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .music-modal {
+    width: 95%;
+    max-height: 85vh;
+  }
+
+  .music-modal-header {
+    padding: 1.25rem;
+  }
+
+  .music-modal-header h3 {
+    font-size: 1.25rem;
+  }
+
+  .music-modal-content {
+    padding: 1.25rem;
+  }
+
+  .music-item {
+    padding: 0.85rem 1rem;
+  }
+
+  .music-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .music-icon svg {
+    width: 28px;
+    height: 28px;
+  }
+}

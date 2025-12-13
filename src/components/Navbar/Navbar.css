@@ -2,18 +2,28 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(35, 33, 39, 0.5);
-  padding: 0.75rem 0;
+  background: rgba(35, 33, 39, 0.85);
+  /* Slightly more opaque for the floating look */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 0.75rem 2rem;
   font-family: 'Montserrat', sans-serif;
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
+  top: 1.5rem;
+  /* Floating from top */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 1200px;
+  /* Slightly wider */
   z-index: 2000;
-  border-radius: 0 0 10px 10px;
-  height: 60px;
-  min-height: 60px;
+  border-radius: 12px;
+  /* Boxy with slight rounding */
+  height: 65px;
+  min-height: 65px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
 }
 
 /* Glassmorphism effect when scrolled */
@@ -100,9 +110,16 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding: 12px 1rem 0 1rem;
-    height: 56px;
-    min-height: 56px;
+    padding: 0 1.5rem;
+    /* Symmetric padding */
+    height: 60px;
+    /* Keep same height as desktop for consistency */
+    min-height: 60px;
+    width: 95%;
+    /* Wider on mobile */
+    top: 1rem;
+    /* Less top offset */
+    max-width: none;
   }
 
   .navbar-logo {
@@ -254,11 +271,11 @@
 
 @media (max-width: 500px) {
   .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 12px 0 0 0;
-    height: 52px;
-    min-height: 52px;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 1rem;
+    height: 60px;
+    min-height: 60px;
   }
 
   .navbar-logo {

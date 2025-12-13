@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './AboutMe.css';
 import bunzAboutMe from '../../assets/bunz_aboutme.png';
 
@@ -13,6 +13,7 @@ const iconStyle = {
 
 const AboutMe = (props) => {
   const [showToast, setShowToast] = useState(false);
+  const [showMusicModal, setShowMusicModal] = useState(false);
 
   const handleDownloadCV = () => {
     setShowToast(true);
@@ -20,6 +21,23 @@ const AboutMe = (props) => {
       setShowToast(false);
     }, 3000);
   };
+
+  // Prevent scrolling when modal is open
+  useEffect(() => {
+    if (showMusicModal) {
+      document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+      document.documentElement.style.overflow = 'unset';
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = 'unset';
+      document.documentElement.style.overflow = 'unset';
+    };
+  }, [showMusicModal]);
 
   return (
     <div className="aboutme-section" id="aboutme" {...props}>
@@ -96,13 +114,8 @@ const AboutMe = (props) => {
           <div className="aboutme-interests">
             <div className="interests-title">Interests:</div>
             <div className="interests-grid">
-              <div className="interest-badge">
-                <svg style={{ width: '1em', height: '1em', marginRight: '0.4rem' }} viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M21 3H3c-1.11 0-2 .89-2 2v12c0 1.1.89 2 2 2h5v2h8v-2h5c1.1 0 1.99-.9 1.99-2L23 5c0-1.11-.9-2-2-2zm0 14H3V5h18v12z" />
-                </svg>
-                Photography
-              </div>
-              <div className="interest-badge">
+
+              <div className="interest-badge clickable" onClick={() => setShowMusicModal(true)}>
                 <svg style={{ width: '1em', height: '1em', marginRight: '0.4rem' }} viewBox="0 0 24 24" fill="currentColor">
                   <path d="M12 3v9.28c-.47-.17-.97-.28-1.5-.28C8.01 12 6 14.01 6 16.5S8.01 21 10.5 21c2.31 0 4.2-1.75 4.45-4H15V6h4V3h-7z" />
                 </svg>
@@ -132,35 +145,108 @@ const AboutMe = (props) => {
                 </svg>
                 Gaming
               </div>
-              <div className="interest-badge">
-                <svg style={{ width: '1em', height: '1em', marginRight: '0.4rem' }} viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z" />
-                </svg>
-                Videography
-              </div>
+
               <div className="interest-badge">
                 <svg style={{ width: '1em', height: '1em', marginRight: '0.4rem' }} viewBox="0 0 24 24" fill="currentColor">
                   <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z" />
                 </svg>
                 Coding
               </div>
+              <div className="interest-badge">
+                <svg style={{ width: '1em', height: '1em', marginRight: '0.4rem' }} viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z" />
+                </svg>
+                Anime
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      {showToast && (
-        <div className="toast-notification">
-          <svg style={{ width: '1.5em', height: '1.5em', marginRight: '0.75rem', flexShrink: 0 }} viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
-          </svg>
-          <div>
-            <div className="toast-title">Upcoming Feature</div>
-            <div className="toast-message">CV download will be available soon!</div>
+      {
+        showToast && (
+          <div className="toast-notification">
+            <svg style={{ width: '1.5em', height: '1.5em', marginRight: '0.75rem', flexShrink: 0 }} viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+            </svg>
+            <div>
+              <div className="toast-title">Upcoming Feature</div>
+              <div className="toast-message">CV download will be available soon!</div>
+            </div>
           </div>
-        </div>
-      )}
-    </div>
+        )
+      }
+
+      {
+        showMusicModal && (
+          <div className="music-modal-backdrop" onClick={() => setShowMusicModal(false)}>
+            <div className="music-modal" onClick={(e) => e.stopPropagation()}>
+              <div className="music-modal-header">
+                <h3>🎵 Favorite Music</h3>
+                <button className="music-modal-close" onClick={() => setShowMusicModal(false)}>×</button>
+              </div>
+              <div className="music-modal-content">
+                <div className="music-item">
+                  <div className="music-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 3v9.28c-.47-.17-.97-.28-1.5-.28C8.01 12 6 14.01 6 16.5S8.01 21 10.5 21c2.31 0 4.2-1.75 4.45-4H15V6h4V3h-7z" />
+                    </svg>
+                  </div>
+                  <div className="music-info">
+                    <div className="music-title">Bohemian Rhapsody</div>
+                    <div className="music-artist">Queen</div>
+                  </div>
+                </div>
+                <div className="music-item">
+                  <div className="music-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 3v9.28c-.47-.17-.97-.28-1.5-.28C8.01 12 6 14.01 6 16.5S8.01 21 10.5 21c2.31 0 4.2-1.75 4.45-4H15V6h4V3h-7z" />
+                    </svg>
+                  </div>
+                  <div className="music-info">
+                    <div className="music-title">Imagine</div>
+                    <div className="music-artist">John Lennon</div>
+                  </div>
+                </div>
+                <div className="music-item">
+                  <div className="music-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 3v9.28c-.47-.17-.97-.28-1.5-.28C8.01 12 6 14.01 6 16.5S8.01 21 10.5 21c2.31 0 4.2-1.75 4.45-4H15V6h4V3h-7z" />
+                    </svg>
+                  </div>
+                  <div className="music-info">
+                    <div className="music-title">Billie Jean</div>
+                    <div className="music-artist">Michael Jackson</div>
+                  </div>
+                </div>
+                <div className="music-item">
+                  <div className="music-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 3v9.28c-.47-.17-.97-.28-1.5-.28C8.01 12 6 14.01 6 16.5S8.01 21 10.5 21c2.31 0 4.2-1.75 4.45-4H15V6h4V3h-7z" />
+                    </svg>
+                  </div>
+                  <div className="music-info">
+                    <div className="music-title">Smells Like Teen Spirit</div>
+                    <div className="music-artist">Nirvana</div>
+                  </div>
+                </div>
+                <div className="music-item">
+                  <div className="music-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 3v9.28c-.47-.17-.97-.28-1.5-.28C8.01 12 6 14.01 6 16.5S8.01 21 10.5 21c2.31 0 4.2-1.75 4.45-4H15V6h4V3h-7z" />
+                    </svg>
+                  </div>
+                  <div className="music-info">
+                    <div className="music-title">Hotel California</div>
+                    <div className="music-artist">Eagles</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )
+      }
+    </div >
   );
 };
 
