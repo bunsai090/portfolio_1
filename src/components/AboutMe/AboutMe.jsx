@@ -319,6 +319,7 @@ const AboutMe = (props) => {
               {/* Conditional Header for Spotify vs Generic */}
               {activeInterest === 'music' ? (
                 <div className="spotify-header">
+                  <h2 className="spotify-header-title">Bunsai favorite song &lt;3</h2>
                   <div className="spotify-controls">
                     <button className="spotify-play-btn">
                       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>

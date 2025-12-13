@@ -728,6 +728,13 @@
     border-bottom: 1px solid #282828;
   }
 
+  .spotify-header-title {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+  }
+
   .spotify-controls {
     display: flex;
     align-items: center;
