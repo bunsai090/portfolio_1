@@ -1,0 +1,108 @@
+/* Music/Spotify Content Styles */
+
+/* Scrollbar specific to Spotify content */
+.interest-modal.spotify-theme .interest-modal-content.spotify-content::-webkit-scrollbar-track {
+    background: #121212;
+}
+
+.interest-modal.spotify-theme .interest-modal-content.spotify-content::-webkit-scrollbar-thumb {
+    background: #5a5a5a;
+}
+
+/* Spotify Table Layout */
+.spotify-playlist {
+    width: 100%;
+}
+
+.spotify-table-header {
+    display: grid;
+    grid-template-columns: 40px 4fr 3fr 60px;
+    border-bottom: 1px solid #282828;
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.5rem;
+    color: #b3b3b3;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: sticky;
+    top: 0;
+    background: #121212;
+    z-index: 10;
+}
+
+.spotify-row {
+    display: grid;
+    grid-template-columns: 40px 4fr 3fr 60px;
+    padding: 0.75rem 1rem;
+    border-radius: 4px;
+    color: #b3b3b3;
+    font-size: 0.9rem;
+    align-items: center;
+    transition: background 0.2s ease;
+}
+
+.spotify-row:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.spotify-row:hover .col-index {
+    color: #fff;
+}
+
+.col-index {
+    text-align: center;
+}
+
+.col-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.song-cover {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    object-fit: cover;
+    background: #282828;
+}
+
+.song-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.song-name {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 2px;
+}
+
+.col-album {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.col-date {
+    display: none;
+}
+
+.col-time {
+    text-align: right;
+    font-family: monospace;
+}
+
+/* Mobile Adjustments for Music/Spotify Table */
+@media (max-width: 768px) {
+
+    .spotify-table-header,
+    .spotify-row {
+        grid-template-columns: 40px 1fr 60px;
+    }
+
+    .col-album {
+        display: none;
+    }
+}

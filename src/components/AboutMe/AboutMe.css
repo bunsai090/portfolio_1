@@ -726,6 +726,8 @@
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid #282828;
+    position: relative;
+    /* For absolute centering of title */
   }
 
   .spotify-header-title {
@@ -733,6 +735,12 @@
     font-size: 1.5rem;
     font-weight: 700;
     margin: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+    width: 100%;
+    pointer-events: none;
   }
 
   .spotify-controls {
@@ -782,188 +790,5 @@
     color: #fff;
   }
 
-  .spotify-icon-btn svg {
-    width: 24px;
-    height: 24px;
-  }
 
-  /* Spotify Content Area */
-  .interest-modal-content.spotify-content {
-    padding: 0 2rem 6rem 2rem;
-    /* Bottom padding for player bar */
-    overflow-y: auto;
-    min-height: 0;
-    flex: 1;
-  }
-
-  /* Scrollbar styling specific to Spotify theme */
-  .interest-modal.spotify-theme .interest-modal-content::-webkit-scrollbar-track {
-    background: #121212;
-  }
-
-  .interest-modal.spotify-theme .interest-modal-content::-webkit-scrollbar-thumb {
-    background: #5a5a5a;
-  }
-
-  /* Spotify Table Layout */
-  .spotify-playlist {
-    width: 100%;
-  }
-
-  .spotify-table-header {
-    display: grid;
-    grid-template-columns: 40px 4fr 3fr 60px;
-    border-bottom: 1px solid #282828;
-    padding: 0.5rem 1rem;
-    margin-bottom: 0.5rem;
-    color: #b3b3b3;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    position: sticky;
-    top: 0;
-    background: #121212;
-    /* Sticky header */
-    z-index: 10;
-  }
-
-  .spotify-row {
-    display: grid;
-    grid-template-columns: 40px 4fr 3fr 60px;
-    padding: 0.75rem 1rem;
-    border-radius: 4px;
-    color: #b3b3b3;
-    font-size: 0.9rem;
-    align-items: center;
-    transition: background 0.2s ease;
-  }
-
-  .spotify-row:hover {
-    background: rgba(255, 255, 255, 0.1);
-  }
-
-  .spotify-row:hover .col-index {
-    color: #fff;
-  }
-
-  .col-index {
-    text-align: center;
-  }
-
-  .col-title {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .song-cover {
-    width: 40px;
-    height: 40px;
-    border-radius: 4px;
-    object-fit: cover;
-    background: #282828;
-  }
-
-  .song-info {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .song-name {
-    color: #fff;
-    font-size: 1rem;
-    font-weight: 500;
-    margin-bottom: 2px;
-  }
-
-  .col-album {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  .col-date {
-    display: none;
-  }
-
-  .col-time {
-    text-align: right;
-    font-family: monospace;
-  }
-
-  /* Player Bar */
-  .spotify-player-bar {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 90px;
-    background: #181818;
-    border-top: 1px solid #282828;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    z-index: 20;
-  }
-
-  .player-progress-line {
-    width: 100%;
-    height: 4px;
-    background: #404040;
-    margin-bottom: auto;
-    position: relative;
-  }
-
-  .player-progress-line::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 30%;
-    /* Fake progress */
-    background: #fff;
-    border-radius: 0 2px 2px 0;
-  }
-
-  .player-progress-line:hover::after {
-    background: #1db954;
-  }
-
-  .player-controls-mock {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    padding-bottom: 1rem;
-  }
-
-  /* Mobile Adjustments for Spotify Table */
-  @media (max-width: 768px) {
-    .interest-modal.spotify-theme {
-      width: 100%;
-      height: 100%;
-      border-radius: 0;
-      max-width: none;
-      max-height: none;
-    }
-
-    .spotify-table-header,
-    .spotify-row {
-      grid-template-columns: 40px 1fr 60px;
-      /* Hide Album/Date on mobile */
-    }
-
-    .col-album {
-      display: none;
-    }
-
-    .spotify-header {
-      padding: 1rem;
-    }
-
-    .interest-modal-content.spotify-content {
-      padding: 0 1rem 6rem 1rem;
-    }
-  }
+  ```
