@@ -17,15 +17,8 @@ const iconStyle = {
 };
 
 const AboutMe = (props) => {
-  const [showToast, setShowToast] = useState(false);
   const [activeInterest, setActiveInterest] = useState(null);
 
-  const handleDownloadCV = () => {
-    setShowToast(true);
-    setTimeout(() => {
-      setShowToast(false);
-    }, 3000);
-  };
 
   // Prevent scrolling when modal is open
   useEffect(() => {
@@ -109,12 +102,17 @@ const AboutMe = (props) => {
           </div>
 
 
-          <button className="download-cv-btn" onClick={handleDownloadCV}>
+          <a
+            className="download-cv-btn"
+            href="/Saporno, John Christian R,- resume.pdf"
+            download="John_Christian_Resume.pdf"
+            style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
+          >
             <svg style={{ width: '1.2em', height: '1.2em', marginRight: '0.5rem' }} viewBox="0 0 24 24" fill="currentColor">
               <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" />
             </svg>
             Download CV
-          </button>
+          </a>
 
           <div className="aboutme-interests">
             <div className="interests-title">Interests:</div>
@@ -225,18 +223,7 @@ const AboutMe = (props) => {
         )
       }
 
-      {/* Toast Notification */}
-      {showToast && (
-        <div className="toast-notification">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
-          </svg>
-          <div>
-            <div className="toast-title">Upcoming Feature</div>
-            <div className="toast-message">This feature will be available soon.</div>
-          </div>
-        </div>
-      )}
+
     </div >
   );
 };

@@ -20,7 +20,7 @@ const Hero = () => {
     <section className="hero">
       <h2 className="hero-greeting">Hello It’s Me</h2>
       <h1 className="hero-name">John Christian</h1>
-      <h3 className="hero-title">And I’m a <span>UI/UX Designer</span></h3>
+      <h3 className="hero-title">And I’m a <span className="typing-text">Frontend Developer</span></h3>
       <p className="hero-desc">
         I create interactive web interfaces using React.js. I turn design ideas into functional web pages with clean layouts and smooth user experience.
       </p>
