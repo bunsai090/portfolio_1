@@ -17,16 +17,16 @@ const interestsData = {
     title: "Favorite Music",
     emoji: "🎵",
     items: [
-      { id: 1, title: "Konsensya", artist: "IV OF SPADES", album: "Konsensya", date: "Sep 13, 2025", duration: "3:33" },
-      { id: 2, title: "Ikaw Lang Patutunguhan", artist: "Amiel Sol", album: "Ikaw Lang Patutunguhan", date: "Aug 20, 2025", duration: "5:26" },
-      { id: 3, title: "Sagip", artist: "Jan Roberts", album: "Sagip", date: "Aug 15, 2025", duration: "3:52" },
-      { id: 4, title: "How Can I Tell Her", artist: "Lobo", album: "Calumet", date: "Aug 14, 2025", duration: "4:20" },
-      { id: 5, title: "Pangako", artist: "Cueshé", album: "Life", date: "Aug 14, 2025", duration: "3:36" },
-      { id: 6, title: "Balisong - Transformed", artist: "Rico Blanco", album: "Balisong (Transformed)", date: "Aug 14, 2025", duration: "2:43" },
-      { id: 7, title: "Pahintulot", artist: "shirebound", album: "For Princesses, By Thieves...", date: "Aug 13, 2025", duration: "4:57" },
-      { id: 8, title: "Waltz of Four Left Feet", artist: "shirebound", album: "For Princesses, By Thieves...", date: "Aug 13, 2025", duration: "5:37" },
-      { id: 9, title: "Hirap Kalimutan", artist: "Jan Roberts", album: "Hirap Kalimutan", date: "Aug 13, 2025", duration: "2:53" },
-      { id: 10, title: "Saksi Ang Langit", artist: "December Avenue", album: "Saksi Ang Langit", date: "Aug 13, 2025", duration: "4:19" }
+      { id: 1, title: "Kalapastangan", artist: "fitterkarma", album: "Kalapastangan", date: "Sep 22, 2025", duration: "3:45" },
+      { id: 2, title: "Balisong", artist: "Rico Blanco", album: "Your Universe", date: "Sep 21, 2025", duration: "3:58" },
+      { id: 3, title: "Creep", artist: "Radiohead", album: "Pablo Honey", date: "Sep 20, 2025", duration: "3:56" },
+      { id: 4, title: "Mundo", artist: "IV of Spades", album: "ClapClapClap!", date: "Sep 19, 2025", duration: "5:50" },
+      { id: 5, title: "Panaginip", artist: "nicole", album: "Panaginip", date: "Sep 18, 2025", duration: "4:20" },
+      { id: 6, title: "Sagip", artist: "Jan Roberts", album: "Sagip", date: "Sep 17, 2025", duration: "3:52" },
+      { id: 7, title: "Medisina", artist: "Zild", album: "Medisina", date: "Sep 16, 2025", duration: "4:05" },
+      { id: 8, title: "Sesame Syrup", artist: "Cigarettes After Sex", album: "Cigarettes After Sex", date: "Sep 15, 2025", duration: "4:48" },
+      { id: 9, title: "Secret Door", artist: "Official Arctic Monkeys", album: "Humbug", date: "Sep 14, 2025", duration: "3:43" },
+      { id: 10, title: "All The Stars", artist: "Kendrick Lamar, SZA", album: "Black Panther", date: "Sep 13, 2025", duration: "3:52" }
     ]
   },
   movies: {
