@@ -64,9 +64,34 @@
 }
 
 .tech-icon {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+    width: 24px;
+    height: 24px;
+    color: #a1a1aa;
+    transition: all 0.3s ease;
+}
+
+.tech-icon-wrapper:hover .tech-icon {
+    color: #fff;
+}
+
+.tech-icon-wrapper:hover .react-icon {
+    color: #61DAFB;
+}
+
+.tech-icon-wrapper:hover .vite-icon {
+    color: #646CFF;
+}
+
+.tech-icon-wrapper:hover .html-icon {
+    color: #E34F26;
+}
+
+.tech-icon-wrapper:hover .css-icon {
+    color: #1572B6;
+}
+
+.tech-icon-wrapper:hover .node-icon {
+    color: #339933;
 }
 
 /* Copyright Text */
