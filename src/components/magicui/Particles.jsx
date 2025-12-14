@@ -50,7 +50,14 @@ const Particles = ({
         }
         initCanvas();
         animate();
-        window.addEventListener("resize", initCanvas);
+
+        const resizeObserver = new ResizeObserver(() => {
+            initCanvas();
+        });
+
+        if (canvasContainerRef.current) {
+            resizeObserver.observe(canvasContainerRef.current);
+        }
 
         const onMouseMove = (e) => {
             if (canvasRef.current) {
@@ -62,7 +69,7 @@ const Particles = ({
         window.addEventListener('mousemove', onMouseMove);
 
         return () => {
-            window.removeEventListener("resize", initCanvas);
+            resizeObserver.disconnect();
             window.removeEventListener('mousemove', onMouseMove);
             if (rafID.current) cancelAnimationFrame(rafID.current);
         };
