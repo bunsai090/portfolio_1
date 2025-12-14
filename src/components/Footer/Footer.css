@@ -1,0 +1,89 @@
+/* Footer Container */
+.footer-container {
+    background-color: #0a0a0a;
+    padding: 2rem 0;
+    text-align: center;
+    color: #ffffff;
+    border-top: 1px solid #1a1a1a;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/* "Built with:" Text */
+.built-with-text {
+    font-size: 1.2rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #1db954, #3b82f6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: 0.5px;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+/* Tech Icons Row */
+.tech-stack {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.tech-icon-wrapper {
+    width: 55px;
+    height: 55px;
+    background-color: rgba(255, 255, 255, 0.05);
+    /* Glassmorphism */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.tech-icon-wrapper:hover {
+    transform: translateY(-5px);
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: #1db954;
+    box-shadow: 0 5px 15px rgba(29, 185, 84, 0.2);
+}
+
+.tech-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Copyright Text */
+.copyright-text {
+    color: #888888;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+    .tech-stack {
+        gap: 0.8rem;
+    }
+
+    .tech-icon-wrapper {
+        width: 40px;
+        height: 40px;
+        padding: 6px;
+    }
+}

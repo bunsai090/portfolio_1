@@ -7,6 +7,7 @@ import AboutMe from './components/AboutMe/AboutMe';
 import Skills from './components/Skills/Skills';
 import Projects from './components/Projects/Projects';
 import ContactMe from './components/contact_me/ContactMe';
+import Footer from './components/Footer/Footer';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
@@ -23,6 +24,7 @@ function App() {
       anchorPlacement: 'top-bottom',
     });
   }, []);
+
   return (
     <>
       <Navbar />
@@ -40,6 +42,7 @@ function App() {
         <Skills data-aos="fade-up" />
         <Projects data-aos="fade-up" />
         <ContactMe data-aos="fade-up" />
+        <Footer />
       </div>
     </>
   );
