@@ -66,7 +66,7 @@ body,
   box-sizing: border-box;
 }
 
-.main-content>div:first-child {
+.main-content>.hero-wrapper {
   flex: 2 1 0%;
   min-width: 0;
 }
@@ -92,7 +92,7 @@ body,
     padding: 1.5rem 0.5rem;
   }
 
-  .main-content>div:first-child {
+  .main-content>.hero-wrapper {
     width: 100%;
     align-items: center;
     gap: 2rem;
