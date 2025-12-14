@@ -1,13 +1,8 @@
 import React from 'react';
 import './Footer.css';
 
-// Import Icons
-import reactIcon from '../../assets/react.svg';
-import viteIcon from '../../assets/VITE.png';
-import htmlIcon from '../../assets/html.png';
-import cssIcon from '../../assets/css-3.png';
-import nodeIcon from '../../assets/nodejs.png'; // Using Node as part of the stack
-// If you want JS, we can just use Node, or maybe generic if needed. Node is good.
+import { FaReact, FaHtml5, FaCss3, FaNodeJs } from 'react-icons/fa';
+import { SiVite } from 'react-icons/si';
 
 const Footer = () => {
     return (
@@ -17,19 +12,19 @@ const Footer = () => {
 
                 <div className="tech-stack">
                     <div className="tech-icon-wrapper" title="React">
-                        <img src={reactIcon} alt="React" className="tech-icon" />
+                        <FaReact className="tech-icon react-icon" />
                     </div>
                     <div className="tech-icon-wrapper" title="Vite">
-                        <img src={viteIcon} alt="Vite" className="tech-icon" />
+                        <SiVite className="tech-icon vite-icon" />
                     </div>
                     <div className="tech-icon-wrapper" title="HTML5">
-                        <img src={htmlIcon} alt="HTML5" className="tech-icon" />
+                        <FaHtml5 className="tech-icon html-icon" />
                     </div>
                     <div className="tech-icon-wrapper" title="CSS3">
-                        <img src={cssIcon} alt="CSS3" className="tech-icon" />
+                        <FaCss3 className="tech-icon css-icon" />
                     </div>
                     <div className="tech-icon-wrapper" title="Node.js">
-                        <img src={nodeIcon} alt="Node.js" className="tech-icon" />
+                        <FaNodeJs className="tech-icon node-icon" />
                     </div>
                 </div>
 
