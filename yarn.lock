@@ -219,6 +219,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@csstools/convert-colors@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "@csstools/convert-colors@npm:2.0.0"
+  checksum: 10c0/242af506b24a4b286966171f3995214487b45bd07cd4cc24167b3b2ec70ab2b701098a3b1e2403b78f6b83735afb9cdcf415634d66896a67654256815f88df57
+  languageName: node
+  linkType: hard
+
 "@esbuild/aix-ppc64@npm:0.25.6":
   version: 0.25.6
   resolution: "@esbuild/aix-ppc64@npm:0.25.6"
@@ -2035,6 +2042,7 @@ __metadata:
     globals: "npm:^16.3.0"
     react: "npm:^19.1.0"
     react-dom: "npm:^19.1.0"
+    react-icon-cloud: "npm:^4.1.7"
     react-icons: "npm:^5.5.0"
     vite: "npm:^7.0.4"
   languageName: unknown
@@ -2090,6 +2098,17 @@ __metadata:
   peerDependencies:
     react: ^19.1.0
   checksum: 10c0/3e26e89bb6c67c9a6aa86cb888c7a7f8258f2e347a6d2a15299c17eb16e04c19194e3452bc3255bd34000a61e45e2cb51e46292392340432f133e5a5d2dfb5fc
+  languageName: node
+  linkType: hard
+
+"react-icon-cloud@npm:^4.1.7":
+  version: 4.1.7
+  resolution: "react-icon-cloud@npm:4.1.7"
+  dependencies:
+    "@csstools/convert-colors": "npm:^2.0.0"
+  peerDependencies:
+    react: ">=16"
+  checksum: 10c0/25d6a3a5447a5f3ca62a7f4c00a4a4ab8ed1522f5f050a945a63cfb622f297ea0673abe8f391dfc093c41bfa71a59c17f34b98a7e746515a6ecd51b42928b8f6
   languageName: node
   linkType: hard
 
