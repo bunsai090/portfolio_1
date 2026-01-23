@@ -36,7 +36,7 @@ const slugs = [
 
 export function IconCloudDemo() {
     const images = slugs.map(
-        (slug) => `https://cdn.simpleicons.org/${slug}/${slug}/bcbcbc`
+        (slug) => `https://cdn.simpleicons.org/${slug}/bcbcbc`
     );
 
     return (
