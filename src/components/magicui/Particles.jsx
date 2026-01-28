@@ -1,34 +1,10 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
-
-function MousePosition() {
-    const [mousePosition, setMousePosition] = useState({
-        x: 0,
-        y: 0,
-    });
-
-    useEffect(() => {
-        const handleMouseMove = (event) => {
-            setMousePosition({ x: event.clientX, y: event.clientY });
-        };
-
-        window.addEventListener("mousemove", handleMouseMove);
-
-        return () => {
-            window.removeEventListener("mousemove", handleMouseMove);
-        };
-    }, []);
-
-    return mousePosition;
-}
+import React, { useEffect, useRef } from "react";
 
 const Particles = ({
     className = "",
     quantity = 100,
-    staticity = 50,
-    ease = 50,
-    size = 0.4,
     refresh = false,
     color = "#ffffff",
     vx = 0,
@@ -43,6 +19,29 @@ const Particles = ({
     const canvasSize = useRef({ w: 0, h: 0 });
     const dpr = typeof window !== "undefined" ? window.devicePixelRatio : 1;
     const rafID = useRef(null);
+
+    const initCanvas = () => {
+        onResize();
+        drawParticles();
+    };
+
+    const onResize = () => {
+        if (canvasContainerRef.current && canvasRef.current && context.current) {
+            circles.current.length = 0;
+            canvasSize.current.w = canvasContainerRef.current.offsetWidth;
+            canvasSize.current.h = canvasContainerRef.current.offsetHeight;
+            canvasRef.current.width = canvasSize.current.w * dpr;
+            canvasRef.current.height = canvasSize.current.h * dpr;
+            canvasRef.current.style.width = `100%`;
+            canvasRef.current.style.height = `100%`;
+            context.current.scale(dpr, dpr);
+        }
+    };
+
+    const animate = () => {
+        draw();
+        rafID.current = requestAnimationFrame(animate);
+    }
 
     useEffect(() => {
         if (canvasRef.current) {
@@ -73,29 +72,13 @@ const Particles = ({
             window.removeEventListener('mousemove', onMouseMove);
             if (rafID.current) cancelAnimationFrame(rafID.current);
         };
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [color]);
 
     useEffect(() => {
         onResize();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [refresh]);
-
-    const initCanvas = () => {
-        onResize();
-        drawParticles();
-    };
-
-    const onResize = () => {
-        if (canvasContainerRef.current && canvasRef.current && context.current) {
-            circles.current.length = 0;
-            canvasSize.current.w = canvasContainerRef.current.offsetWidth;
-            canvasSize.current.h = canvasContainerRef.current.offsetHeight;
-            canvasRef.current.width = canvasSize.current.w * dpr;
-            canvasRef.current.height = canvasSize.current.h * dpr;
-            canvasRef.current.style.width = `100%`;
-            canvasRef.current.style.height = `100%`;
-            context.current.scale(dpr, dpr);
-        }
-    };
 
     const circleParams = () => {
         const x = Math.floor(Math.random() * canvasSize.current.w);
@@ -162,7 +145,7 @@ const Particles = ({
 
     const draw = () => {
         clearContext();
-        circles.current.forEach((circle, i) => {
+        circles.current.forEach((circle) => {
             // Handle edges
             if (circle.x < -circle.size) circle.x = canvasSize.current.w + circle.size;
             if (circle.x > canvasSize.current.w + circle.size) circle.x = -circle.size;
@@ -183,11 +166,6 @@ const Particles = ({
             drawCircle(circle, true);
         });
     };
-
-    const animate = () => {
-        draw();
-        rafID.current = requestAnimationFrame(animate);
-    }
 
     const hexToRgb = (hex) => {
         var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
