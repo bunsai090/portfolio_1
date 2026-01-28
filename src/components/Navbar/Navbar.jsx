@@ -11,6 +11,7 @@ const Navbar = () => {
       const aboutSection = document.getElementById('aboutme');
       const skillsSection = document.getElementById('skills');
       const projectsSection = document.getElementById('projects');
+      const certificationsSection = document.getElementById('certifications');
       const contactSection = document.getElementById('contact');
       const scrollY = window.scrollY;
       const windowHeight = window.innerHeight;
@@ -24,6 +25,7 @@ const Navbar = () => {
       const aboutTop = aboutSection ? aboutSection.offsetTop - offset : 0;
       const skillsTop = skillsSection ? skillsSection.offsetTop - offset : 0;
       const projectsTop = projectsSection ? projectsSection.offsetTop - offset : 0;
+      const certificationsTop = certificationsSection ? certificationsSection.offsetTop - offset : 0;
       const contactTop = contactSection ? contactSection.offsetTop - offset : 0;
 
       // Check if we're near the bottom of the page (within 100px)
@@ -31,6 +33,8 @@ const Navbar = () => {
 
       if (isNearBottom || scrollY >= contactTop) {
         setActiveSection('contact');
+      } else if (scrollY >= certificationsTop) {
+        setActiveSection('certifications');
       } else if (scrollY >= projectsTop) {
         setActiveSection('projects');
       } else if (scrollY >= skillsTop) {
@@ -99,6 +103,7 @@ const Navbar = () => {
           <li><a href="#aboutme" className={activeSection === 'aboutme' ? 'active' : ''} onClick={() => handleNavClick('aboutme')}>About</a></li>
           <li><a href="#skills" className={activeSection === 'skills' ? 'active' : ''} onClick={() => handleNavClick('skills')}>Skills</a></li>
           <li><a href="#projects" className={activeSection === 'projects' ? 'active' : ''} onClick={() => handleNavClick('projects')}>Projects</a></li>
+          <li><a href="#certifications" className={activeSection === 'certifications' ? 'active' : ''} onClick={() => handleNavClick('certifications')}>Certifications</a></li>
           <li><a href="#contact" className={activeSection === 'contact' ? 'active' : ''} onClick={() => handleNavClick('contact')}>Contact</a></li>
           <li className="navbar-github-mobile">
             <a href="https://github.com/bunsai090" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
