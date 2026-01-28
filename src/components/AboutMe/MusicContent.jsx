@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './AboutMe.css';
 import './MusicContent.css';
 
 const MusicContent = ({ items }) => {
+    const [playingId, setPlayingId] = useState(null);
+
+    const handleRowClick = (id) => {
+        setPlayingId(playingId === id ? null : id);
+    };
+
     return (
         <div className="spotify-playlist">
             <div className="spotify-table-header">
@@ -17,10 +23,31 @@ const MusicContent = ({ items }) => {
                 </div>
             </div>
             {items.map((item, index) => (
-                <div className="spotify-row" key={index}>
-                    <div className="col-index">{item.id}</div>
+                <div 
+                    className={`spotify-row ${playingId === item.id ? 'playing' : ''}`} 
+                    key={index}
+                    onClick={() => handleRowClick(item.id)}
+                >
+                    <div className="col-index">
+                        {playingId === item.id ? (
+                            <div className="equalizer">
+                                <span className="bar"></span>
+                                <span className="bar"></span>
+                                <span className="bar"></span>
+                            </div>
+                        ) : (
+                            item.id
+                        )}
+                    </div>
                     <div className="col-title">
-                        <img src={item.cover} alt={item.title} className="song-cover" />
+                        <div className="song-cover-wrapper">
+                            <img src={item.cover} alt={item.title} className="song-cover" />
+                            <div className="play-button-overlay">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg>
+                            </div>
+                        </div>
                         <div className="song-info">
                             <div className="song-name">{item.title}</div>
                             <div className="song-artist">{item.artist}</div>
@@ -35,3 +62,4 @@ const MusicContent = ({ items }) => {
 };
 
 export default MusicContent;
+
