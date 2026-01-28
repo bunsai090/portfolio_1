@@ -6,6 +6,7 @@ import ProfileCard from './components/ProfileCard/ProfileCard';
 import AboutMe from './components/AboutMe/AboutMe';
 import Skills from './components/Skills/Skills';
 import Projects from './components/Projects/Projects';
+import Certifications from './components/Certifications/Certifications';
 import ContactMe from './components/contact_me/ContactMe';
 import Footer from './components/Footer/Footer';
 import Particles from './components/magicui/Particles';
@@ -58,6 +59,7 @@ function App() {
         <AboutMe data-aos="fade-up" />
         <Skills data-aos="fade-up" />
         <Projects data-aos="fade-up" />
+        <Certifications data-aos="fade-up" />
         <ContactMe data-aos="fade-up" />
         <Footer />
       </div>
