@@ -4,6 +4,7 @@ import './Certifications.css';
 import googleDevCert from '../../assets/Certification/Google Developer Group Certicate.png';
 import nationalCert from '../../assets/Certification/National Certificate II.jpg';
 import cssTraining from '../../assets/Certification/Computer System Servicing Training.jpg';
+import networkingCert from '../../assets/Certification/Networking Basics.png';
 import ojtCert from '../../assets/Certification/OJT Axztech IT Solutions.png';
 
 const certifications = [
@@ -29,6 +30,13 @@ const certifications = [
     desc: 'Completed comprehensive training in computer system servicing, covering hardware maintenance and software installation.',
   },
   {
+    image: networkingCert,
+    title: 'Networking Basics',
+    organization: 'Cisco Networking Academy',
+    year: '2023',
+    desc: 'Completed course on networking fundamentals, covering network architecture, protocols, and troubleshooting.',
+  },
+  {
     image: ojtCert,
     title: 'OJT Completion Certificate',
     organization: 'Axztech IT Solutions',
@@ -39,6 +47,26 @@ const certifications = [
 
 const Certifications = (props) => {
   const [selectedCert, setSelectedCert] = useState(null);
+  // Carousel state
+  const ref = React.useRef(null);
+
+  // Group certifications into chunks of 4 for the 2x2 layout
+  const chunkedCerts = [];
+  for (let i = 0; i < certifications.length; i += 4) {
+    chunkedCerts.push(certifications.slice(i, i + 4));
+  }
+
+  const slideLeft = () => {
+    if (ref.current) {
+      ref.current.scrollBy({ left: -ref.current.offsetWidth, behavior: 'smooth' });
+    }
+  };
+
+  const slideRight = () => {
+    if (ref.current) {
+      ref.current.scrollBy({ left: ref.current.offsetWidth, behavior: 'smooth' });
+    }
+  };
 
   const openModal = (cert) => {
     setSelectedCert(cert);
@@ -54,22 +82,39 @@ const Certifications = (props) => {
     <section className="certifications-section" id="certifications" {...props}>
       <h2 className="certifications-title">Certifications & Education</h2>
       <p className="certifications-subtitle">"Achievements and continuous learning journey."</p>
-      <div className="certifications-grid">
-        {certifications.map((cert, idx) => (
-          <div 
-            className="certification-card" 
-            key={cert.title + idx}
-            onClick={() => openModal(cert)}
-          >
-            <div className="certification-img-wrap">
-              <img src={cert.image} alt={cert.title} className="certification-img" />
+      
+      <div className="certifications-container">
+        <button className="nav-btn prev-btn" onClick={slideLeft}>
+          &#10094;
+        </button>
+        
+        <div className="certifications-slider" ref={ref}>
+          {chunkedCerts.map((chunk, chunkIdx) => (
+            <div className="certification-slide" key={chunkIdx}>
+              {chunk.map((cert, idx) => (
+                <div 
+                  className="certification-card" 
+                  key={cert.title + idx}
+                  onClick={() => openModal(cert)}
+                >
+                  <div className="certification-img-wrap">
+                    <img src={cert.image} alt={cert.title} className="certification-img" />
+                  </div>
+                  <div className="certification-details">
+                    <div className="certification-title">{cert.title}</div>
+                    <div className="certification-organization">{cert.organization}</div>
+                    <div className="certification-year">{cert.year}</div>
+                    <div className="certification-desc">{cert.desc}</div>
+                  </div>
+                </div>
+              ))}
             </div>
-            <div className="certification-title">{cert.title}</div>
-            <div className="certification-organization">{cert.organization}</div>
-            <div className="certification-year">{cert.year}</div>
-            <div className="certification-desc">{cert.desc}</div>
-          </div>
-        ))}
+          ))}
+        </div>
+
+        <button className="nav-btn next-btn" onClick={slideRight}>
+          &#10095;
+        </button>
       </div>
 
       {selectedCert && (
