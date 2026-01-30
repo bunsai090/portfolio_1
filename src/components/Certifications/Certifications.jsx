@@ -47,13 +47,27 @@ const certifications = [
 
 const Certifications = (props) => {
   const [selectedCert, setSelectedCert] = useState(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 900);
+  
   // Carousel state
   const ref = React.useRef(null);
 
-  // Group certifications into chunks of 4 for the 2x2 layout
+  // Handle window resize
+  React.useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 900);
+    };
+    
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Group certifications into chunks based on screen size
+  // Desktop: 4 per slide (2x2 grid), Mobile: 2 per slide (2x1 stack)
+  const chunkSize = isMobile ? 2 : 4;
   const chunkedCerts = [];
-  for (let i = 0; i < certifications.length; i += 4) {
-    chunkedCerts.push(certifications.slice(i, i + 4));
+  for (let i = 0; i < certifications.length; i += chunkSize) {
+    chunkedCerts.push(certifications.slice(i, i + chunkSize));
   }
 
   const slideLeft = () => {
