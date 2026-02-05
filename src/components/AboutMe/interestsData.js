@@ -7,7 +7,7 @@ import panaginipCover from '../../assets/panaginip.png';
 import sagipCover from '../../assets/sagip.png';
 import medisinaCover from '../../assets/Medisina .png';
 import sesameCover from '../../assets/Sesame Syrup.png';
-import secretdoorCover from '../../assets/secret door.png';
+// import secretdoorCover from '../../assets/secret door.png';
 import allthestarsCover from '../../assets/All The Stars.png';
 import meanItCover from '../../assets/mean it.png';
 

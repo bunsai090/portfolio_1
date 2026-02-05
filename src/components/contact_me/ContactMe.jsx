@@ -31,7 +31,7 @@ const ContactMe = (props) => {
           setResult({ success: true, message: "Message sent successfully!" });
           setForm({ name: "", email: "", title: "", message: "" });
         },
-        (error) => {
+        () => {
           setResult({ success: false, message: "Failed to send message. Please try again later." });
         }
       )

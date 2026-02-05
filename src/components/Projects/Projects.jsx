@@ -68,7 +68,7 @@ const Projects = (props) => (
     <h2 className="projects-title">Past Project Experience</h2>
     <p className="projects-subtitle">"Explore the projects I’ve worked on."</p>
     <div className="projects-grid">
-      {projects.map((project, idx) => (
+      {projects.map((project) => (
         <div className="project-card" key={project.title}>
           <div className="project-img-wrap">
             <img src={project.image} alt={project.title} className="project-img" />
