@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Projects.css';
 import personalWebsite from '../../assets/personal website.png';
 import studentManagement from '../../assets/student_management_system.png';
@@ -63,33 +63,85 @@ const projects = [
   },
 ];
 
-const Projects = (props) => (
-  <section className="projects-section" id="projects" {...props}>
-    <h2 className="projects-title">Past Project Experience</h2>
-    <p className="projects-subtitle">"Explore the projects I’ve worked on."</p>
-    <div className="projects-grid">
-      {projects.map((project, idx) => (
-        <div className="project-card" key={project.title}>
-          <div className="project-img-wrap">
-            <img src={project.image} alt={project.title} className="project-img" />
-          </div>
-          <div className="project-title">{project.title}</div>
-          <div className="project-desc">{project.desc}</div>
-          <div className="project-stack-label">Teach Stack:</div>
-          <div className="project-stack">
-            {project.stack.map((tech, i) => (
-              <span className="project-tech" style={{ color: tech.color }} key={tech.name + i}>{tech.name}</span>
-            ))}
-          </div>
-          <div className="project-links">
-            <a href={project.github} className="project-link" target="_blank" rel="noopener noreferrer">
-              <ShareIcon />
-            </a>
-          </div>
-        </div>
-      ))}
-    </div>
-  </section>
-);
+const Projects = (props) => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 900);
+  
+  // Carousel state
+  const ref = React.useRef(null);
 
-export default Projects; 
+  // Handle window resize
+  React.useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 900);
+    };
+    
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Group projects into chunks based on screen size
+  // Desktop: 4 per slide (1x4 row), Mobile: 2 per slide (2x1 stack)
+  const chunkSize = isMobile ? 2 : 4;
+  const chunkedProjects = [];
+  for (let i = 0; i < projects.length; i += chunkSize) {
+    chunkedProjects.push(projects.slice(i, i + chunkSize));
+  }
+
+  const slideLeft = () => {
+    if (ref.current) {
+      ref.current.scrollBy({ left: -ref.current.offsetWidth, behavior: 'smooth' });
+    }
+  };
+
+  const slideRight = () => {
+    if (ref.current) {
+      ref.current.scrollBy({ left: ref.current.offsetWidth, behavior: 'smooth' });
+    }
+  };
+
+  return (
+    <section className="projects-section" id="projects" {...props}>
+      <h2 className="projects-title">Past Project Experience</h2>
+      <p className="projects-subtitle">"Explore the projects I've worked on."</p>
+      
+      <div className="projects-container">
+        <button className="nav-btn prev-btn" onClick={slideLeft}>
+          &#10094;
+        </button>
+        
+        <div className="projects-slider" ref={ref}>
+          {chunkedProjects.map((chunk, chunkIdx) => (
+            <div className="project-slide" key={chunkIdx}>
+              {chunk.map((project, idx) => (
+                <div className="project-card" key={project.title + idx}>
+                  <div className="project-img-wrap">
+                    <img src={project.image} alt={project.title} className="project-img" />
+                  </div>
+                  <div className="project-title">{project.title}</div>
+                  <div className="project-desc">{project.desc}</div>
+                  <div className="project-stack-label">Teach Stack:</div>
+                  <div className="project-stack">
+                    {project.stack.map((tech, i) => (
+                      <span className="project-tech" style={{ color: tech.color }} key={tech.name + i}>{tech.name}</span>
+                    ))}
+                  </div>
+                  <div className="project-links">
+                    <a href={project.github} className="project-link" target="_blank" rel="noopener noreferrer">
+                      <ShareIcon />
+                    </a>
+                  </div>
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+
+        <button className="nav-btn next-btn" onClick={slideRight}>
+          &#10095;
+        </button>
+      </div>
+    </section>
+  );
+};
+
+export default Projects;
