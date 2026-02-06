@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import './Skills.css';
 import bootstrapIcon from '../../assets/boron_13574994.png';
 import cssIcon from '../../assets/css-3.png';
@@ -162,6 +162,7 @@ const skillsData = [
     level: 'Comfortable',
     color: '#f24e1e'
   }
+// removed unused "i"
 ];
 
 const categories = [
@@ -173,8 +174,21 @@ const categories = [
 
 const Skills = (props) => {
   const [activeCategory, setActiveCategory] = useState('Frontend');
+  const scrollRef = useRef(null);
 
   const filteredSkills = skillsData.filter(skill => skill.category === activeCategory);
+
+  const scroll = (direction) => {
+    if (scrollRef.current) {
+      const { current } = scrollRef;
+      const scrollAmount = 300; // Adjust based on card width + gap
+      if (direction === 'left') {
+        current.scrollLeft -= scrollAmount;
+      } else {
+        current.scrollLeft += scrollAmount;
+      }
+    }
+  };
 
   return (
     <div className="skills-section" id="skills" {...props}>
@@ -208,18 +222,28 @@ const Skills = (props) => {
         ))}
       </div>
 
-      <div className="skills-grid">
-        {filteredSkills.map((skill, index) => (
-          <div className="skill-card" key={index}>
-            <div className="skill-icon-wrapper">
-              <img src={skill.icon} alt={skill.name} className="skill-main-icon" />
+      <div className="skills-slider-container">
+        <button className="nav-btn prev" onClick={() => scroll('left')}>
+          &#8249;
+        </button>
+        
+        <div className="skills-slider" ref={scrollRef}>
+          {filteredSkills.map((skill, index) => (
+            <div className="skill-card" key={index}>
+              <div className="skill-icon-wrapper">
+                <img src={skill.icon} alt={skill.name} className="skill-main-icon" />
+              </div>
+              <h3 className="skill-name">{skill.name}</h3>
+              <div className="skill-badge" style={{ color: '#bcbcbc', borderColor: '#bcbcbc' }}>
+                {skill.level}
+              </div>
             </div>
-            <h3 className="skill-name">{skill.name}</h3>
-            <div className="skill-badge" style={{ color: '#bcbcbc', borderColor: '#bcbcbc' }}>
-              {skill.level}
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
+
+        <button className="nav-btn next" onClick={() => scroll('right')}>
+          &#8250;
+        </button>
       </div>
     </div>
   );
