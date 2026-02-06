@@ -9,6 +9,28 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  transition: all 0.3s ease;
+}
+
+.social-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.social-link:hover .stat-icon {
+  transform: scale(1.1);
+  color: #e0e0e0;
+}
+
+.social-link:hover .stat-label {
+  color: #e0e0e0;
+}
+
+.stat-icon {
+  color: #bcbcbc;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  transition: all 0.3s ease;
 }
 
 .stat-value {
@@ -23,17 +45,24 @@
   font-size: 1rem;
   font-weight: 500;
   text-align: center;
+  transition: color 0.3s ease;
 }
 
 @media (max-width: 700px) {
   .stats {
-    flex-direction: column;
-    gap: 1.5rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2rem;
     margin-top: 1.2rem;
     margin-bottom: 1rem;
     width: 100%;
-    align-items: center;
+    justify-content: center;
   }
+  
+  .stat-icon {
+    font-size: 2rem;
+  }
+  
   .stat-value {
     font-size: 1.3rem;
   }
@@ -44,14 +73,19 @@
 
 @media (max-width: 500px) {
   .stats {
-    gap: 1rem;
+    gap: 1.5rem;
     margin-top: 0.7rem;
     margin-bottom: 0.7rem;
   }
+  
+  .stat-icon {
+    font-size: 1.5rem;
+  }
+  
   .stat-value {
     font-size: 1.1rem;
   }
   .stat-label {
     font-size: 0.8rem;
   }
-} 
+}
