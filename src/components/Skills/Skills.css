@@ -116,13 +116,55 @@
   border-color: #bcbcbc;
 }
 
-/* Grid */
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
+/* Slider Layout */
+.skills-slider-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
   width: 100%;
   max-width: 1200px;
+  gap: 1rem;
+}
+
+.skills-slider {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 1.5rem;
+  padding: 1rem 0.5rem;
+  width: 100%;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.skills-slider::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, and Opera */
+}
+
+.nav-btn {
+  background: #23222a;
+  color: #bcbcbc;
+  border: 1px solid #3a3843;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  z-index: 10;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  line-height: 1;
+  padding-bottom: 4px; /* Center alignment adjustment for chevron */
+}
+
+.nav-btn:hover {
+  background: #bcbcbc;
+  color: #23222a;
+  transform: scale(1.1);
 }
 
 .skill-card {
@@ -138,6 +180,8 @@
   position: relative;
   overflow: hidden;
   height: 220px;
+  min-width: 250px; /* Fixed width for slider */
+  flex: 0 0 auto; /* Prevent shrinking */
 }
 
 .skill-card:hover {
@@ -183,18 +227,7 @@
 }
 
 /* Responsive */
-@media (max-width: 1024px) {
-  .skills-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
 @media (max-width: 768px) {
-  .skills-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-  }
-
   .skills-heading {
     font-size: 1.75rem;
   }
@@ -207,6 +240,7 @@
   .skill-card {
     height: 180px;
     padding: 1.5rem;
+    min-width: 200px;
   }
 
   .skill-icon-wrapper {
@@ -218,10 +252,10 @@
   .skill-name {
     font-size: 1rem;
   }
-}
-
-@media (max-width: 480px) {
-  .skills-grid {
-    grid-template-columns: 1fr;
+  
+  .nav-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
   }
 }
