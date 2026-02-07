@@ -6,6 +6,7 @@ import nationalCert from '../../assets/Certification/National Certificate II.jpg
 import cssTraining from '../../assets/Certification/Computer System Servicing Training.jpg';
 import networkingCert from '../../assets/Certification/Networking Basics.png';
 import ojtCert from '../../assets/Certification/OJT Axztech IT Solutions.png';
+import aiEducationCert from '../../assets/Certification/AI Education NotebookLM.png.png';
 
 const certifications = [
   {
@@ -42,6 +43,13 @@ const certifications = [
     organization: 'Axztech IT Solutions',
     year: '2024',
     desc: 'Successfully completed On-the-Job Training at Axztech IT Solutions, gaining practical experience in IT solutions and services.',
+  },
+  {
+    image: aiEducationCert,
+    title: 'AI for Education: Unlocking the Power of NotebookLM',
+    organization: 'DICT Webinar',
+    year: '2025',
+    desc: 'Attended webinar on Artificial Intelligence for Education, exploring how NotebookLM can enhance learning and educational practices.',
   },
 ];
 
