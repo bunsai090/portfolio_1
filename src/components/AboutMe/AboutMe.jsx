@@ -100,20 +100,21 @@ const AboutMe = (props) => {
                     <path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z" />
                   </svg>
                   <span className="detail-label">Freelance:</span>
-                  <span className="detail-value">Computer Maintenance /  Assembling a Computer </span>
+                  <span className="detail-value">Computer Maintenance / Assembling a Computer / Building Website</span>
                 </div>
               </div>
 
               <a
                 className="download-cv-btn"
-                href="/Saporno, John Christian R,- resume.pdf"
-                download="John_Christian_Resume.pdf"
+                href="/John_Christian_R__Saporno_classic-professional.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
               >
                 <svg style={{ width: '1.2em', height: '1.2em', marginRight: '0.5rem' }} viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" />
+                  <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" />
                 </svg>
-                Download CV
+                View CV
               </a>
             </div>
 
