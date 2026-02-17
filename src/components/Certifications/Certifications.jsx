@@ -25,27 +25,6 @@ const certifications = [
     desc: 'Participated in Google Developer Group events and activities, engaging with the developer community and learning about Google technologies.',
   },
   {
-    image: nationalCert,
-    title: 'National Certificate II',
-    organization: 'TESDA',
-    year: '2023',
-    desc: 'National Certification in Computer System Servicing, demonstrating competency in computer hardware and software troubleshooting.',
-  },
-  {
-    image: cssTraining,
-    title: 'Computer System Servicing Training',
-    organization: 'Training Institution',
-    year: '2023',
-    desc: 'Completed comprehensive training in computer system servicing, covering hardware maintenance and software installation.',
-  },
-  {
-    image: networkingCert,
-    title: 'Networking Basics',
-    organization: 'Cisco Networking Academy',
-    year: '2023',
-    desc: 'Completed course on networking fundamentals, covering network architecture, protocols, and troubleshooting.',
-  },
-  {
     image: ojtCert,
     title: 'OJT Completion Certificate',
     organization: 'Axztech IT Solutions',
@@ -58,6 +37,27 @@ const certifications = [
     organization: 'DICT Webinar',
     year: '2025',
     desc: 'Attended webinar on Artificial Intelligence for Education, exploring how NotebookLM can enhance learning and educational practices.',
+  },
+  {
+    image: networkingCert,
+    title: 'Networking Basics',
+    organization: 'Cisco Networking Academy',
+    year: '2023',
+    desc: 'Completed course on networking fundamentals, covering network architecture, protocols, and troubleshooting.',
+  },
+  {
+    image: nationalCert,
+    title: 'National Certificate II',
+    organization: 'TESDA',
+    year: '2023',
+    desc: 'National Certification in Computer System Servicing, demonstrating competency in computer hardware and software troubleshooting.',
+  },
+  {
+    image: cssTraining,
+    title: 'Computer System Servicing Training',
+    organization: 'Training Institution',
+    year: '2023',
+    desc: 'Completed comprehensive training in computer system servicing, covering hardware maintenance and software installation.',
   },
 ];
 
