@@ -1,11 +1,11 @@
 import React from 'react';
 import './Stats.css';
-import { FaFacebook, FaTiktok, FaDiscord, FaInstagram } from 'react-icons/fa';
+import { FaFacebook, FaTiktok, FaLinkedin, FaInstagram } from 'react-icons/fa';
 
 const socialLinks = [
   { icon: <FaFacebook />, label: 'Facebook', url: 'https://www.facebook.com/Buunsai' },
   { icon: <FaTiktok />, label: 'TikTok', url: 'https://www.tiktok.com/@buunsai' },
-  { icon: <FaDiscord />, label: 'Discord', url: '#' },
+  { icon: <FaLinkedin />, label: 'LinkedIn', url: 'https://www.linkedin.com/in/saporno-john-christian-r-885568399/' },
   { icon: <FaInstagram />, label: 'Instagram', url: 'https://www.instagram.com/buuunnnsaii/' },
 ];
 
