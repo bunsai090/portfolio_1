@@ -7,8 +7,16 @@ import cssTraining from '../../assets/Certification/Computer System Servicing Tr
 import networkingCert from '../../assets/Certification/Networking Basics.png';
 import ojtCert from '../../assets/Certification/OJT Axztech IT Solutions.png';
 import aiEducationCert from '../../assets/Certification/AI Education NotebookLM.png.png';
+import freeCodingBootcamp from '../../assets/Certification/Free Coding Bootcamp.png';
 
 const certifications = [
+  {
+    image: freeCodingBootcamp,
+    title: 'Free Coding Bootcamp: Basic Web Development Workshop',
+    organization: 'ZUITT / Google Developer Groups on Campus',
+    year: '2026',
+    desc: 'Actively participated in the Free Coding Bootcamp focused on basic web development, learning fundamental web development skills and technologies.',
+  },
   {
     image: googleDevCert,
     title: 'Google Developer Group Certificate',
