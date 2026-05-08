@@ -55,11 +55,17 @@ const Navbar = () => {
 
   // Close menu on navigation (mobile)
   const handleNavClick = (section, e) => {
+    if (e) e.preventDefault();
     setActiveSection(section);
     setMenuOpen(false);
+
     if (section === 'home') {
-      if (e) e.preventDefault();
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      const element = document.getElementById(section);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   };
 
@@ -100,11 +106,11 @@ const Navbar = () => {
         </div>
         <ul className="navbar-links-list">
           <li><a href="#home" className={activeSection === 'home' ? 'active' : ''} onClick={(e) => handleNavClick('home', e)}>Home</a></li>
-          <li><a href="#aboutme" className={activeSection === 'aboutme' ? 'active' : ''} onClick={() => handleNavClick('aboutme')}>About</a></li>
-          <li><a href="#skills" className={activeSection === 'skills' ? 'active' : ''} onClick={() => handleNavClick('skills')}>Skills</a></li>
-          <li><a href="#projects" className={activeSection === 'projects' ? 'active' : ''} onClick={() => handleNavClick('projects')}>Projects</a></li>
-          <li><a href="#certifications" className={activeSection === 'certifications' ? 'active' : ''} onClick={() => handleNavClick('certifications')}>Certifications</a></li>
-          <li><a href="#contact" className={activeSection === 'contact' ? 'active' : ''} onClick={() => handleNavClick('contact')}>Contact</a></li>
+          <li><a href="#aboutme" className={activeSection === 'aboutme' ? 'active' : ''} onClick={(e) => handleNavClick('aboutme', e)}>About</a></li>
+          <li><a href="#skills" className={activeSection === 'skills' ? 'active' : ''} onClick={(e) => handleNavClick('skills', e)}>Skills</a></li>
+          <li><a href="#projects" className={activeSection === 'projects' ? 'active' : ''} onClick={(e) => handleNavClick('projects', e)}>Projects</a></li>
+          <li><a href="#certifications" className={activeSection === 'certifications' ? 'active' : ''} onClick={(e) => handleNavClick('certifications', e)}>Certifications</a></li>
+          <li><a href="#contact" className={activeSection === 'contact' ? 'active' : ''} onClick={(e) => handleNavClick('contact', e)}>Contact</a></li>
           <li className="navbar-github-mobile">
             <a href="https://github.com/bunsai090" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
