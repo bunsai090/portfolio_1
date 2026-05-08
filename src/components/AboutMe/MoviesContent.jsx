@@ -30,18 +30,22 @@ const MovieSection = ({ section }) => {
 
                 <div className="movie-section-scroll" ref={scrollContainerRef}>
                     {section.items.map((item, index) => (
-                        <div className="netflix-card" key={index}>
-                            <div className="movie-cover-wrapper">
-                                <img src={item.cover} alt={item.title} className="movie-cover" />
-                                <div className="movie-play-overlay">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M8 5v14l11-7z" />
-                                    </svg>
+                        <div className="unique-movie-card" key={index}>
+                            <div className="movie-visual-wrap">
+                                <img src={item.cover} alt={item.title} className="movie-poster-img" />
+                                <div className="movie-badge-year">{item.subtitle.split(' • ')[0]}</div>
+                                <div className="movie-holographic-shine"></div>
+                                <div className="movie-action-overlay">
+                                    <div className="movie-play-button-unique">
+                                        <svg viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M8 5v14l11-7z" />
+                                        </svg>
+                                    </div>
                                 </div>
                             </div>
-                            <div className="movie-info">
-                                <div className="movie-title">{item.title}</div>
-                                <div className="movie-subtitle">{item.subtitle}</div>
+                            <div className="movie-content-meta">
+                                <div className="movie-genre-pill">{item.subtitle.split(' • ')[1]}</div>
+                                <h4 className="movie-main-title">{item.title}</h4>
                             </div>
                         </div>
                     ))}
