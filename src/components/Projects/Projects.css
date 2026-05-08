@@ -124,6 +124,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .project-img {
@@ -131,6 +132,53 @@
   height: 100%;
   object-fit: cover;
   border-radius: 10px;
+  transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-img {
+  transform: scale(1.1);
+}
+
+.project-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.3s ease;
+  border-radius: 10px;
+}
+
+.project-card:hover .project-overlay {
+  opacity: 1;
+}
+
+.view-project-btn {
+  background: #10b981; /* Emerald green */
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+}
+
+.project-card:hover .view-project-btn {
+  transform: translateY(0);
+}
+
+.view-project-btn:hover {
+  background: #059669;
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
 }
 
 .project-title {
@@ -230,13 +278,52 @@
     padding: 0 1rem 6rem 1rem;
   }
   
-  /* Hide navigation buttons on mobile - users can swipe instead */
   .nav-btn {
-    display: none;
+    display: flex !important; /* Force display */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    font-size: 1.4rem;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+    z-index: 5000; /* Ensure it's above everything */
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  }
+
+  .prev-btn {
+    left: 0.5rem;
+  }
+
+  .next-btn {
+    right: 0.5rem;
   }
   
   .project-card {
-    max-width: 100%;
-    min-height: 0;
+    width: 85%; /* Make card slightly smaller to fit arrows on sides */
+    max-width: 300px;
+    margin: 0 auto;
+    min-height: 480px; /* Consistent height for all cards */
+    display: flex;
+    flex-direction: column;
+  }
+
+  .projects-container {
+    position: relative;
+    padding: 0 1rem;
+    width: 100%;
+  }
+
+  .projects-slider {
+    padding: 1rem 0;
+  }
+
+  .project-slide {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 0;
   }
 }
