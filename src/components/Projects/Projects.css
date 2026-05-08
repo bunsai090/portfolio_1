@@ -99,11 +99,14 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  max-width: 350px;
-  height: 100%;
-  min-height: 450px;
+  max-width: 320px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
   position: relative;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  overflow: hidden;
 }
 
 .project-card:hover {
@@ -132,37 +135,57 @@
 
 .project-title {
   color: #fff;
-  font-size: 1.15rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin-bottom: 0.6rem;
   margin-top: 0.25rem;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .project-desc {
-  color: #bcbcbc;
-  font-size: 1rem;
-  margin-bottom: 0.75rem;
+  color: #a0a0a0;
+  font-size: 0.9rem;
+  margin-bottom: 1.25rem;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .project-stack-label {
-  color: #fff;
-  font-size: 0.98rem;
-  font-weight: 600;
-  margin-bottom: 0.15rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.75rem;
+  font-weight: 800;
+  margin-bottom: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .project-stack {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem 0.75rem;
-  margin-bottom: 1.1rem;
+  gap: 0.4rem;
+  margin-bottom: 4rem; /* Space for links */
 }
 
 .project-tech {
-  font-size: 0.98rem;
-  font-weight: 500;
-  text-decoration: underline;
-  cursor: pointer;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.3rem 0.6rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.project-tech:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 .project-links {
