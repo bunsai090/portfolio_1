@@ -7,6 +7,8 @@ import MusicContent from './MusicContent';
 import MoviesContent from './MoviesContent';
 import GenericContent from './GenericContent';
 import { IconCloudDemo } from './IconCloudDemo';
+import resumePDF from '../../assets/Certification/SapornoJohnChristianRResume.pdf';
+
 
 const iconStyle = {
   width: '1.1em',
@@ -106,8 +108,9 @@ const AboutMe = (props) => {
 
               <a
                 className="download-cv-btn"
-                href="/John_Christian_R__Saporno_classic-professional.pdf"
+                href={resumePDF}
                 target="_blank"
+
                 rel="noopener noreferrer"
                 style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
               >
