@@ -4,6 +4,9 @@ import personalWebsite from '../../assets/personal website.png';
 import studentManagement from '../../assets/student_management_system.png';
 import orderingManagement from '../../assets/ordering management system.png';
 import executiveDashboard from '../../assets/executive dashboard.png';
+import assetLink from '../../assets/Asset & Maintenance Management System With QR-CODe.png';
+
+
 
 const ShareIcon = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -14,7 +17,27 @@ const ShareIcon = () => (
 
 const projects = [
   {
+    image: assetLink,
+    title: 'School Asset & Maintenance Management System With QR-CODE',
+    desc: 'SwiftMaintenance is a digital maintenance system for educational institutions that uses QR-code technology to connect classroom issue reporting with facility management for faster and more efficient maintenance processes.',
+    stack: [
+      { name: 'React 18', color: '#61dafb' },
+      { name: 'Vite', color: '#646cff' },
+      { name: 'Tailwind CSS', color: '#06b6d4' },
+      { name: 'Firebase v12', color: '#ffca28' },
+      { name: 'TanStack Query', color: '#ff4154' },
+      { name: 'Framer Motion', color: '#00d8ff' },
+      { name: 'GSAP', color: '#88ce02' },
+      { name: 'Recharts', color: '#22c55e' },
+      { name: 'Shadcn UI', color: '#ffffff' },
+    ],
+
+    live: '#',
+    github: 'https://github.com/bunsai090/AssetLink',
+  },
+  {
     image: personalWebsite,
+
     title: 'Personal Website',
     desc: 'A passionate and driven developer showcasing projects in web development, UI/UX design, and system implementation',
     stack: [
