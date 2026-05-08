@@ -16,15 +16,13 @@
   width: 90%;
   max-width: 1200px;
   /* Slightly wider */
-  z-index: 2000;
+  z-index: 4000; /* Increased to stay above backdrop */
   border-radius: 16px;
-  /* Slightly more rounded */
   height: 65px;
   min-height: 65px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  /* Softer shadow */
 }
 
 /* Glassmorphism effect when scrolled */
@@ -138,7 +136,7 @@
     background: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    z-index: 2400;
+    z-index: 3500; /* Above content but below navbar */
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
@@ -169,7 +167,7 @@
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 16px;
-    z-index: 2500;
+    z-index: 4500; /* Above everything */
     pointer-events: none;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
