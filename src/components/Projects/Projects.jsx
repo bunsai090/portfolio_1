@@ -104,7 +104,7 @@ const Projects = (props) => {
 
   // Group projects into chunks based on screen size
   // Desktop: 4 per slide (1x4 row), Mobile: 2 per slide (2x1 stack)
-  const chunkSize = isMobile ? 2 : 4;
+  const chunkSize = isMobile ? 1 : 4;
   const chunkedProjects = [];
   for (let i = 0; i < projects.length; i += chunkSize) {
     chunkedProjects.push(projects.slice(i, i + chunkSize));
@@ -139,6 +139,11 @@ const Projects = (props) => {
                 <div className="project-card" key={project.title + idx}>
                   <div className="project-img-wrap">
                     <img src={project.image} alt={project.title} className="project-img" />
+                    <div className="project-overlay">
+                      <a href={project.live} target="_blank" rel="noopener noreferrer" className="view-project-btn">
+                        View Project
+                      </a>
+                    </div>
                   </div>
                   <div className="project-title">{project.title}</div>
                   <div className="project-desc">{project.desc}</div>
