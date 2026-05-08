@@ -165,25 +165,22 @@ const AboutMe = (props) => {
 
               {/* Conditional Header for Spotify vs Generic */}
               {['music', 'movies', 'gaming', 'anime'].includes(activeInterest) ? (
-                <div className="spotify-header">
-                  <div className="spotify-controls">
-                    <button className="spotify-play-btn">
-                      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
-                    </button>
-                    <button className="spotify-icon-btn">
-                      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10.59 9.17L5.41 4 4 5.41l5.17 5.17 1.42-1.41zM14.5 4l2.04 2.04L4 18.59 5.41 20 17.96 7.46 20 9.5V4h-5.5zm.33 9.41l-1.41 1.41 3.13 3.13L14.5 20H20v-5.5l-2.04 2.04-3.13-3.13z" /></svg>
-                    </button>
-                    <button className="spotify-icon-btn">
-                      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 13l-4-4h8l-4 4zm-4-4h8v2H8v-2z" /></svg>
+                <div className="unique-modal-header">
+                  <div className="header-decoration-line"></div>
+                  <div className="header-meta-wrap">
+                    <div className="header-category-label">{activeInterest}</div>
+                    <h2 className="unique-header-title">
+                      {activeInterest === 'music' ? 'The Sound Selection' :
+                        activeInterest === 'movies' ? 'Cinematic Gems' :
+                          activeInterest === 'gaming' ? 'The Digital Vault' :
+                            'Anime Archives'}
+                    </h2>
+                  </div>
+                  <div className="unique-header-actions">
+                    <button className="interest-modal-close-unique" onClick={() => setActiveInterest(null)}>
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
                     </button>
                   </div>
-                  <h2 className="spotify-header-title">
-                    {activeInterest === 'music' ? 'Bunsai favorite song <3' :
-                      activeInterest === 'movies' ? 'Bunsai favorite movies <3' :
-                        activeInterest === 'gaming' ? 'Bunsai favorite games <3' :
-                          'Bunsai favorite anime <3'}
-                  </h2>
-                  <button className="interest-modal-close" onClick={() => setActiveInterest(null)}>×</button>
                 </div>
               ) : (
                 <div className="interest-modal-header">
