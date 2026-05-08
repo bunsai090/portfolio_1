@@ -224,7 +224,9 @@ const Skills = (props) => {
 
       <div className="skills-slider-container">
         <button className="nav-btn prev" onClick={() => scroll('left')}>
-          &#8249;
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
         </button>
         
         <div className="skills-slider" ref={scrollRef}>
@@ -242,7 +244,9 @@ const Skills = (props) => {
         </div>
 
         <button className="nav-btn next" onClick={() => scroll('right')}>
-          &#8250;
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
         </button>
       </div>
     </div>
