@@ -142,10 +142,10 @@ const Projects = (props) => {
                   </div>
                   <div className="project-title">{project.title}</div>
                   <div className="project-desc">{project.desc}</div>
-                  <div className="project-stack-label">Teach Stack:</div>
+                  <div className="project-stack-label">Tech Stack:</div>
                   <div className="project-stack">
                     {project.stack.map((tech, i) => (
-                      <span className="project-tech" style={{ color: tech.color }} key={tech.name + i}>{tech.name}</span>
+                      <span className="project-tech" style={{ color: tech.color, borderColor: `${tech.color}40` }} key={tech.name + i}>{tech.name}</span>
                     ))}
                   </div>
                   <div className="project-links">
