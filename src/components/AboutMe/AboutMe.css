@@ -610,66 +610,84 @@
   padding: 0;
 }
 
-/* Spotify Header */
-.spotify-header {
-  background: linear-gradient(180deg, #2a2a2a 0%, #121212 100%);
-  padding: 1.5rem 2rem;
+/* Unique Modal Header Redesign */
+.unique-modal-header {
+  background: linear-gradient(180deg, rgba(20, 20, 20, 0.95) 0%, rgba(10, 10, 10, 0.8) 100%);
+  backdrop-filter: blur(20px);
+  padding: 2rem 2.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid #282828;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+  overflow: hidden;
 }
 
-.spotify-controls {
+.header-decoration-line {
+  position: absolute;
+  top: 0;
+  left: 2.5rem;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(to bottom, #10b981, transparent);
+  opacity: 0.5;
+}
+
+.header-meta-wrap {
   display: flex;
-  align-items: center;
-  gap: 1.5rem;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding-left: 1.5rem;
 }
 
-.spotify-play-btn {
-  background: #1db954;
-  /* Spotify Green */
-  border: none;
-  border-radius: 50%;
-  width: 56px;
-  height: 56px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  color: #000;
-  transition: transform 0.1s ease, background 0.2s ease;
+.header-category-label {
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #10b981;
+  letter-spacing: 2px;
 }
 
-.spotify-play-btn:hover {
-  transform: scale(1.05);
-  background: #1ed760;
-}
-
-.spotify-play-btn svg {
-  width: 28px;
-  height: 28px;
-}
-
-.spotify-icon-btn {
-  background: transparent;
-  border: none;
-  color: #b3b3b3;
-  cursor: pointer;
-  padding: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: color 0.2s ease;
-}
-
-.spotify-icon-btn:hover {
+.unique-header-title {
   color: #fff;
+  font-size: 2.2rem;
+  font-weight: 900;
+  margin: 0;
+  letter-spacing: -1px;
+  background: linear-gradient(to right, #fff, #a0a0a0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.spotify-icon-btn svg {
-  width: 24px;
-  height: 24px;
+.unique-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.interest-modal-close-unique {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.interest-modal-close-unique:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: rotate(90deg);
+}
+
+.interest-modal-close-unique svg {
+  width: 20px;
+  height: 20px;
 }
 
 /* Spotify Content Area */
