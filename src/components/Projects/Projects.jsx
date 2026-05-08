@@ -33,7 +33,7 @@ const projects = [
     ],
 
     live: '#',
-    github: 'https://github.com/bunsai090/AssetLink',
+    github: 'https://github.com/bunsai090/-AssetLink-School-Asset-Management-System-with-QR-Code-Enabled-Repair-Tracking-',
   },
   {
     image: personalWebsite,
