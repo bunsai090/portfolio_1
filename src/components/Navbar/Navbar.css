@@ -179,6 +179,26 @@
     pointer-events: all;
   }
 
+  /* Staggered animation for list items */
+  .navbar-links-list li {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .navbar-links-container.open .navbar-links-list li {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .navbar-links-container.open .navbar-links-list li:nth-child(1) { transition-delay: 0.1s; }
+  .navbar-links-container.open .navbar-links-list li:nth-child(2) { transition-delay: 0.15s; }
+  .navbar-links-container.open .navbar-links-list li:nth-child(3) { transition-delay: 0.2s; }
+  .navbar-links-container.open .navbar-links-list li:nth-child(4) { transition-delay: 0.25s; }
+  .navbar-links-container.open .navbar-links-list li:nth-child(5) { transition-delay: 0.3s; }
+  .navbar-links-container.open .navbar-links-list li:nth-child(6) { transition-delay: 0.35s; }
+  .navbar-links-container.open .navbar-links-list li:nth-child(7) { transition-delay: 0.4s; }
+
   .navbar-mobile-header {
     display: flex;
     justify-content: space-between;
