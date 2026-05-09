@@ -44,7 +44,7 @@
 }
 
 .navbar-logo span {
-  color: #bcbcbc;
+  color: #ffffff;
 }
 
 .navbar-links-container {
@@ -79,22 +79,22 @@
 
 .navbar-links-list li a.active,
 .navbar-links-list li a:hover {
-  background: #393843;
-  color: #bcbcbc;
+  background: #343A3C;
+  color: #ffffff;
 }
 
 .navbar-github {
   margin-right: 2rem;
   display: flex;
   align-items: center;
-  border: 2px solid #393843;
+  border: 2px solid #343A3C;
   border-radius: 50%;
   padding: 0.25rem;
   transition: border 0.2s;
 }
 
 .navbar-github:hover {
-  border: 2px solid #bcbcbc;
+  border: 2px solid #ffffff;
 }
 
 .navbar-github-mobile {
@@ -263,7 +263,7 @@
   .navbar-links-list li a:active,
   .navbar-links-list li a:hover {
     background: rgba(255, 255, 255, 0.1);
-    color: #bcbcbc !important;
+    color: #ffffff !important;
   }
 
   .navbar-github-desktop {
