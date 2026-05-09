@@ -32,7 +32,7 @@ const projects = [
       { name: 'Shadcn UI', color: '#ffffff' },
     ],
 
-    live: '#',
+    live: 'https://github.com/bunsai090/-AssetLink-School-Asset-Management-System-with-QR-Code-Enabled-Repair-Tracking-',
     github: 'https://github.com/bunsai090/-AssetLink-School-Asset-Management-System-with-QR-Code-Enabled-Repair-Tracking-',
   },
   {
@@ -47,8 +47,9 @@ const projects = [
       { name: 'EmailJS', color: '#ffca28' },
       { name: 'AOS', color: '#22c55e' },
     ],
-    live: '#',
+    live: 'https://bunsaiportfolio.vercel.app/',
     github: 'https://github.com/bunsai090/portfolio_1',
+    buttonText: 'View Live Demo',
   },
   {
     image: studentManagement,
@@ -59,7 +60,7 @@ const projects = [
       { name: 'Css', color: '#1572B6' },
       { name: 'Firebase', color: '#ffca28' },
     ],
-    live: '#',
+    live: 'https://github.com/codeyatoh/student-management-system',
     github: 'https://github.com/codeyatoh/student-management-system',
   },
   {
@@ -72,7 +73,7 @@ const projects = [
       { name: 'Firebase', color: '#ffca28' },
       { name: 'Chart.js', color: '#36a2eb' },
     ],
-    live: '#',
+    live: 'https://github.com/codeyatoh/Ordering-System',
     github: 'https://github.com/codeyatoh/Ordering-System',
   },
   {
@@ -148,7 +149,7 @@ const Projects = (props) => {
                     <img src={project.image} alt={project.title} className="project-img" />
                     <div className="project-overlay">
                       <a href={project.live} target="_blank" rel="noopener noreferrer" className="view-project-btn">
-                        View Project
+                        {project.buttonText || 'View Project'}
                       </a>
                     </div>
                   </div>
