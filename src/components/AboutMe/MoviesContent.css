@@ -28,7 +28,7 @@
     left: 0;
     width: 40px;
     height: 4px;
-    background: #10b981;
+    background: #61DAFB;
     border-radius: 2px;
 }
 
@@ -146,7 +146,7 @@
 .movie-play-button-unique {
     width: 60px;
     height: 60px;
-    background: #10b981;
+    background: #61DAFB;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -175,7 +175,7 @@
 .movie-genre-pill {
     font-size: 0.65rem;
     font-weight: 800;
-    color: #10b981;
+    color: #61DAFB;
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 0.4rem;
@@ -227,8 +227,8 @@
 .right-arrow { right: -10px; }
 
 .scroll-arrow:hover {
-    background: #10b981;
-    border-color: #10b981;
+    background: #61DAFB;
+    border-color: #61DAFB;
     color: #000;
     transform: scale(1.1);
 }
