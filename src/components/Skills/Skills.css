@@ -10,7 +10,7 @@
 }
 
 .skills-heading {
-  color: #bcbcbc;
+  color: #ffffff;
   font-size: 2.25rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
@@ -20,7 +20,7 @@
 .skills-underline {
   height: 4px;
   width: 60px;
-  background: #bcbcbc;
+  background: #ffffff;
   border-radius: 2px;
   margin-bottom: 2.5rem;
 }
@@ -46,7 +46,7 @@
 .carousel-item {
   width: 60px;
   height: 60px;
-  background: #23222a;
+  background: #0F1416;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -92,7 +92,7 @@
 .filter-btn {
   background: transparent;
   border: 1px solid #3a3843;
-  color: #bcbcbc;
+  color: #ffffff;
   padding: 0.6rem 1.25rem;
   border-radius: 8px;
   font-size: 0.95rem;
@@ -105,15 +105,15 @@
 }
 
 .filter-btn:hover {
-  background: #2a2831;
+  background: #171C1E;
   color: #fff;
-  border-color: #bcbcbc;
+  border-color: #ffffff;
 }
 
 .filter-btn.active {
-  background: #bcbcbc;
-  color: #23222a;
-  border-color: #bcbcbc;
+  background: #ffffff;
+  color: #0F1416;
+  border-color: #ffffff;
 }
 
 /* Slider Layout */
@@ -172,8 +172,8 @@
 }
 
 .nav-btn:hover {
-  background: #10b981;
-  border-color: #10b981;
+  background: #61DAFB;
+  border-color: #61DAFB;
   color: #000;
   transform: translateY(-50%) scale(1.1);
   box-shadow: 0 12px 40px rgba(16, 185, 129, 0.4);
@@ -202,7 +202,7 @@
 }
 
 .skill-card:hover {
-  background: #23222a;
+  background: #0F1416;
   transform: translateY(-5px);
   box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
   border-color: #3e3c46;
