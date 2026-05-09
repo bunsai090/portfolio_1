@@ -2,7 +2,7 @@
   position: relative;
   width: 100%;
   height: 100%;
-  background: rgba(42, 40, 49, 0.7);
+  background: rgba(52, 58, 60, 0.7);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -27,6 +27,7 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
+  border-radius: 12px;
 }
 
 .profile-overlay {
@@ -34,7 +35,7 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  background: rgba(35, 34, 42, 0.85);
+  background: rgba(23, 28, 30, 0.85);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-top: 1.5px solid rgba(255, 255, 255, 0.1);
@@ -59,7 +60,7 @@
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  border: 2px solid #393843;
+  border: 2px solid #343A3C;
   object-fit: cover;
 }
 
@@ -73,13 +74,13 @@
 }
 
 .profile-status {
-  color: #bcbcbc;
+  color: #ffffff;
   font-size: 0.85rem;
 }
 
 .profile-hire {
   background: #fff;
-  color: #23222a;
+  color: #0F1416;
   border: 1.5px solid #fff;
   border-radius: 10px;
   padding: 0.5rem 1.5rem;
@@ -92,9 +93,9 @@
 }
 
 .profile-hire:hover {
-  background: #393843;
+  background: #343A3C;
   color: #fff;
-  border: 1.5px solid #bcbcbc;
+  border: 1.5px solid #ffffff;
 }
 
 @media (max-width: 700px) {
@@ -171,7 +172,7 @@
   position: absolute;
   width: 50px;
   height: 50px;
-  background: #2a2831;
+  background: #171C1E;
   border-radius: 50%;
   display: flex;
   align-items: center;
