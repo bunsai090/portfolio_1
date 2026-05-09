@@ -84,8 +84,8 @@ const projects = [
       { name: 'PostgreSQL', color: '#336791' },
       { name: 'Css', color: '#1572B6' },
     ],
-    live: '#',
-    github: 'https://github.com/yourusername/executive-dashboard',
+    live: 'https://github.com/codeyatoh/executive-dashboard-frontend',
+    github: 'https://github.com/codeyatoh/executive-dashboard-frontend',
   },
 ];
 
