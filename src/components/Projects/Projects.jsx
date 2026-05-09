@@ -41,8 +41,11 @@ const projects = [
     title: 'Personal Website',
     desc: 'A passionate and driven developer showcasing projects in web development, UI/UX design, and system implementation',
     stack: [
-      { name: 'React', color: '#61dafb' },
-      { name: 'CSS', color: '#1572B6' },
+      { name: 'React 19', color: '#61dafb' },
+      { name: 'Vite', color: '#646cff' },
+      { name: 'Vanilla CSS', color: '#1572B6' },
+      { name: 'EmailJS', color: '#ffca28' },
+      { name: 'AOS', color: '#22c55e' },
     ],
     live: '#',
     github: 'https://github.com/bunsai090/portfolio_1',
