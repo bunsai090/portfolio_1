@@ -10,8 +10,8 @@ import assetLink from '../../assets/Asset & Maintenance Management System With Q
 
 const ShareIcon = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M18 8.59V13a1 1 0 1 1-2 0V8.59l-5.3 5.3a1 1 0 0 1-1.4-1.42l7-7a1 1 0 0 1 1.4 0l7 7a1 1 0 0 1-1.4 1.42L18 8.59z" fill="#bcbcbc"/>
-    <path d="M5 19a1 1 0 0 1-1-1V5a1 1 0 1 1 2 0v13h13a1 1 0 1 1 0 2H5z" fill="#bcbcbc"/>
+    <path d="M18 8.59V13a1 1 0 1 1-2 0V8.59l-5.3 5.3a1 1 0 0 1-1.4-1.42l7-7a1 1 0 0 1 1.4 0l7 7a1 1 0 0 1-1.4 1.42L18 8.59z" fill="#ffffff"/>
+    <path d="M5 19a1 1 0 0 1-1-1V5a1 1 0 1 1 2 0v13h13a1 1 0 1 1 0 2H5z" fill="#ffffff"/>
   </svg>
 );
 
@@ -128,9 +128,13 @@ const Projects = (props) => {
       <p className="projects-subtitle">"Explore the projects I've worked on."</p>
       
       <div className="projects-container">
-        <button className="nav-btn prev-btn" onClick={slideLeft}>
-          &#10094;
-        </button>
+        {chunkedProjects.length > 1 && (
+          <button className="nav-btn prev-btn" onClick={slideLeft}>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+        )}
         
         <div className="projects-slider" ref={ref}>
           {chunkedProjects.map((chunk, chunkIdx) => (
@@ -164,9 +168,13 @@ const Projects = (props) => {
           ))}
         </div>
 
-        <button className="nav-btn next-btn" onClick={slideRight}>
-          &#10095;
-        </button>
+        {chunkedProjects.length > 1 && (
+          <button className="nav-btn next-btn" onClick={slideRight}>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+        )}
       </div>
     </section>
   );
