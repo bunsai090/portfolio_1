@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './Skills.css';
 import bootstrapIcon from '../../assets/boron_13574994.png';
 import cssIcon from '../../assets/css-3.png';
@@ -174,7 +174,14 @@ const categories = [
 
 const Skills = (props) => {
   const [activeCategory, setActiveCategory] = useState('Frontend');
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const scrollRef = useRef(null);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const filteredSkills = skillsData.filter(skill => skill.category === activeCategory);
 
@@ -223,11 +230,13 @@ const Skills = (props) => {
       </div>
 
       <div className="skills-slider-container">
-        <button className="nav-btn prev" onClick={() => scroll('left')}>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-            <polyline points="15 18 9 12 15 6"></polyline>
-          </svg>
-        </button>
+        {filteredSkills.length > (isMobile ? 1 : 4) && (
+          <button className="nav-btn prev" onClick={() => scroll('left')}>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+        )}
         
         <div className="skills-slider" ref={scrollRef}>
           {filteredSkills.map((skill, index) => (
@@ -236,18 +245,20 @@ const Skills = (props) => {
                 <img src={skill.icon} alt={skill.name} className="skill-main-icon" />
               </div>
               <h3 className="skill-name">{skill.name}</h3>
-              <div className="skill-badge" style={{ color: '#bcbcbc', borderColor: '#bcbcbc' }}>
+              <div className="skill-badge" style={{ color: '#ffffff', borderColor: '#ffffff' }}>
                 {skill.level}
               </div>
             </div>
           ))}
         </div>
 
-        <button className="nav-btn next" onClick={() => scroll('right')}>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-            <polyline points="9 18 15 12 9 6"></polyline>
-          </svg>
-        </button>
+        {filteredSkills.length > (isMobile ? 1 : 4) && (
+          <button className="nav-btn next" onClick={() => scroll('right')}>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+        )}
       </div>
     </div>
   );
