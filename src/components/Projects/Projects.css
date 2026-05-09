@@ -18,7 +18,7 @@
 }
 
 .projects-subtitle {
-  color: #bcbcbc;
+  color: #ffffff;
   font-size: 1.15rem;
   text-align: center;
   margin-bottom: 2.5rem;
@@ -92,7 +92,7 @@
 .project-card {
   width: 100%;
   flex: 0 0 auto;
-  background: #23222a;
+  background: #0F1416;
   border-radius: 16px;
   box-shadow: 0 4px 32px 0 rgba(0,0,0,0.18);
   padding: 1.5rem 1.25rem 2.5rem 1.25rem;
@@ -120,7 +120,7 @@
   border-radius: 10px;
   overflow: hidden;
   margin-bottom: 1.1rem;
-  background: #18171d;
+  background: #171C1E;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -160,7 +160,7 @@
 }
 
 .view-project-btn {
-  background: #10b981; /* Emerald green */
+  background: #61DAFB; /* Obsidian Flux Primary Accent */
   color: #fff;
   text-decoration: none;
   font-size: 0.85rem;
@@ -268,27 +268,44 @@
   }
   
   .nav-btn {
-    display: flex !important; /* Force display */
+    display: flex !important;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 44px;
-    height: 44px;
-    font-size: 1.4rem;
-    background: rgba(255, 255, 255, 0.2);
-    border: 2px solid rgba(255, 255, 255, 0.3);
+    width: 54px;
+    height: 54px;
+    background: rgba(35, 34, 42, 0.8);
+    backdrop-filter: blur(8px);
     color: #fff;
-    z-index: 5000; /* Ensure it's above everything */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 5000;
     border-radius: 50%;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .nav-btn svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .nav-btn:hover {
+    background: #61DAFB;
+    border-color: #61DAFB;
+    color: #000;
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 12px 40px rgba(16, 185, 129, 0.4);
   }
 
   .prev-btn {
-    left: 0.5rem;
+    left: -27px;
   }
 
   .next-btn {
-    right: 0.5rem;
+    right: -27px;
   }
   
   .project-card {
