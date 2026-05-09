@@ -22,7 +22,7 @@
 .contact-underline {
   width: 120px;
   height: 5px;
-  background: #bcbcbc;
+  background: #ffffff;
   border-radius: 3px;
   margin: 0 auto 2.5rem auto;
 }
@@ -54,7 +54,7 @@
 }
 
 .contact-desc {
-  color: #bcbcbc;
+  color: #ffffff;
   font-size: 1.1rem;
   margin-bottom: 2.5rem;
   max-width: 400px;
@@ -73,7 +73,7 @@
   display: flex;
   align-items: flex-start;
   gap: 0.8rem;
-  color: #bcbcbc;
+  color: #ffffff;
   font-size: 1.05rem;
   font-family: 'Inter', Arial, sans-serif;
 }
@@ -103,13 +103,13 @@
 }
 
 .contact-info-text {
-  color: #bcbcbc;
+  color: #ffffff;
   font-size: 1.05rem;
   font-family: 'Inter', Arial, sans-serif;
 }
 
 .contact-info-link {
-  color: #bcbcbc;
+  color: #ffffff;
   font-size: 1.05rem;
   font-family: 'Inter', Arial, sans-serif;
   text-decoration: underline;
@@ -117,7 +117,7 @@
 
 .contact-form {
   flex: 1 1 0;
-  background: #18171d;
+  background: #171C1E;
   border-radius: 12px;
   padding: 2.5rem 2rem 2rem 2rem;
   display: flex;
@@ -131,7 +131,7 @@
 
 .contact-input,
 .contact-textarea {
-  background: #23222a;
+  background: #0F1416;
   border: none;
   border-radius: 12px;
   padding: 1rem 1.2rem;
@@ -145,7 +145,7 @@
 
 .contact-input::placeholder,
 .contact-textarea::placeholder {
-  color: #bcbcbc;
+  color: #ffffff;
   opacity: 1;
 }
 
@@ -155,7 +155,7 @@
 }
 
 .contact-btn {
-  background: #bcbcbc;
+  background: #ffffff;
   color: #fff;
   font-size: 1.35rem;
   font-weight: 700;
