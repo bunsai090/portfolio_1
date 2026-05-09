@@ -119,7 +119,7 @@ const ContactMe = (props) => {
                 color: result.success ? "#4BB543" : "#FF3333",
                 fontWeight: 500,
                 textAlign: "center",
-                background: "#23222a",
+                background: "#0F1416",
                 borderRadius: "8px",
                 padding: "0.75rem 1rem",
               }}
