@@ -114,9 +114,13 @@ const Certifications = (props) => {
       <p className="certifications-subtitle">"Achievements and continuous learning journey."</p>
       
       <div className="certifications-container">
-        <button className="nav-btn prev-btn" onClick={slideLeft}>
-          &#10094;
-        </button>
+        {chunkedCerts.length > 1 && (
+          <button className="nav-btn prev-btn" onClick={slideLeft}>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+        )}
         
         <div className="certifications-slider" ref={ref}>
           {chunkedCerts.map((chunk, chunkIdx) => (
@@ -142,9 +146,13 @@ const Certifications = (props) => {
           ))}
         </div>
 
-        <button className="nav-btn next-btn" onClick={slideRight}>
-          &#10095;
-        </button>
+        {chunkedCerts.length > 1 && (
+          <button className="nav-btn next-btn" onClick={slideRight}>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+        )}
       </div>
 
       {selectedCert && (
