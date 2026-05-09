@@ -22,7 +22,7 @@
 .hero-title {
   font-size: 1.5rem;
   font-weight: 600;
-  color: #bcbcbc;
+  color: #ffffff;
   margin-bottom: 1.5rem;
 }
 
@@ -33,7 +33,7 @@
 
 .hero-desc {
   font-size: 1.1rem;
-  color: #bcbcbc;
+  color: #ffffff;
   margin-bottom: 2rem;
   line-height: 1.6;
 }
@@ -54,24 +54,24 @@
 }
 
 .hero-btn.primary {
-  background: #bcbcbc;
-  color: #23222a;
+  background: #ffffff;
+  color: #0F1416;
 }
 
 .hero-btn.primary:hover {
   background: #fff;
-  color: #23222a;
+  color: #0F1416;
 }
 
 .hero-btn.secondary {
   background: transparent;
   color: #fff;
-  border: 2px solid #bcbcbc;
+  border: 2px solid #ffffff;
 }
 
 .hero-btn.secondary:hover {
-  background: #393843;
-  color: #bcbcbc;
+  background: #343A3C;
+  color: #ffffff;
 }
 
 @media (max-width: 700px) {
