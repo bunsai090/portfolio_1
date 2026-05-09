@@ -18,7 +18,7 @@
 }
 
 .certifications-subtitle {
-  color: #bcbcbc;
+  color: #ffffff;
   font-size: 1.15rem;
   text-align: center;
   margin-bottom: 2.5rem;
@@ -28,10 +28,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
-  width: 100%;
-  max-width: 1300px;
   position: relative;
+  width: 100%;
+  max-width: 1200px;
+  gap: 1rem;
   padding: 0 1rem;
 }
 
@@ -98,28 +98,45 @@
 }
 
 .nav-btn {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(35, 34, 42, 0.8);
+  backdrop-filter: blur(8px);
   color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 54px;
+  height: 54px;
   border-radius: 50%;
-  width: 40px; /* Reduced button size */
-  height: 40px;
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  z-index: 100;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   flex-shrink: 0;
-  font-size: 1.2rem;
-  z-index: 10;
-  padding: 0;
-  line-height: 1;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.prev-btn {
+  left: -27px;
+}
+
+.next-btn {
+  right: -27px;
 }
 
 .nav-btn:hover {
-  background: #4ade80;
-  border-color: #4ade80;
-  color: #121212;
+  background: #61DAFB;
+  border-color: #61DAFB;
+  color: #000;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 12px 40px rgba(16, 185, 129, 0.4);
+}
+
+.nav-btn svg {
+  width: 24px;
+  height: 24px;
 }
 
 /* Styles replacing old grid */
@@ -141,7 +158,7 @@
   overflow: hidden;
   position: relative;
   flex-shrink: 0; /* Prevent image from shrinking */
-  background: #18171d;
+  background: #171C1E;
 }
 
 .certification-img {
@@ -202,13 +219,13 @@
 }
 
 .certification-year {
-  color: #bcbcbc;
+  color: #ffffff;
   font-size: 0.85rem; /* Reduced size */
   margin-bottom: 0.5rem;
 }
 
 .certification-desc {
-  color: #bcbcbc;
+  color: #ffffff;
   font-size: 1.05rem; /* Increased size */
   line-height: 1.6;
 }
@@ -292,8 +309,8 @@
 }
 
 .cert-modal-close:hover {
-  background: #4ade80;
-  border-color: #4ade80;
+  background: #61DAFB;
+  border-color: #61DAFB;
   transform: rotate(90deg);
 }
 
@@ -337,14 +354,14 @@
 }
 
 .cert-modal-org {
-  color: #4ade80;
+  color: #61DAFB;
   font-size: 1.1rem;
   font-weight: 600;
   margin-bottom: 0.25rem;
 }
 
 .cert-modal-year {
-  color: #bcbcbc;
+  color: #ffffff;
   font-size: 1rem;
 }
 
