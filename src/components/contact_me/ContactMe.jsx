@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
 import "./ContactMe.css";
+import { LuArrowUpRight, LuGithub, LuLinkedin, LuMail, LuMapPin, LuPhone, LuCpu } from "react-icons/lu";
 
 const SERVICE_ID = "service_7sktw8u";
 const TEMPLATE_ID = "template_sz37cyc";
@@ -28,109 +29,148 @@ const ContactMe = (props) => {
       .send(SERVICE_ID, TEMPLATE_ID, form, PUBLIC_KEY)
       .then(
         () => {
-          setResult({ success: true, message: "Message sent successfully!" });
+          setResult({ success: true, message: "SIGNAL RECEIVED. I'LL RESPOND SHORTLY." });
           setForm({ name: "", email: "", title: "", message: "" });
         },
         (error) => {
-          setResult({ success: false, message: "Failed to send message. Please try again later." });
+          setResult({ success: false, message: "COMMUNICATION FAILURE. PLEASE RETRY." });
         }
       )
       .finally(() => setLoading(false));
   };
 
   return (
-    <section className="contact-section" id="contact" {...props}>
-      <h2 className="contact-title">Contact Me</h2>
-      <div className="contact-underline" />
-      <div className="contact-content">
-        <div className="contact-info">
-          <h3 className="contact-heading">Let’s&nbsp; work together!</h3>
-          <p className="contact-desc">
-            I’m always interested in new opportunities and exciting project. Whether you have a question or just want to say hi, feel free to reach out!
+    <section className="contact-editorial-section" id="contact" {...props}>
+      {/* Background Typography */}
+      <div className="contact-bg-text">CONNECT</div>
+
+      <div className="contact-editorial-container">
+        {/* Left Column: The Narrative */}
+        <div className="contact-editorial-left" data-aos="fade-right">
+          <div className="contact-status-tag">
+            <span className="pulse-dot"></span>
+            AVAILABLE FOR NEW PROJECTS
+          </div>
+          
+          <h2 className="contact-editorial-title">
+            Let's build <br /> 
+            something <span className="italic-highlight">Legendary.</span>
+          </h2>
+          
+          <p className="contact-editorial-desc">
+            Stop scrolling and start building. Whether you have a fully-baked idea or just a spark, 
+            I'm here to turn it into a high-performance digital reality.
           </p>
-          <ul className="contact-list">
-            <li>
-              <span className="contact-icon contact-icon-location" />
-              <span className="contact-info-text"><em>Sea Breeze, Maasin, Zamboanga City</em></span>
-            </li>
-            <li>
-              <span className="contact-icon contact-icon-phone" />
-              <span className="contact-info-text">+63 992 575 0069<br />+63 952 488 6638</span>
-            </li>
-            <li>
-              <span className="contact-icon contact-icon-email" />
-              <span className="contact-info-text">bunsai090saporno@gmail.com</span>
-            </li>
-            <li>
-              <span className="contact-icon contact-icon-github" />
-              <a href="https://github.com/bunsai090" className="contact-info-link" target="_blank" rel="noopener noreferrer">https://github.com/bunsai090</a>
-            </li>
-          </ul>
-        </div>
-        <form className="contact-form" onSubmit={handleSubmit}>
-          <input
-            type="text"
-            className="contact-input"
-            placeholder="Your Name"
-            name="name"
-            value={form.name}
-            onChange={handleChange}
-            required
-          />
-          <input
-            type="email"
-            className="contact-input"
-            placeholder="Your Email"
-            name="email"
-            value={form.email}
-            onChange={handleChange}
-            required
-          />
-          <input
-            type="text"
-            className="contact-input"
-            placeholder="Subject"
-            name="title"
-            value={form.title}
-            onChange={handleChange}
-            required
-          />
-          <textarea
-            className="contact-textarea"
-            placeholder="Your Message"
-            name="message"
-            value={form.message}
-            onChange={handleChange}
-            rows={6}
-            required
-          />
-          <button
-            type="submit"
-            className="contact-btn"
-            disabled={loading}
-            style={{ cursor: loading ? "not-allowed" : "pointer", opacity: loading ? 0.7 : 1 }}
-          >
-            {loading ? "Sending..." : "Send Message"}
-          </button>
-          {result && (
-            <div
-              style={{
-                marginTop: "1rem",
-                color: result.success ? "#4BB543" : "#FF3333",
-                fontWeight: 500,
-                textAlign: "center",
-                background: "#0F1416",
-                borderRadius: "8px",
-                padding: "0.75rem 1rem",
-              }}
-            >
-              {result.message}
+
+          <div className="contact-editorial-info">
+            <div className="info-item-minimal">
+              <LuMail className="info-icon" />
+              <div className="info-content">
+                <span>Direct Mail</span>
+                <a href="mailto:bunsai090saporno@gmail.com">bunsai090saporno@gmail.com</a>
+              </div>
             </div>
-          )}
-        </form>
+            
+            <div className="info-item-minimal">
+              <LuMapPin className="info-icon" />
+              <div className="info-content">
+                <span>Location</span>
+                <p>Zamboanga City, PH</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="contact-social-footer">
+            <a href="https://github.com/bunsai090" target="_blank" rel="noopener noreferrer" className="social-circle">
+              <LuGithub />
+            </a>
+            <a href="#" className="social-circle">
+              <LuLinkedin />
+            </a>
+          </div>
+        </div>
+
+        {/* Right Column: The Console */}
+        <div className="contact-editorial-right" data-aos="fade-left">
+          <div className="form-console">
+            <div className="console-header">
+              <LuCpu className="console-icon" />
+              <span>TRANSMISSION TERMINAL</span>
+            </div>
+            
+            <form className="console-form" onSubmit={handleSubmit}>
+              <div className="console-input-row">
+                <div className="console-field">
+                  <label>IDENTIFICATION</label>
+                  <input 
+                    type="text" 
+                    name="name" 
+                    placeholder="Your Name" 
+                    value={form.name}
+                    onChange={handleChange}
+                    required 
+                  />
+                </div>
+                <div className="console-field">
+                  <label>COMMUNICATION CHANNEL</label>
+                  <input 
+                    type="email" 
+                    name="email" 
+                    placeholder="email@example.com" 
+                    value={form.email}
+                    onChange={handleChange}
+                    required 
+                  />
+                </div>
+              </div>
+
+              <div className="console-field full-width">
+                <label>OBJECTIVE</label>
+                <input 
+                  type="text" 
+                  name="title" 
+                  placeholder="What are we building?" 
+                  value={form.title}
+                  onChange={handleChange}
+                  required 
+                />
+              </div>
+
+              <div className="console-field full-width">
+                <label>BRIEFING</label>
+                <textarea 
+                  name="message" 
+                  placeholder="Drop your message here..." 
+                  value={form.message}
+                  onChange={handleChange}
+                  rows={4} 
+                  required 
+                ></textarea>
+              </div>
+
+              <button type="submit" className={`console-submit ${loading ? 'active' : ''}`} disabled={loading}>
+                <div className="submit-inner">
+                  <span>{loading ? 'SENDING SIGNAL...' : 'INITIATE CONTACT'}</span>
+                  <LuArrowUpRight className="arrow-icon" />
+                </div>
+                <div className="submit-progress" style={{ width: loading ? '100%' : '0%' }}></div>
+              </button>
+
+              {result && (
+                <div className={`console-result ${result.success ? 'success' : 'error'}`}>
+                  {result.message}
+                </div>
+              )}
+            </form>
+          </div>
+        </div>
       </div>
+
+      {/* Decorative Accents */}
+      <div className="editorial-accent-line"></div>
+      <div className="editorial-accent-dot"></div>
     </section>
   );
 };
 
-export default ContactMe; 
+export default ContactMe;
