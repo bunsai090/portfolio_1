@@ -20,8 +20,16 @@ import phpIcon from '../../assets/php.png';
 import npmIcon from '../../assets/npm.png';
 import xamppIcon from '../../assets/xamp.png';
 import wampIcon from '../../assets/wamp.png';
+const typescriptIcon = "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg";
 
 const skillsData = [
+  {
+    name: 'TYPESCRIPT',
+    icon: typescriptIcon,
+    category: 'Frontend',
+    level: 'Comfortable',
+    color: '#3178c6'
+  },
   {
     name: 'BOOSTRAP',
     icon: bootstrapIcon,
@@ -165,102 +173,158 @@ const skillsData = [
 // removed unused "i"
 ];
 
-const categories = [
-  { id: 'Frontend', label: 'Frontend' },
-  { id: 'Backend', label: 'Backend' },
-  { id: 'Tools', label: 'Tools' },
-  { id: 'Design', label: 'Design' }
-];
+import { 
+  MdOutlineDashboard, 
+  MdOutlineStorage, 
+  MdOutlineBuild,
+  MdArrowForwardIos
+} from "react-icons/md";
 
 const Skills = (props) => {
-  const [activeCategory, setActiveCategory] = useState('Frontend');
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
-  const scrollRef = useRef(null);
+  const [showAllBackend, setShowAllBackend] = useState(false);
+  const [showAllTools, setShowAllTools] = useState(false);
 
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth <= 768);
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  // Group skills
+  const frontendSkills = skillsData.filter(s => s.category === 'Frontend');
+  const backendSkills = skillsData.filter(s => s.category === 'Backend');
+  const toolsDesignSkills = skillsData.filter(s => s.category === 'Tools' || s.category === 'Design');
 
-  const filteredSkills = skillsData.filter(skill => skill.category === activeCategory);
-
-  const scroll = (direction) => {
-    if (scrollRef.current) {
-      const { current } = scrollRef;
-      const scrollAmount = 300; // Adjust based on card width + gap
-      if (direction === 'left') {
-        current.scrollLeft -= scrollAmount;
-      } else {
-        current.scrollLeft += scrollAmount;
-      }
-    }
-  };
+  const visibleBackend = showAllBackend ? backendSkills : backendSkills.slice(0, 2);
+  const visibleTools = showAllTools ? toolsDesignSkills : toolsDesignSkills.slice(0, 2);
 
   return (
-    <div className="skills-section" id="skills" {...props}>
-      <h2 className="skills-heading">Technical Skills</h2>
-      <div className="skills-underline"></div>
-
-      <div className="skills-top-carousel">
-        <div className="carousel-track">
-          {[...skillsData, ...skillsData].map((skill, index) => (
-            <div key={index} className="carousel-item">
-              <img src={skill.icon} alt={skill.name} />
-            </div>
-          ))}
-        </div>
+    <section className="skills-section" id="skills" {...props}>
+      <div className="skills-header" data-aos="fade-up">
+        <h2 className="skills-main-title">
+          Technical <span className="highlight">Arsenal.</span>
+        </h2>
+        <p className="skills-subtitle">
+          A curated overview of the technologies, frameworks, and tools I utilize to engineer high-performance, visually compelling digital experiences.
+        </p>
       </div>
 
-      <div className="skills-filter-container">
-        {categories.map((cat) => (
-          <button
-            key={cat.id}
-            className={`filter-btn ${activeCategory === cat.id ? 'active' : ''}`}
-            onClick={() => setActiveCategory(cat.id)}
-          >
-            {activeCategory === cat.id && (
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-            )}
-            {cat.label}
-          </button>
-        ))}
-      </div>
-
-      <div className="skills-slider-container">
-        {filteredSkills.length > (isMobile ? 1 : 4) && (
-          <button className="nav-btn prev" onClick={() => scroll('left')}>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-              <polyline points="15 18 9 12 15 6"></polyline>
-            </svg>
-          </button>
-        )}
-        
-        <div className="skills-slider" ref={scrollRef}>
-          {filteredSkills.map((skill, index) => (
-            <div className="skill-card" key={index}>
-              <div className="skill-icon-wrapper">
-                <img src={skill.icon} alt={skill.name} className="skill-main-icon" />
-              </div>
-              <h3 className="skill-name">{skill.name}</h3>
-              <div className="skill-badge" style={{ color: '#ffffff', borderColor: '#ffffff' }}>
-                {skill.level}
-              </div>
+      <div className="skills-groups">
+        {/* Frontend Section */}
+        <div className="skills-group" data-aos="fade-up">
+          <div className="group-title">
+            <div className="title-left">
+              <MdOutlineDashboard className="group-icon" />
+              <h3>Frontend Development</h3>
             </div>
-          ))}
+          </div>
+          <div className="skills-grid-new">
+            {frontendSkills.map((skill, idx) => (
+              <div className="skill-card-new" key={idx}>
+                <div className="skill-icon-bg">
+                  <img src={skill.icon} alt={skill.name} className="skill-icon-img" />
+                </div>
+                <span className="skill-label-new">{skill.name}</span>
+                <div className="skill-level-badge">
+                  {skill.level.toUpperCase()}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {filteredSkills.length > (isMobile ? 1 : 4) && (
-          <button className="nav-btn next" onClick={() => scroll('right')}>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-              <polyline points="9 18 15 12 9 6"></polyline>
-            </svg>
-          </button>
-        )}
+        {/* Backend & Tools Row */}
+        <div className="skills-row-split">
+          <div className="skills-group" data-aos="fade-right">
+            <div className="group-title">
+              <div className="title-left">
+                <MdOutlineStorage className="group-icon" />
+                <h3>Backend Architecture</h3>
+              </div>
+              {backendSkills.length > 2 && (
+                <button 
+                  className={`view-all-text-btn ${showAllBackend ? 'active' : ''}`}
+                  onClick={() => setShowAllBackend(!showAllBackend)}
+                >
+                  {showAllBackend ? 'Show Less' : 'View All Techstack'}
+                </button>
+              )}
+            </div>
+            
+            <div className="skills-grid-new">
+              {backendSkills.slice(0, 2).map((skill, idx) => (
+                <div className="skill-card-new" key={idx}>
+                  <div className="skill-icon-bg">
+                    <img src={skill.icon} alt={skill.name} className="skill-icon-img" />
+                  </div>
+                  <span className="skill-label-new">{skill.name}</span>
+                  <div className="skill-level-badge">
+                    {skill.level.toUpperCase()}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className={`skills-extra-container ${showAllBackend ? 'expanded' : 'collapsed'}`}>
+              <div className="skills-grid-new extra-padding">
+                {backendSkills.slice(2).map((skill, idx) => (
+                  <div className="skill-card-new" key={idx}>
+                    <div className="skill-icon-bg">
+                      <img src={skill.icon} alt={skill.name} className="skill-icon-img" />
+                    </div>
+                    <span className="skill-label-new">{skill.name}</span>
+                    <div className="skill-level-badge">
+                      {skill.level.toUpperCase()}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="skills-group" data-aos="fade-left">
+            <div className="group-title">
+              <div className="title-left">
+                <MdOutlineBuild className="group-icon" />
+                <h3>Tools & Design</h3>
+              </div>
+              {toolsDesignSkills.length > 2 && (
+                <button 
+                  className={`view-all-text-btn ${showAllTools ? 'active' : ''}`}
+                  onClick={() => setShowAllTools(!showAllTools)}
+                >
+                  {showAllTools ? 'Show Less' : 'View All Techstack'}
+                </button>
+              )}
+            </div>
+            
+            <div className="skills-grid-new">
+              {toolsDesignSkills.slice(0, 2).map((skill, idx) => (
+                <div className="skill-card-new" key={idx}>
+                  <div className="skill-icon-bg">
+                    <img src={skill.icon} alt={skill.name} className="skill-icon-img" />
+                  </div>
+                  <span className="skill-label-new">{skill.name}</span>
+                  <div className="skill-level-badge">
+                    {skill.level.toUpperCase()}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className={`skills-extra-container ${showAllTools ? 'expanded' : 'collapsed'}`}>
+              <div className="skills-grid-new extra-padding">
+                {toolsDesignSkills.slice(2).map((skill, idx) => (
+                  <div className="skill-card-new" key={idx}>
+                    <div className="skill-icon-bg">
+                      <img src={skill.icon} alt={skill.name} className="skill-icon-img" />
+                    </div>
+                    <span className="skill-label-new">{skill.name}</span>
+                    <div className="skill-level-badge">
+                      {skill.level.toUpperCase()}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
