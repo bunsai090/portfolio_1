@@ -63,109 +63,132 @@ const certifications = [
 
 const Certifications = (props) => {
   const [selectedCert, setSelectedCert] = useState(null);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 900);
-  
-  // Carousel state
-  const ref = React.useRef(null);
+  const [showAll, setShowAll] = useState(false);
 
-  // Handle window resize
-  React.useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 900);
-    };
-    
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  // Group certifications into chunks based on screen size
-  // Desktop: 4 per slide (2x2 grid), Mobile: 2 per slide (2x1 stack)
-  const chunkSize = isMobile ? 2 : 4;
-  const chunkedCerts = [];
-  for (let i = 0; i < certifications.length; i += chunkSize) {
-    chunkedCerts.push(certifications.slice(i, i + chunkSize));
-  }
-
-  const slideLeft = () => {
-    if (ref.current) {
-      ref.current.scrollBy({ left: -ref.current.offsetWidth, behavior: 'smooth' });
-    }
-  };
-
-  const slideRight = () => {
-    if (ref.current) {
-      ref.current.scrollBy({ left: ref.current.offsetWidth, behavior: 'smooth' });
-    }
-  };
+  const visibleCerts = showAll ? certifications : certifications.slice(0, 4);
 
   const openModal = (cert) => {
     setSelectedCert(cert);
-    document.body.style.overflow = 'hidden'; // Prevent scrolling
+    document.body.style.overflow = 'hidden'; 
   };
 
   const closeModal = () => {
     setSelectedCert(null);
-    document.body.style.overflow = 'unset'; // Restore scrolling
+    document.body.style.overflow = 'unset'; 
   };
 
   return (
     <section className="certifications-section" id="certifications" {...props}>
-      <h2 className="certifications-title">Certifications & Education</h2>
-      <p className="certifications-subtitle">"Achievements and continuous learning journey."</p>
-      
-      <div className="certifications-container">
-        {chunkedCerts.length > 1 && (
-          <button className="nav-btn prev-btn" onClick={slideLeft}>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-              <polyline points="15 18 9 12 15 6"></polyline>
-            </svg>
-          </button>
-        )}
-        
-        <div className="certifications-slider" ref={ref}>
-          {chunkedCerts.map((chunk, chunkIdx) => (
-            <div className="certification-slide" key={chunkIdx}>
-              {chunk.map((cert, idx) => (
-                <div 
-                  className="certification-card" 
-                  key={cert.title + idx}
-                  onClick={() => openModal(cert)}
-                >
-                  <div className="certification-img-wrap">
-                    <img src={cert.image} alt={cert.title} className="certification-img" />
-                  </div>
-                  <div className="certification-details">
-                    <div className="certification-title">{cert.title}</div>
-                    <div className="certification-organization">{cert.organization}</div>
-                    <div className="certification-year">{cert.year}</div>
-                    <div className="certification-desc">{cert.desc}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          ))}
+      <div className="cert-header">
+        <div className="header-left-group">
+          <h2 className="certifications-title">Certifications <span className="accent">&</span> Education</h2>
+          <div className="title-underline"></div>
+          <p className="certifications-subtitle">A chronicle of my academic achievements and professional growth.</p>
         </div>
 
-        {chunkedCerts.length > 1 && (
-          <button className="nav-btn next-btn" onClick={slideRight}>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-              <polyline points="9 18 15 12 9 6"></polyline>
-            </svg>
-          </button>
-        )}
-      </div>
-
-      {selectedCert && (
-        ReactDOM.createPortal(
-          <div className="cert-modal" onClick={closeModal}>
-            <div className="cert-modal-content" onClick={(e) => e.stopPropagation()}>
-              <button className="cert-modal-close" onClick={closeModal}>
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
+        {certifications.length > 4 && (
+          <div className="view-all-container-top">
+            <button 
+              className="view-all-btn-modern-alt" 
+              onClick={() => setShowAll(!showAll)}
+            >
+              {showAll ? 'Show Less' : 'View All Certificates'}
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                width="20" 
+                height="20" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth="2" 
+                strokeLinecap="round" 
+                strokeLinejoin="round"
+                style={{ transform: showAll ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.3s ease' }}
+              >
+                <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
             </button>
-              <img src={selectedCert.image} alt={selectedCert.title} className="cert-modal-img" />
+          </div>
+        )}
+      </div>
+      
+      <div className="certifications-grid">
+        {certifications.slice(0, 5).map((cert, idx) => (
+          <div 
+            className={`certification-card-new ${idx === 0 ? 'featured' : ''}`} 
+            key={cert.title + idx}
+            onClick={() => openModal(cert)}
+            data-aos="fade-up"
+            data-aos-delay={idx * 50}
+          >
+            <div className="cert-card-inner">
+              <div className="certification-img-wrap-new">
+                <img src={cert.image} alt={cert.title} className="certification-img-new" />
+                <div className="cert-overlay-new">
+                  <span className="view-text">View Certificate</span>
+                </div>
+              </div>
+              
+              <div className="certification-details-new">
+                <div className="cert-top-meta">
+                  <span className="certification-organization-new">{cert.organization}</span>
+                  <span className="certification-year-new">{cert.year}</span>
+                </div>
+                <h3 className="certification-title-new">{cert.title}</h3>
+                <p className="certification-desc-new">{cert.desc}</p>
+              </div>
+            </div>
+            <div className="card-accent-border"></div>
+          </div>
+        ))}
+      </div>
+
+      <div className={`certifications-grid-extra ${showAll ? 'expanded' : 'collapsed'}`}>
+        {certifications.slice(5).map((cert, idx) => (
+          <div 
+            className="certification-card-new" 
+            key={cert.title + (idx + 5)}
+            onClick={() => openModal(cert)}
+          >
+            <div className="cert-card-inner">
+              <div className="certification-img-wrap-new">
+                <img src={cert.image} alt={cert.title} className="certification-img-new" />
+                <div className="cert-overlay-new">
+                  <span className="view-text">View Certificate</span>
+                </div>
+              </div>
+              
+              <div className="certification-details-new">
+                <div className="cert-top-meta">
+                  <span className="certification-organization-new">{cert.organization}</span>
+                  <span className="certification-year-new">{cert.year}</span>
+                </div>
+                <h3 className="certification-title-new">{cert.title}</h3>
+                <p className="certification-desc-new">{cert.desc}</p>
+              </div>
+            </div>
+            <div className="card-accent-border"></div>
+          </div>
+        ))}
+      </div>
+      {selectedCert && (
+        ReactDOM.createPortal(
+          <div className="cert-modal-new" onClick={closeModal}>
+            <div className="cert-modal-backdrop-new"></div>
+            <div className="cert-modal-content-new" onClick={(e) => e.stopPropagation()}>
+              <button className="cert-modal-close-new" onClick={closeModal}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+              </button>
+              <div className="modal-img-container">
+                <img src={selectedCert.image} alt={selectedCert.title} className="cert-modal-img-new" />
+              </div>
+              <div className="cert-modal-info-new">
+                <h3>{selectedCert.title}</h3>
+                <p className="modal-org">{selectedCert.organization} • {selectedCert.year}</p>
+              </div>
             </div>
           </div>,
           document.body
