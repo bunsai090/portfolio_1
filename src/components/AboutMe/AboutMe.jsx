@@ -7,7 +7,7 @@ import MusicContent from './MusicContent';
 import MoviesContent from './MoviesContent';
 import GenericContent from './GenericContent';
 import { IconCloudDemo } from './IconCloudDemo';
-import resumePDF from '../../assets/Certification/SapornoJohnChristianRResume.pdf';
+import cvMain from '../../assets/Certification/John_Christian_R_Saporno_Developer CV MAIN.pdf';
 
 
 const iconStyle = {
@@ -55,7 +55,7 @@ const AboutMe = (props) => {
             </div>
             <h3 className="profile-name">John Christian R. Saporno</h3>
             <p className="profile-subtitle">IT Student & Aspiring Programmer</p>
-            <a href={resumePDF} target="_blank" rel="noopener noreferrer" className="view-cv-btn-new">
+            <a href={cvMain} target="_blank" rel="noopener noreferrer" className="view-cv-btn-new">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 16.5l-5-5h3v-7h4v7h3l-5 5zm-9 2h18v2H3v-2z"/></svg>
               View CV
             </a>
