@@ -90,96 +90,178 @@ const projects = [
   },
 ];
 
+import { LuGithub, LuExternalLink, LuLayers, LuChevronDown } from "react-icons/lu";
+
 const Projects = (props) => {
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 900);
-  
-  // Carousel state
-  const ref = React.useRef(null);
-
-  // Handle window resize
-  React.useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 900);
-    };
-    
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  // Group projects into chunks based on screen size
-  // Desktop: 4 per slide (1x4 row), Mobile: 2 per slide (2x1 stack)
-  const chunkSize = isMobile ? 1 : 4;
-  const chunkedProjects = [];
-  for (let i = 0; i < projects.length; i += chunkSize) {
-    chunkedProjects.push(projects.slice(i, i + chunkSize));
-  }
-
-  const slideLeft = () => {
-    if (ref.current) {
-      ref.current.scrollBy({ left: -ref.current.offsetWidth, behavior: 'smooth' });
-    }
-  };
-
-  const slideRight = () => {
-    if (ref.current) {
-      ref.current.scrollBy({ left: ref.current.offsetWidth, behavior: 'smooth' });
-    }
-  };
+  const [showAll, setShowAll] = useState(false);
 
   return (
     <section className="projects-section" id="projects" {...props}>
-      <h2 className="projects-title">Past Project Experience</h2>
-      <p className="projects-subtitle">"Explore the projects I've worked on."</p>
-      
-      <div className="projects-container">
-        {chunkedProjects.length > 1 && (
-          <button className="nav-btn prev-btn" onClick={slideLeft}>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-              <polyline points="15 18 9 12 15 6"></polyline>
-            </svg>
-          </button>
+      <div className="projects-header" data-aos="fade-up">
+        <div className="header-left">
+          <h2 className="projects-main-title">
+            Selected <span className="highlight">Works.</span>
+          </h2>
+          <p className="projects-subtitle">A collection of systems and applications engineered with precision and modern tech stacks.</p>
+        </div>
+
+        {projects.length > 2 && (
+          <div className="projects-view-all-top">
+            <button 
+              className={`view-all-btn-modern ${showAll ? 'active' : ''}`}
+              onClick={() => setShowAll(!showAll)}
+            >
+              <span className="btn-text">{showAll ? 'Show Less' : 'View All Projects'}</span>
+              <span className="btn-icon">
+                <LuChevronDown style={{ transform: showAll ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.4s ease' }} />
+              </span>
+            </button>
+          </div>
         )}
-        
-        <div className="projects-slider" ref={ref}>
-          {chunkedProjects.map((chunk, chunkIdx) => (
-            <div className="project-slide" key={chunkIdx}>
-              {chunk.map((project, idx) => (
-                <div className="project-card" key={project.title + idx}>
-                  <div className="project-img-wrap">
-                    <img src={project.image} alt={project.title} className="project-img" />
-                    <div className="project-overlay">
-                      <a href={project.live} target="_blank" rel="noopener noreferrer" className="view-project-btn">
-                        {project.buttonText || 'View Project'}
-                      </a>
-                    </div>
-                  </div>
-                  <div className="project-title">{project.title}</div>
-                  <div className="project-desc">{project.desc}</div>
-                  <div className="project-stack-label">Tech Stack:</div>
-                  <div className="project-stack">
-                    {project.stack.map((tech, i) => (
-                      <span className="project-tech" style={{ color: tech.color, borderColor: `${tech.color}40` }} key={tech.name + i}>{tech.name}</span>
-                    ))}
-                  </div>
-                  <div className="project-links">
-                    <a href={project.github} className="project-link" target="_blank" rel="noopener noreferrer">
-                      <ShareIcon />
+      </div>
+      
+      <div className="projects-grid-new">
+        {projects.slice(0, 2).map((project, idx) => (
+          <div 
+            className="project-card-new" 
+            key={project.title + idx}
+            data-aos="fade-up"
+            data-aos-delay={idx * 100}
+          >
+            <div className="project-card-inner">
+              {/* Image Section with Scanner Effect */}
+              <div className="project-image-container">
+                <img src={project.image} alt={project.title} className="project-img-new" />
+                <div className="scanner-line"></div>
+                <div className="image-overlay-new">
+                  <div className="overlay-content">
+                    <a href={project.live} target="_blank" rel="noopener noreferrer" className="live-demo-btn">
+                      <LuExternalLink /> {project.buttonText || 'Live Demo'}
                     </a>
                   </div>
                 </div>
-              ))}
+                <div className="project-number">0{idx + 1}</div>
+              </div>
+
+              {/* Content Section */}
+              <div className="project-info-new">
+                <div className="project-category">
+                  <LuLayers className="category-icon" />
+                  <span>{project.stack[0]?.name || 'Web App'}</span>
+                </div>
+                
+                <h3 className="project-title-new">{project.title}</h3>
+                <p className="project-description-new">{project.desc}</p>
+
+                {/* Tech Stack Pills */}
+                <div className="project-tech-pills">
+                  {project.stack.slice(0, 4).map((tech, i) => (
+                    <span 
+                      key={i} 
+                      className="tech-pill"
+                      style={{ '--accent-color': tech.color }}
+                    >
+                      {tech.name}
+                    </span>
+                  ))}
+                  {project.stack.length > 4 && <span className="tech-pill-more">+{project.stack.length - 4}</span>}
+                </div>
+
+                {/* Footer Actions */}
+                <div className="project-footer-new">
+                  <div className="footer-line"></div>
+                  <div className="footer-actions">
+                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="github-link-new" title="View Source">
+                      <LuGithub />
+                      <span>Repository</span>
+                    </a>
+                    <div className="status-indicator">
+                      <span className="dot"></span>
+                      <span>Completed</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Corner Accents */}
+            <div className="corner-accent top-left"></div>
+            <div className="corner-accent top-right"></div>
+            <div className="corner-accent bottom-left"></div>
+            <div className="corner-accent bottom-right"></div>
+          </div>
+        ))}
+      </div>
+
+      {/* Extra Projects with Animation */}
+      <div className={`projects-extra-container ${showAll ? 'expanded' : 'collapsed'}`}>
+        <div className="projects-grid-new extra-padding">
+          {projects.slice(2).map((project, idx) => (
+            <div 
+              className="project-card-new" 
+              key={project.title + (idx + 2)}
+            >
+              <div className="project-card-inner">
+                <div className="project-image-container">
+                  <img src={project.image} alt={project.title} className="project-img-new" />
+                  <div className="scanner-line"></div>
+                  <div className="image-overlay-new">
+                    <div className="overlay-content">
+                      <a href={project.live} target="_blank" rel="noopener noreferrer" className="live-demo-btn">
+                        <LuExternalLink /> {project.buttonText || 'Live Demo'}
+                      </a>
+                    </div>
+                  </div>
+                  <div className="project-number">0{idx + 3}</div>
+                </div>
+
+                <div className="project-info-new">
+                  <div className="project-category">
+                    <LuLayers className="category-icon" />
+                    <span>{project.stack[0]?.name || 'Web App'}</span>
+                  </div>
+                  
+                  <h3 className="project-title-new">{project.title}</h3>
+                  <p className="project-description-new">{project.desc}</p>
+
+                  <div className="project-tech-pills">
+                    {project.stack.slice(0, 4).map((tech, i) => (
+                      <span 
+                        key={i} 
+                        className="tech-pill"
+                        style={{ '--accent-color': tech.color }}
+                      >
+                        {tech.name}
+                      </span>
+                    ))}
+                    {project.stack.length > 4 && <span className="tech-pill-more">+{project.stack.length - 4}</span>}
+                  </div>
+
+                  <div className="project-footer-new">
+                    <div className="footer-line"></div>
+                    <div className="footer-actions">
+                      <a href={project.github} target="_blank" rel="noopener noreferrer" className="github-link-new" title="View Source">
+                        <LuGithub />
+                        <span>Repository</span>
+                      </a>
+                      <div className="status-indicator">
+                        <span className="dot"></span>
+                        <span>Completed</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="corner-accent top-left"></div>
+              <div className="corner-accent top-right"></div>
+              <div className="corner-accent bottom-left"></div>
+              <div className="corner-accent bottom-right"></div>
             </div>
           ))}
         </div>
-
-        {chunkedProjects.length > 1 && (
-          <button className="nav-btn next-btn" onClick={slideRight}>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-              <polyline points="9 18 15 12 9 6"></polyline>
-            </svg>
-          </button>
-        )}
       </div>
+
     </section>
   );
 };
