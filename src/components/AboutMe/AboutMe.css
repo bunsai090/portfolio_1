@@ -1,6 +1,6 @@
 .aboutme-section {
   background: #0F1416;
-  padding: 3rem 1rem;
+  padding: 3rem 1rem 1.5rem 1rem;
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
@@ -365,7 +365,7 @@
 
 @media (max-width: 768px) {
   .aboutme-section {
-    padding: 2rem 0.5rem;
+    padding: 2rem 0.5rem 1rem 0.5rem;
   }
 
   .aboutme-section-title {
