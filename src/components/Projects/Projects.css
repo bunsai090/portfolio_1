@@ -10,7 +10,7 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin-bottom: 5rem;
+  margin-bottom: 2.5rem;
 }
 
 .header-left {
@@ -23,11 +23,11 @@
 
 .projects-main-title {
   color: #fff;
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-size: clamp(1.8rem, 4.5vw, 2.4rem);
   font-weight: 900;
-  line-height: 0.9;
-  letter-spacing: -3px;
-  margin-bottom: 1.5rem;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  margin-bottom: 0.8rem;
   text-transform: capitalize;
 }
 
@@ -37,17 +37,17 @@
 }
 
 .projects-subtitle {
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 0.92rem;
   max-width: 500px;
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 /* Grid Layout */
 .projects-grid-new {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-  gap: 3rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 350px));
+  gap: 2rem;
   width: 100%;
 }
 
