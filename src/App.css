@@ -118,3 +118,20 @@ body,
     padding-top: 52px;
   }
 }
+
+/* Clean Chill Fade & Blur Page Transition */
+.page-transition-wrapper {
+  opacity: 1;
+  filter: blur(0px);
+  transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1), filter 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.page-transition-wrapper.fade-out {
+  opacity: 0;
+  filter: blur(12px);
+}
+
+.page-transition-wrapper.fade-in {
+  opacity: 1;
+  filter: blur(0px);
+}
