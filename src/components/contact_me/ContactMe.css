@@ -28,12 +28,12 @@
 
 .contact-editorial-container {
   width: 100%;
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 4rem;
+  padding: 0 2rem;
   display: grid;
   grid-template-columns: 1fr 1.1fr;
-  gap: 8rem;
+  gap: 3.5rem;
   position: relative;
   z-index: 2;
 }
@@ -77,11 +77,11 @@
 
 .contact-editorial-title {
   color: #fff;
-  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-size: clamp(1.8rem, 4.5vw, 2.4rem);
   font-weight: 900;
-  line-height: 1.05;
-  letter-spacing: -2px;
-  margin-bottom: 2.5rem;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  margin-bottom: 1.5rem;
 }
 
 .italic-highlight {
@@ -93,44 +93,44 @@
 }
 
 .contact-editorial-desc {
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 1.2rem;
-  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 0.92rem;
+  line-height: 1.6;
   max-width: 500px;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
 }
 
 .contact-editorial-info {
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
-  margin-bottom: 4rem;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
 }
 
 .info-item-minimal {
   display: flex;
   align-items: flex-start;
-  gap: 1.5rem;
+  gap: 1.2rem;
 }
 
 .info-icon {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: #61DAFB;
-  margin-top: 0.2rem;
+  margin-top: 0.1rem;
 }
 
 .info-content span {
   display: block;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   color: rgba(255, 255, 255, 0.4);
   text-transform: uppercase;
   letter-spacing: 1px;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.2rem;
 }
 
 .info-content a, .info-content p {
   color: #fff;
-  font-size: 1.3rem;
+  font-size: 1.0rem;
   font-weight: 600;
   text-decoration: none;
   transition: color 0.3s ease;
@@ -174,10 +174,10 @@
 .form-console {
   background: #171C1E; /* Surface Container Low */
   width: 100%;
-  border-radius: 32px;
+  border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.05);
   box-shadow: 0 50px 100px rgba(0, 0, 0, 0.6);
-  padding: 4rem;
+  padding: 2.2rem;
   position: relative;
   overflow: hidden;
 }
@@ -190,7 +190,7 @@
   color: rgba(255, 255, 255, 0.4);
   letter-spacing: 3px;
   font-weight: 800;
-  margin-bottom: 4rem;
+  margin-bottom: 1.5rem;
 }
 
 .console-icon {
@@ -201,13 +201,13 @@
 .console-form {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 1.8rem;
 }
 
 .console-input-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2rem;
+  gap: 1.2rem;
 }
 
 .console-field {
@@ -232,9 +232,9 @@
   background: transparent;
   border: none;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 1rem 0;
+  padding: 0.6rem 0;
   color: #fff;
-  font-size: 1.1rem;
+  font-size: 0.98rem;
   font-family: inherit;
   outline: none;
   transition: all 0.3s ease;
@@ -253,7 +253,7 @@
 
 .console-submit {
   width: 100%;
-  height: 70px;
+  height: 54px;
   background: #343A3C; /* Surface Bright */
   color: #fff;
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -262,7 +262,7 @@
   position: relative;
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 .submit-inner {
