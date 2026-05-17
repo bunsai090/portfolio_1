@@ -8,17 +8,24 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
+      const isProjectsPage = window.location.hash === '#/all-projects';
+      const scrollY = window.scrollY;
+
+      // Update scroll state for glassmorphism effect
+      setIsScrolled(scrollY > 50);
+
+      if (isProjectsPage) {
+        setActiveSection('projects');
+        return;
+      }
+
       const aboutSection = document.getElementById('aboutme');
       const skillsSection = document.getElementById('skills');
       const projectsSection = document.getElementById('projects');
       const certificationsSection = document.getElementById('certifications');
       const contactSection = document.getElementById('contact');
-      const scrollY = window.scrollY;
       const windowHeight = window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
-
-      // Update scroll state for glassmorphism effect
-      setIsScrolled(scrollY > 50);
 
       // Better section detection with viewport consideration
       const offset = 150;
@@ -50,7 +57,11 @@ const Navbar = () => {
     handleScroll();
 
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('hashchange', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('hashchange', handleScroll);
+    };
   }, []);
 
   // Close menu on navigation (mobile)
@@ -59,12 +70,21 @@ const Navbar = () => {
     setActiveSection(section);
     setMenuOpen(false);
 
-    if (section === 'home') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    const isProjectsPage = window.location.hash === '#/all-projects';
+
+    if (isProjectsPage) {
+      // Go back to home page with the hash section
+      window.location.hash = section === 'home' ? '' : `#${section}`;
     } else {
-      const element = document.getElementById(section);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+      if (section === 'home') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.location.hash = '';
+      } else {
+        const element = document.getElementById(section);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+          window.location.hash = `#${section}`;
+        }
       }
     }
   };
