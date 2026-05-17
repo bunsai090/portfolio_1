@@ -9,7 +9,7 @@ import ojtCert from '../../assets/Certification/OJT Axztech IT Solutions.png';
 import aiEducationCert from '../../assets/Certification/AI Education NotebookLM.png.png';
 import freeCodingBootcamp from '../../assets/Certification/Free Coding Bootcamp.png';
 
-const certifications = [
+export const certifications = [
   {
     image: freeCodingBootcamp,
     title: 'Free Coding Bootcamp: Basic Web Development Workshop',
@@ -63,9 +63,6 @@ const certifications = [
 
 const Certifications = (props) => {
   const [selectedCert, setSelectedCert] = useState(null);
-  const [showAll, setShowAll] = useState(false);
-
-  const visibleCerts = showAll ? certifications : certifications.slice(0, 4);
 
   const openModal = (cert) => {
     setSelectedCert(cert);
@@ -86,13 +83,20 @@ const Certifications = (props) => {
           <p className="certifications-subtitle">A chronicle of my academic achievements and professional growth.</p>
         </div>
 
-        {certifications.length > 4 && (
+        {certifications.length > 3 && (
           <div className="view-all-container-top">
             <button 
               className="view-all-btn-modern-alt" 
-              onClick={() => setShowAll(!showAll)}
+              onClick={() => {
+                if (props.onNavigate) {
+                  props.onNavigate('#/all-certificates');
+                } else {
+                  window.location.hash = '#/all-certificates';
+                  window.scrollTo(0, 0);
+                }
+              }}
             >
-              {showAll ? 'Show Less' : 'View All Certificates'}
+              View All Certificates
               <svg 
                 xmlns="http://www.w3.org/2000/svg" 
                 width="20" 
@@ -103,9 +107,9 @@ const Certifications = (props) => {
                 strokeWidth="2" 
                 strokeLinecap="round" 
                 strokeLinejoin="round"
-                style={{ transform: showAll ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.3s ease' }}
               >
-                <polyline points="6 9 12 15 18 9"></polyline>
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
               </svg>
             </button>
           </div>
@@ -113,42 +117,13 @@ const Certifications = (props) => {
       </div>
       
       <div className="certifications-grid">
-        {certifications.slice(0, 5).map((cert, idx) => (
+        {certifications.slice(0, 3).map((cert, idx) => (
           <div 
             className="certification-card-new" 
             key={cert.title + idx}
             onClick={() => openModal(cert)}
             data-aos="fade-up"
             data-aos-delay={idx * 50}
-          >
-            <div className="cert-card-inner">
-              <div className="certification-img-wrap-new">
-                <img src={cert.image} alt={cert.title} className="certification-img-new" />
-                <div className="cert-overlay-new">
-                  <span className="view-text">View Certificate</span>
-                </div>
-              </div>
-              
-              <div className="certification-details-new">
-                <div className="cert-top-meta">
-                  <span className="certification-organization-new">{cert.organization}</span>
-                  <span className="certification-year-new">{cert.year}</span>
-                </div>
-                <h3 className="certification-title-new">{cert.title}</h3>
-                <p className="certification-desc-new">{cert.desc}</p>
-              </div>
-            </div>
-            <div className="card-accent-border"></div>
-          </div>
-        ))}
-      </div>
-
-      <div className={`certifications-grid-extra ${showAll ? 'expanded' : 'collapsed'}`}>
-        {certifications.slice(5).map((cert, idx) => (
-          <div 
-            className="certification-card-new" 
-            key={cert.title + (idx + 5)}
-            onClick={() => openModal(cert)}
           >
             <div className="cert-card-inner">
               <div className="certification-img-wrap-new">
