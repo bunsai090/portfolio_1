@@ -10,7 +10,7 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin-bottom: 4rem;
+  margin-bottom: 2.5rem;
   width: 100%;
 }
 
@@ -49,9 +49,9 @@
 
 .certifications-title {
   color: #fff;
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-size: clamp(1.8rem, 4.5vw, 2.4rem);
   font-weight: 900;
-  letter-spacing: -1.5px;
+  letter-spacing: -0.5px;
   margin-bottom: 0.5rem;
 }
 
@@ -69,18 +69,18 @@
 }
 
 .certifications-subtitle {
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 0.92rem;
   max-width: 600px;
   margin: 0 auto;
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 /* Grid Layout */
 .certifications-grid,
 .certifications-grid-extra {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 350px));
   gap: 2rem;
   width: 100%;
 }
