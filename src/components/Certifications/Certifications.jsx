@@ -115,7 +115,7 @@ const Certifications = (props) => {
       <div className="certifications-grid">
         {certifications.slice(0, 5).map((cert, idx) => (
           <div 
-            className={`certification-card-new ${idx === 0 ? 'featured' : ''}`} 
+            className="certification-card-new" 
             key={cert.title + idx}
             onClick={() => openModal(cert)}
             data-aos="fade-up"
