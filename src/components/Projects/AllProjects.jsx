@@ -23,16 +23,16 @@ const AllProjects = ({ onNavigate }) => {
       <div className="grid-overlay"></div>
       
       <div className="all-projects-wrapper">
-        {/* Navigation Back Header */}
-        <div className="back-nav-header">
-          <button onClick={handleBackToHome} className="back-btn-modern">
-            <span className="back-btn-icon"><LuArrowLeft /></span>
-            <span className="back-btn-text">Back to Home</span>
-          </button>
-        </div>
-
         {/* Page Hero Section */}
         <div className="all-projects-hero">
+          {/* Navigation Back Header */}
+          <div className="back-nav-header">
+            <button onClick={handleBackToHome} className="back-btn-modern">
+              <span className="back-btn-icon"><LuArrowLeft /></span>
+              <span className="back-btn-text">Back to Home</span>
+            </button>
+          </div>
+
           <span className="hero-tag">ARCHIVE & DIRECTORY</span>
           <h1 className="hero-title">
             My <span className="highlight">Projects.</span>
