@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Projects.css';
 import personalWebsite from '../../assets/personal website.png';
 import studentManagement from '../../assets/student_management_system.png';
@@ -15,7 +15,7 @@ const ShareIcon = () => (
   </svg>
 );
 
-const projects = [
+export const projects = [
   {
     image: assetLink,
     title: 'School Asset & Maintenance Management System With QR-CODE',
@@ -90,11 +90,9 @@ const projects = [
   },
 ];
 
-import { LuGithub, LuExternalLink, LuLayers, LuChevronDown } from "react-icons/lu";
+import { LuGithub, LuExternalLink, LuLayers } from "react-icons/lu";
 
 const Projects = (props) => {
-  const [showAll, setShowAll] = useState(false);
-
   return (
     <section className="projects-section" id="projects" {...props}>
       <div className="projects-header" data-aos="fade-up">
@@ -108,12 +106,19 @@ const Projects = (props) => {
         {projects.length > 2 && (
           <div className="projects-view-all-top">
             <button 
-              className={`view-all-btn-modern ${showAll ? 'active' : ''}`}
-              onClick={() => setShowAll(!showAll)}
+              className="view-all-btn-modern"
+              onClick={() => {
+                if (props.onNavigate) {
+                  props.onNavigate('#/all-projects');
+                } else {
+                  window.location.hash = '#/all-projects';
+                  window.scrollTo(0, 0);
+                }
+              }}
             >
-              <span className="btn-text">{showAll ? 'Show Less' : 'View All Projects'}</span>
+              <span className="btn-text">View All Projects</span>
               <span className="btn-icon">
-                <LuChevronDown style={{ transform: showAll ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.4s ease' }} />
+                <LuExternalLink />
               </span>
             </button>
           </div>
@@ -121,7 +126,7 @@ const Projects = (props) => {
       </div>
       
       <div className="projects-grid-new">
-        {projects.slice(0, 2).map((project, idx) => (
+        {projects.slice(0, 3).map((project, idx) => (
           <div 
             className="project-card-new" 
             key={project.title + idx}
@@ -192,76 +197,6 @@ const Projects = (props) => {
           </div>
         ))}
       </div>
-
-      {/* Extra Projects with Animation */}
-      <div className={`projects-extra-container ${showAll ? 'expanded' : 'collapsed'}`}>
-        <div className="projects-grid-new extra-padding">
-          {projects.slice(2).map((project, idx) => (
-            <div 
-              className="project-card-new" 
-              key={project.title + (idx + 2)}
-            >
-              <div className="project-card-inner">
-                <div className="project-image-container">
-                  <img src={project.image} alt={project.title} className="project-img-new" />
-                  <div className="scanner-line"></div>
-                  <div className="image-overlay-new">
-                    <div className="overlay-content">
-                      <a href={project.live} target="_blank" rel="noopener noreferrer" className="live-demo-btn">
-                        <LuExternalLink /> {project.buttonText || 'Live Demo'}
-                      </a>
-                    </div>
-                  </div>
-                  <div className="project-number">0{idx + 3}</div>
-                </div>
-
-                <div className="project-info-new">
-                  <div className="project-category">
-                    <LuLayers className="category-icon" />
-                    <span>{project.stack[0]?.name || 'Web App'}</span>
-                  </div>
-                  
-                  <h3 className="project-title-new">{project.title}</h3>
-                  <p className="project-description-new">{project.desc}</p>
-
-                  <div className="project-tech-pills">
-                    {project.stack.slice(0, 4).map((tech, i) => (
-                      <span 
-                        key={i} 
-                        className="tech-pill"
-                        style={{ '--accent-color': tech.color }}
-                      >
-                        {tech.name}
-                      </span>
-                    ))}
-                    {project.stack.length > 4 && <span className="tech-pill-more">+{project.stack.length - 4}</span>}
-                  </div>
-
-                  <div className="project-footer-new">
-                    <div className="footer-line"></div>
-                    <div className="footer-actions">
-                      <a href={project.github} target="_blank" rel="noopener noreferrer" className="github-link-new" title="View Source">
-                        <LuGithub />
-                        <span>Repository</span>
-                      </a>
-                      <div className="status-indicator">
-                        <span className="dot"></span>
-                        <span>Completed</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="corner-accent top-left"></div>
-              <div className="corner-accent top-right"></div>
-              <div className="corner-accent bottom-left"></div>
-              <div className="corner-accent bottom-right"></div>
-            </div>
-          ))}
-        </div>
-      </div>
-
     </section>
   );
 };
