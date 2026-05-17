@@ -13,6 +13,7 @@ import Particles from './components/magicui/Particles';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import AllProjects from './components/Projects/AllProjects';
+import AllCertifications from './components/Certifications/AllCertifications';
 import { useState, useEffect } from 'react';
 
 function App() {
@@ -29,10 +30,26 @@ function App() {
   useEffect(() => {
     if (fadeState === 'fade-out' && pendingHash) {
       const timer = setTimeout(() => {
+        const isTargetSubpage = pendingHash === '#/all-projects' || pendingHash === '#/all-certificates';
+        
         window.location.hash = pendingHash;
-        window.scrollTo(0, 0);
-        setFadeState('fade-in');
-        setPendingHash(null);
+        
+        // Give React a microtask render tick (30ms) to fully mount the homepage DOM elements
+        setTimeout(() => {
+          if (isTargetSubpage) {
+            window.scrollTo(0, 0);
+          } else {
+            const sectionId = pendingHash.replace('#', '');
+            const element = document.getElementById(sectionId);
+            if (element) {
+              window.scrollTo(0, element.offsetTop - 80); // Subtract 80px for floating navbar padding
+            } else {
+              window.scrollTo(0, 0);
+            }
+          }
+          setFadeState('fade-in');
+          setPendingHash(null);
+        }, 30);
       }, 350); // Matches the CSS transition duration (0.35s)
       return () => clearTimeout(timer);
     }
@@ -72,9 +89,9 @@ function App() {
     });
   }, []);
 
-  // Smooth scroll back to section when navigating from AllProjects back to Home
+  // Smooth scroll back to section when navigating back to Home
   useEffect(() => {
-    if (currentHash && currentHash !== '#/all-projects') {
+    if (currentHash && currentHash !== '#/all-projects' && currentHash !== '#/all-certificates') {
       const sectionId = currentHash.replace('#', '');
       if (sectionId === 'home') {
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -82,7 +99,12 @@ function App() {
         setTimeout(() => {
           const element = document.getElementById(sectionId);
           if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
+            // Only smooth scroll if we are not already close to the section.
+            // This prevents "auto-scrolling from the top" when returning from subpages!
+            const diff = Math.abs(window.scrollY - (element.offsetTop - 80));
+            if (diff > 100) {
+              element.scrollIntoView({ behavior: 'smooth' });
+            }
           }
         }, 100); // Wait for components to finish mounting
       }
@@ -90,6 +112,7 @@ function App() {
   }, [currentHash]);
 
   const isProjectsPage = currentHash === '#/all-projects';
+  const isCertificationsPage = currentHash === '#/all-certificates';
 
   return (
     <>
@@ -98,6 +121,8 @@ function App() {
       <div className={`app-container page-transition-wrapper ${fadeState}`} data-aos="fade-in">
         {isProjectsPage ? (
           <AllProjects data-aos="fade-up" onNavigate={navigateWithTransition} />
+        ) : isCertificationsPage ? (
+          <AllCertifications data-aos="fade-up" onNavigate={navigateWithTransition} />
         ) : (
           <>
             <div className="main-content" style={{ position: 'relative' }}>
@@ -128,7 +153,7 @@ function App() {
             <AboutMe data-aos="fade-up" />
             <Skills data-aos="fade-up" />
             <Projects data-aos="fade-up" onNavigate={navigateWithTransition} />
-            <Certifications data-aos="fade-up" />
+            <Certifications data-aos="fade-up" onNavigate={navigateWithTransition} />
             <ContactMe data-aos="fade-up" />
           </>
         )}
