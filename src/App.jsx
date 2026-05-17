@@ -14,68 +14,89 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import AllProjects from './components/Projects/AllProjects';
 import AllCertifications from './components/Certifications/AllCertifications';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 function App() {
-  const [currentHash, setCurrentHash] = useState(window.location.hash);
+  const [currentHash, setCurrentHash] = useState(window.location.hash || '#home');
   const [fadeState, setFadeState] = useState('fade-in'); // 'fade-in' | 'fade-out'
   const [pendingHash, setPendingHash] = useState(null);
+  const cameFromTransitionRef = useRef(false);
 
+  // Centralized navigation logic (just update hash directly, global listener will catch and transition!)
   const navigateWithTransition = (targetHash) => {
-    if (fadeState === 'fade-out') return;
-    setFadeState('fade-out');
-    setPendingHash(targetHash);
+    window.location.hash = targetHash;
   };
 
+  // 1. Listen for browser/navbar/button hash changes and centralize transitions
+  useEffect(() => {
+    const handleHashChange = () => {
+      const targetHash = window.location.hash || '#home';
+      
+      // If we are already displaying this page/hash, ignore
+      if (targetHash === currentHash) return;
+
+      const isCurrentSubpage = currentHash === '#/all-projects' || currentHash === '#/all-certificates';
+      const isTargetSubpage = targetHash === '#/all-projects' || targetHash === '#/all-certificates';
+      const needsTransition = isCurrentSubpage || isTargetSubpage;
+
+      if (needsTransition) {
+        if (fadeState === 'fade-out') return;
+        
+        // Start the fade out transition!
+        setFadeState('fade-out');
+        setPendingHash(targetHash);
+        cameFromTransitionRef.current = true;
+      } else {
+        // Direct transition (e.g. scrolling sections on the homepage)
+        setCurrentHash(targetHash);
+      }
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+    
+    // Sync initial mount hash
+    const initialHash = window.location.hash || '#home';
+    if (initialHash !== currentHash) {
+      setCurrentHash(initialHash);
+    }
+
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, [currentHash, fadeState]);
+
+  // 2. Perform page swapping and scroll positioning when fade-out is complete
   useEffect(() => {
     if (fadeState === 'fade-out' && pendingHash) {
       const timer = setTimeout(() => {
         const isTargetSubpage = pendingHash === '#/all-projects' || pendingHash === '#/all-certificates';
         
-        window.location.hash = pendingHash;
+        // Instantly position viewport BEFORE mounting the target subpage to prevent browser shrink jerks
+        if (isTargetSubpage) {
+          window.scrollTo(0, 0);
+        }
         
-        // Give React a microtask render tick (30ms) to fully mount the homepage DOM elements
+        // Swap active page content state!
+        setCurrentHash(pendingHash);
+        
+        // Give React a microtask render tick (50ms) to fully mount and lay out the homepage DOM elements
         setTimeout(() => {
-          if (isTargetSubpage) {
-            window.scrollTo(0, 0);
-          } else {
+          if (!isTargetSubpage) {
             const sectionId = pendingHash.replace('#', '');
             const element = document.getElementById(sectionId);
             if (element) {
-              window.scrollTo(0, element.offsetTop - 80); // Subtract 80px for floating navbar padding
+              // Calculate absolute top coordinate relative to document scroll
+              const absoluteTop = element.getBoundingClientRect().top + window.scrollY;
+              window.scrollTo(0, absoluteTop - 80); // Subtract 80px for floating navbar padding
             } else {
               window.scrollTo(0, 0);
             }
           }
           setFadeState('fade-in');
           setPendingHash(null);
-        }, 30);
+        }, 50);
       }, 350); // Matches the CSS transition duration (0.35s)
       return () => clearTimeout(timer);
     }
   }, [fadeState, pendingHash]);
-
-  useEffect(() => {
-    const handleHashChange = () => {
-      // Sync hash state unless we're in the middle of a transition
-      if (fadeState === 'fade-in') {
-        setCurrentHash(window.location.hash);
-      }
-    };
-    window.addEventListener('hashchange', handleHashChange);
-    
-    // Sync initial state
-    handleHashChange();
-    
-    return () => window.removeEventListener('hashchange', handleHashChange);
-  }, [fadeState]);
-
-  // Sync state once the transition reveals the new page
-  useEffect(() => {
-    if (fadeState === 'fade-in') {
-      setCurrentHash(window.location.hash);
-    }
-  }, [fadeState]);
 
   useEffect(() => {
     AOS.init({
@@ -93,18 +114,21 @@ function App() {
   useEffect(() => {
     if (currentHash && currentHash !== '#/all-projects' && currentHash !== '#/all-certificates') {
       const sectionId = currentHash.replace('#', '');
+      
+      // If we just returned from a subpage transition, skip the smooth scroll entirely
+      // because we already instantly positioned the page during the transition!
+      if (cameFromTransitionRef.current) {
+        cameFromTransitionRef.current = false;
+        return;
+      }
+
       if (sectionId === 'home') {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       } else {
         setTimeout(() => {
           const element = document.getElementById(sectionId);
           if (element) {
-            // Only smooth scroll if we are not already close to the section.
-            // This prevents "auto-scrolling from the top" when returning from subpages!
-            const diff = Math.abs(window.scrollY - (element.offsetTop - 80));
-            if (diff > 100) {
-              element.scrollIntoView({ behavior: 'smooth' });
-            }
+            element.scrollIntoView({ behavior: 'smooth' });
           }
         }, 100); // Wait for components to finish mounting
       }
@@ -118,7 +142,7 @@ function App() {
     <>
       <Navbar />
       
-      <div className={`app-container page-transition-wrapper ${fadeState}`} data-aos="fade-in">
+      <div className={`app-container page-transition-wrapper ${fadeState}`}>
         {isProjectsPage ? (
           <AllProjects data-aos="fade-up" onNavigate={navigateWithTransition} />
         ) : isCertificationsPage ? (
