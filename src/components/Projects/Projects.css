@@ -1,7 +1,7 @@
 .projects-section {
   width: 100%;
   max-width: 1200px;
-  margin: 6rem auto;
+  margin: 3rem auto;
   padding: 0 2rem;
   box-sizing: border-box;
 }
@@ -389,7 +389,7 @@
 @media (max-width: 768px) {
   .projects-section {
     padding: 0 1.5rem;
-    margin: 4rem auto;
+    margin: 2rem auto;
   }
   
   .projects-header {
