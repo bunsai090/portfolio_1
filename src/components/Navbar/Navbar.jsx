@@ -9,6 +9,7 @@ const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       const isProjectsPage = window.location.hash === '#/all-projects';
+      const isCertificationsPage = window.location.hash === '#/all-certificates';
       const scrollY = window.scrollY;
 
       // Update scroll state for glassmorphism effect
@@ -16,6 +17,11 @@ const Navbar = () => {
 
       if (isProjectsPage) {
         setActiveSection('projects');
+        return;
+      }
+
+      if (isCertificationsPage) {
+        setActiveSection('certifications');
         return;
       }
 
@@ -70,9 +76,9 @@ const Navbar = () => {
     setActiveSection(section);
     setMenuOpen(false);
 
-    const isProjectsPage = window.location.hash === '#/all-projects';
+    const isCatalogPage = window.location.hash === '#/all-projects' || window.location.hash === '#/all-certificates';
 
-    if (isProjectsPage) {
+    if (isCatalogPage) {
       // Go back to home page with the hash section
       window.location.hash = section === 'home' ? '' : `#${section}`;
     } else {
