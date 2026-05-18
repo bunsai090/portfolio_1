@@ -6,6 +6,7 @@ import orderingManagement from '../../assets/ordering management system.png';
 import executiveDashboard from '../../assets/executive dashboard.png';
 import assetLink from '../../assets/Asset & Maintenance Management System With QR-CODe.png';
 import azxTech from '../../assets/AzxTech IT Solution.png';
+import cicsAttendance from '../../assets/CICS STUDENT ACCESS AND ATTENDANCE SYSTEM.png';
 
 
 
@@ -17,6 +18,19 @@ const ShareIcon = () => (
 );
 
 export const projects = [
+  {
+    image: cicsAttendance,
+    title: 'Automated CICS Student Attendance and Parental Notification System',
+    desc: 'A web-based attendance tracking platform that streamlines school operations with tailored interfaces for admin, faculty, and students, featuring automated daily email updates to parents.',
+    stack: [
+      { name: 'PHP', color: '#777bb4' },
+      { name: 'MySQL', color: '#00758f' },
+      { name: 'JavaScript', color: '#f7df1e' },
+      { name: 'CSS', color: '#1572B6' },
+    ],
+    live: 'https://github.com/Ampexqt/CICS-Students-Access-and-Attendance-System-with-Automated-Parental-Notification',
+    github: 'https://github.com/Ampexqt/CICS-Students-Access-and-Attendance-System-with-Automated-Parental-Notification',
+  },
   {
     image: azxTech,
     title: 'AzxTech IT Solutions',
@@ -155,7 +169,10 @@ const Projects = (props) => {
                 <div className="image-overlay-new">
                   <div className="overlay-content">
                     <a href={project.live} target="_blank" rel="noopener noreferrer" className="live-demo-btn">
-                      <LuExternalLink /> {project.buttonText || 'Live Demo'}
+                      {project.live && project.live.includes('github.com') ? <LuGithub /> : <LuExternalLink />}
+                      <span>
+                        {project.buttonText || (project.live && project.live.includes('github.com') ? 'GitHub View' : 'Live Demo')}
+                      </span>
                     </a>
                   </div>
                 </div>
