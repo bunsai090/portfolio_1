@@ -140,7 +140,7 @@ function App() {
 
   return (
     <>
-      <Navbar />
+      {(!isProjectsPage && !isCertificationsPage) && <Navbar />}
       
       <div className={`app-container page-transition-wrapper ${fadeState}`}>
         {isProjectsPage ? (
