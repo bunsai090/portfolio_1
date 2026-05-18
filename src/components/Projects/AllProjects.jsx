@@ -57,7 +57,10 @@ const AllProjects = ({ onNavigate }) => {
                   <div className="image-overlay-new">
                     <div className="overlay-content">
                       <a href={project.live} target="_blank" rel="noopener noreferrer" className="live-demo-btn">
-                        <LuExternalLink /> {project.buttonText || 'Live Demo'}
+                        {project.live && project.live.includes('github.com') ? <LuGithub /> : <LuExternalLink />}
+                        <span>
+                          {project.buttonText || (project.live && project.live.includes('github.com') ? 'GitHub View' : 'Live Demo')}
+                        </span>
                       </a>
                     </div>
                   </div>
