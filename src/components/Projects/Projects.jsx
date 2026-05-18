@@ -5,6 +5,7 @@ import studentManagement from '../../assets/student_management_system.png';
 import orderingManagement from '../../assets/ordering management system.png';
 import executiveDashboard from '../../assets/executive dashboard.png';
 import assetLink from '../../assets/Asset & Maintenance Management System With QR-CODe.png';
+import azxTech from '../../assets/AzxTech IT Solution.png';
 
 
 
@@ -16,6 +17,19 @@ const ShareIcon = () => (
 );
 
 export const projects = [
+  {
+    image: azxTech,
+    title: 'AzxTech IT Solutions',
+    desc: 'Internship/OJT experience collaborating on Frontend and UI/UX development. Served as the final task to create the company website showcasing modern technology solutions.',
+    stack: [
+      { name: 'React', color: '#61dafb' },
+      { name: 'Vite', color: '#646cff' },
+      { name: 'Tailwind CSS', color: '#06b6d4' },
+      { name: 'JavaScript', color: '#f7df1e' },
+    ],
+    live: 'https://axztechitsolutions.dev/',
+    github: '#',
+  },
   {
     image: assetLink,
     title: 'School Asset & Maintenance Management System With QR-CODE',
